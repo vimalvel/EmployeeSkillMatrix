@@ -13,20 +13,20 @@ public class TestEmployeeDetails {
 	public int getEXAM_ID() {
 		return EXAM_ID;
 	}
-	public void setEXAM_ID(int eXAM_ID) {
-		EXAM_ID = eXAM_ID;
+	public void setEXAM_ID(int examId) {
+		EXAM_ID = examId;
 	}
 	public int getEMPLOYEE_ID() {
 		return EMPLOYEE_ID;
 	}
-	public void setEMPLOYEE_ID(int eMPLOYEE_ID) {
-		EMPLOYEE_ID = eMPLOYEE_ID;
+	public void setEMPLOYEE_ID(int empId) {
+		EMPLOYEE_ID = empId;
 	}
 	public String getSTATUS() {
 		return STATUS;
 	}
-	public void setSTATUS(String sTATUS) {
-		STATUS = sTATUS;
+	public void setSTATUS(String status) {
+		STATUS = status;
 	}
 	
 }

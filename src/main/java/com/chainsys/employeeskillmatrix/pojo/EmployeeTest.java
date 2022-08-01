@@ -14,32 +14,32 @@ public class EmployeeTest {
 	public int getTEST_ID() {
 		return TEST_ID;
 	}
-	public void setTEST_ID(int tEST_ID) {
-		TEST_ID = tEST_ID;
+	public void setTEST_ID(int testId) {
+		TEST_ID = testId;
 	}
 	public String getTEST_NAME() {
 		return TEST_NAME;
 	}
-	public void setTEST_NAME(String tEST_NAME) {
-		TEST_NAME = tEST_NAME;
+	public void setTEST_NAME(String testName) {
+		TEST_NAME = testName;
 	}
 	public int getMAX_MARK() {
 		return MAX_MARK;
 	}
-	public void setMAX_MARK(int mAX_MARK) {
-		MAX_MARK = mAX_MARK;
+	public void setMAX_MARK(int maxMark) {
+		MAX_MARK = maxMark;
 	}
 	public int getPASSMARK() {
 		return PASSMARK;
 	}
-	public void setPASSMARK(int pASSMARK) {
-		PASSMARK = pASSMARK;
+	public void setPASSMARK(int passMark) {
+		PASSMARK = passMark;
 	}
 	public String getSUBJECT() {
 		return SUBJECT;
 	}
-	public void setSUBJECT(String sUBJECT) {
-		SUBJECT = sUBJECT;
+	public void setSUBJECT(String subject) {
+		SUBJECT = subject;
 	}
 	
 }
