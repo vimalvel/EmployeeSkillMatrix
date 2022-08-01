@@ -13,33 +13,33 @@
 		<div id="form">
 			<form:form action = "updateskill" method = "post" modelAttribute = "updateempskilldetails">
 			<div>
-					<label for="EMPLOYEE_ID">Employee ID</label>
+					<label for="employeeId">Employee ID</label>
 					<div>
-						<form:input path="EMPLOYEE_ID" />
+						<form:input path="employeeId" />
 					</div>
 				</div>
 				<div>
-					<label for="SKILL_ID">Skill Id</label>
+					<label for="skillId">Skill Id</label>
 					<div>
-						<form:input path="SKILL_ID" />
+						<form:input path="skillId" />
 					</div>
 				</div>
 				<div>
-					<label for="EXAM_ID">Exam Id</label>
+					<label for="examId">Exam Id</label>
 					<div>
-						<form:input path="EXAM_ID" />
+						<form:input path="examId" />
 					</div>
 				</div>
 				<div>
-					<label for="MARK_SCORED">Mark Score</label>
+					<label for="markScore">Mark Score</label>
 					<div>
-						<form:input path="MARK_SCORED" />
+						<form:input path="markScore" />
 					</div>
 				</div>
 				<div>
-					<label for="GRADE">Grade</label>
+					<label for="grade">Grade</label>
 					<div>
-						<form:input path="GRADE" />
+						<form:input path="grade" />
 					</div>
 				</div>
 				<div>

@@ -29,18 +29,18 @@
 			<tbody>
 			<c:forEach var = "emp" items = "${allemp}">
 			<tr>
-			<td>${emp.EMPLOYEE_ID}</td>
-			<td>${emp.FIRST_NAME}</td>
-			<td>${emp.LAST_NAME}</td>
-			<td>${emp.GENDER}</td>
-		    <td>${emp.DOB}</td>
-		    <td>${emp.EMAIL}</td>
-		    <td>${emp.ADDRESS }</td>
-		    <td>${emp.PHONE_NUMBER }</td>
-		    <td>${emp.DESIGNATION}</td>
-		    <td>${emp.EMPLOYEE_MANAGER }</td>
-		    <td>${emp.SALARY }</td>
-		    <td>${emp.PASSWORD }</td>
+			<td>${emp.employeeId}</td>
+			<td>${emp.firstName}</td>
+			<td>${emp.lastName}</td>
+			<td>${emp.gender}</td>
+		    <td>${emp.dob}</td>
+		    <td>${emp.email}</td>
+		    <td>${emp.address }</td>
+		    <td>${emp.phoneNumber }</td>
+		    <td>${emp.designation}</td>
+		    <td>${emp.employeeManager }</td>
+		    <td>${emp.salary }</td>
+		    <td>${emp.password }</td>
 			</c:forEach>
 			</tbody>
 		</table>

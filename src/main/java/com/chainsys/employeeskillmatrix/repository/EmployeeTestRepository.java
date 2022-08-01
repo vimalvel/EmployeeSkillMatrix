@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.chainsys.employeeskillmatrix.pojo.EmployeeTest;
+import com.chainsys.employeeskillmatrix.model.EmployeeTest;
 
 
 public interface EmployeeTestRepository extends CrudRepository<EmployeeTest,Integer> {

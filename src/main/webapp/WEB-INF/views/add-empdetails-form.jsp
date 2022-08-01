@@ -13,75 +13,75 @@
 		<div id="form">
 			<form:form action="addemp" method="post" modelAttribute="addempdetails">
 				<div>
-					<label for="EMPLOYEE_ID">Employee Id</label>
+					<label for="employeeId">Employee Id</label>
 					<div>
-						<form:input path="EMPLOYEE_ID" />
+						<form:input path="employeeId" />
 					</div>
 				</div>
 				<div>
-					<label for="FIRST_NAME">First Name</label>
+					<label for="firstName">First Name</label>
 					<div>
-						<form:input path="FIRST_NAME" />
+						<form:input path="firstName" />
 					</div>
 				</div>
 				<div>
-					<label for="LAST_NAME">Last Name</label>
+					<label for="lastName">Last Name</label>
 					<div>
-						<form:input path="LAST_NAME" />
+						<form:input path="lastName" />
 					</div>
 				</div>
 				<div>
-					<label for="GENDER">Gender</label>
+					<label for="gender">Gender</label>
 					<div>
-						<form:input path="GENDER" />
+						<form:input path="gender" />
 					</div>
 				</div>
 				<div>
-					<label for="DOB">Date Of Birth</label>
+					<label for="dob">Date Of Birth</label>
 					<div>
-						<form:input path="DOB" />
+						<form:input path="dob" />
 					</div>
 				</div>
 				<div>
-					<label for="EMAIL">Email</label>
+					<label for="email">Email</label>
 					<div>
-						<form:input path="EMAIL" />
+						<form:input path="email" />
 					</div>
 				</div>
 				<div>
-					<label for="ADDRESS">Address</label>
+					<label for="address">Address</label>
 					<div>
-						<form:input path="ADDRESS" />
+						<form:input path="address" />
 					</div>
 				</div>
 				<div>
-					<label for="PHONE_NUMBER">Phone Number</label>
+					<label for="phoneNumber">Phone Number</label>
 					<div>
-						<form:input path="PHONE_NUMBER" />
+						<form:input path="phoneNumber" />
 					</div>
 				</div>
 				<div>
-					<label for="DESIGNATION ">Designation</label>
+					<label for="designation ">Designation</label>
 					<div>
-						<form:input path="DESIGNATION" />
+						<form:input path="designation" />
 					</div>
 				</div>
 				<div>
-					<label for="EMPLOYEE_MANAGER">Employee Manager</label>
+					<label for="employeeManager">Employee Manager</label>
 					<div>
-						<form:input path="EMPLOYEE_MANAGER" />
+						<form:input path="employeeManager" />
 					</div>
 				</div>
 				<div>
-					<label for="SALARY">Salary</label>
+					<label for="salary">Salary</label>
 					<div>
-						<form:input path="SALARY" />
+						<form:input path="salary" />
 					</div>
 				</div>
 				<div>
-					<label for="PASSWORD">Password</label>
+					<label for="password">Password</label>
 					<div>
-						<form:input path="PASSWORD" />
+						<form:input path="password" />
 					</div>
 				</div>
 				<div>

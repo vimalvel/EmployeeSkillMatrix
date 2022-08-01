@@ -13,33 +13,33 @@
 		<div id="form">
 			<form:form action="" method="post" modelAttribute="gettest">
 				<div>
-					<label for="TEST_ID">Test Id</label>
+					<label for="testId">Test Id</label>
 					<div>
-						<form:input path="TEST_ID" readonly="true" />
+						<form:input path="testId" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="TEST_NAME">Test Name</label>
+					<label for="testName">Test Name</label>
 					<div>
-						<form:input path="TEST_NAME" readonly="true" />
+						<form:input path="testName" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="MAX_MARK">Max Mark</label>
+					<label for="maxMark">Max Mark</label>
 					<div>
-						<form:input path="MAX_MARK" readonly="true" />
+						<form:input path="maxMark" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="PASSMARK">PassMark</label>
+					<label for="passMark">PassMark</label>
 					<div>
-						<form:input path="PASSMARK" readonly="true" />
+						<form:input path="passMark" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="SUBJECT">Subject</label>
+					<label for="subject">Subject</label>
 					<div>
-						<form:input path="SUBJECT" readonly="true" />
+						<form:input path="subject" readonly="true" />
 					</div>
 				</div>
 			</form:form>

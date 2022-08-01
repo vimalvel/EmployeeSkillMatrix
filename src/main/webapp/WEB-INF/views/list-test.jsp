@@ -22,11 +22,11 @@
 			<tbody>
 			<c:forEach var = "test" items = "${alltest}">
 			<tr>
-			<td>${test.TEST_ID}</td>
-			<td>${test.TEST_NAME}</td>
-			<td>${test.MAX_MARK}</td>
-			<td>${test.PASSMARK}</td>
-		    <td>${test.SUBJECT}</td>
+			<td>${test.testId}</td>
+			<td>${test.testName}</td>
+			<td>${test.maxMark}</td>
+			<td>${test.passMark}</td>
+		    <td>${test.subject}</td>
 			</c:forEach>
 			</tbody>
 		</table>

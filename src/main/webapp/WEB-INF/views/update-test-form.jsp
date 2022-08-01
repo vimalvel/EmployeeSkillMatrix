@@ -13,33 +13,33 @@
 		<div id="form">
 			<form:form action = "update" method = "post" modelAttribute = "updatetest">
 			<div>
-					<label for="TEST_ID">Test Id</label>
+					<label for="testId">Test Id</label>
 					<div>
-						<form:input path="TEST_ID" />
+						<form:input path="testId" />
 					</div>
 				</div>
 				<div>
-					<label for="TEST_NAME">Test Name</label>
+					<label for="testName">Test Name</label>
 					<div>
-						<form:input path="TEST_NAME" />
+						<form:input path="testName" />
 					</div>
 				</div>
 				<div>
-					<label for="MAX_MARK">Max Mark</label>
+					<label for="maxMark">Max Mark</label>
 					<div>
-						<form:input path="MAX_MARK" />
+						<form:input path="maxMark" />
 					</div>
 				</div>
 				<div>
-					<label for="PASSMARK">PassMark</label>
+					<label for="passMark">PassMark</label>
 					<div>
-						<form:input path="PASSMARK" />
+						<form:input path="passMark" />
 					</div>
 				</div>
 				<div>
-					<label for="SUBJECT">Subject</label>
+					<label for="subject">Subject</label>
 					<div>
-						<form:input path="SUBJECT" />
+						<form:input path="subject" />
 					</div>
 				</div>
 				<div>

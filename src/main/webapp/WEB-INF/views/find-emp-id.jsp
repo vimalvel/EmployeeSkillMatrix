@@ -14,75 +14,75 @@
 			<form:form action="" method="post"
 				modelAttribute="getemp">
 				<div>
-					<label for="EMPLOYEE_ID"> Employee Id</label>
+					<label for="employeeId"> Employee Id</label>
 					<div>
-						<form:input path="EMPLOYEE_ID" readonly="true"/>
+						<form:input path="employeeId" readonly="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="FIRST_NAME"> First Name</label>
+					<label for="firstName"> First Name</label>
 					<div>
-						<form:input path="FIRST_NAME" readonly="true"/>
+						<form:input path="firstName" readonly="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="LAST_NAME"> Last Name</label>
+					<label for="lastName"> Last Name</label>
 					<div>
-						<form:input path="LAST_NAME" readonly="true"/>
+						<form:input path="lastName" readonly="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="GENDER"> Gender</label>
+					<label for="gender"> Gender</label>
 					<div>
-						<form:input path="GENDER" readonly="true"/>
+						<form:input path="gender" readonly="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="DOB"> Date Of Birth</label>
+					<label for="dob"> Date Of Birth</label>
 					<div>
-						<form:input path="DOB" readonly="true"/>
+						<form:input path="dob" readonly="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="EMAIL"> Email</label>
+					<label for="email"> Email</label>
 					<div>
-						<form:input path="EMAIL" readonly="true" />
+						<form:input path="email" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="ADDRESS"> Address</label>
+					<label for="address"> Address</label>
 					<div>
-						<form:input path="ADDRESS" readonly="true"/>
+						<form:input path="address" readonly="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="PHONE_NUMBER"> Phone Number</label>
+					<label for="phoneNumber"> Phone Number</label>
 					<div>
-						<form:input path="PHONE_NUMBER" readonly="true"/>
+						<form:input path="phoneNumber" readonly="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="DESIGNATION"> Designation</label>
+					<label for="designation"> Designation</label>
 					<div>
-						<form:input path="DESIGNATION" readonly="true"/>
+						<form:input path="designation" readonly="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="EMPLOYEE_MANAGER"> Employee Manager</label>
+					<label for="employeeManager"> Employee Manager</label>
 					<div>
-						<form:input path="EMPLOYEE_MANAGER" readonly="true"/>
+						<form:input path="employeeManager" readonly="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="SALARY"> Salary</label>
+					<label for="salary"> Salary</label>
 					<div>
-						<form:input path="SALARY" readonly="true"/>
+						<form:input path="salary" readonly="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="PASSWORD"> Password</label>
+					<label for="password"> Password</label>
 					<div>
-						<form:input path="PASSWORD" readonly="true"/>
+						<form:input path="password" readonly="true"/>
 					</div>
 				</div>
 			</form:form>

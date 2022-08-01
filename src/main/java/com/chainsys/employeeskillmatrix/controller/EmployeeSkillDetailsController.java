@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.employeeskillmatrix.pojo.EmployeeSkillDetails;
+import com.chainsys.employeeskillmatrix.model.EmployeeSkillDetails;
 import com.chainsys.employeeskillmatrix.service.EmployeeSkillDetailsService;
 
 @Controller

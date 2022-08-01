@@ -6,25 +6,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Find Employee Skill By ID</title>
+<title>Find Test By Id</title>
 </head>
-<body>
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="" method="post" modelAttribute="getempskill">
-				<div>
-					<label for="employeeId">Employee Id</label>
-					<div>
-						<form:input path="employeeId" readonly="true" />
-					</div>
-				</div>
-				<div>
-					<label for="skillId">Skill Id</label>
-					<div>
-						<form:input path="skillId" readonly="true" />
-					</div>
-				</div>
+			<form:form action="" method="post" modelAttribute="gettestemp">
 				<div>
 					<label for="examId">Exam Id</label>
 					<div>
@@ -32,20 +19,19 @@
 					</div>
 				</div>
 				<div>
-					<label for="markScore">MarkScore</label>
+					<label for="employeeId">Employee Id</label>
 					<div>
-						<form:input path="markScore" readonly="true" />
+						<form:input path="employeeId" readonly="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="grade">Grade</label>
+					<label for="status">Status</label>
 					<div>
-						<form:input path="grade" readonly="true" />
+						<form:input path="status" readonly="true" />
 					</div>
 				</div>
 			</form:form>
 		</div>
 	</div>
-</body>
 </body>
 </html>

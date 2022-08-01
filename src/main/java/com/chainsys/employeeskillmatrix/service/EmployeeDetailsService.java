@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.chainsys.employeeskillmatrix.pojo.EmployeeDetails;
+import com.chainsys.employeeskillmatrix.model.EmployeeDetails;
 import com.chainsys.employeeskillmatrix.repository.EmployeeDetailsRepository;
 
 @Service

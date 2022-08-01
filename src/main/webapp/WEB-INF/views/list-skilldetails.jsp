@@ -22,11 +22,11 @@
 			<tbody>
 			<c:forEach var = "skill" items = "${allskill}">
 			<tr>
-			<td>${skill.EMPLOYEE_ID}</td>
-			<td>${skill.SKILL_ID}</td>
-			<td>${skill.EXAM_ID}</td>
-			<td>${skill.MARK_SCORED}</td>
-		    <td>${skill.GRADE}</td>
+			<td>${skill.employeeId}</td>
+			<td>${skill.skillId}</td>
+			<td>${skill.examId}</td>
+			<td>${skill.markScore}</td>
+		    <td>${skill.grade}</td>
 			</c:forEach>
 			</tbody>
 		</table>

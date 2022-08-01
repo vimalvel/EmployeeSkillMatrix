@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.chainsys.employeeskillmatrix.pojo.EmployeeSkillDetails;
+import com.chainsys.employeeskillmatrix.model.EmployeeSkillDetails;
 
 public interface EmployeeSkillDetailsRepository extends CrudRepository<EmployeeSkillDetails,Integer> {
 	EmployeeSkillDetails findById(int id);

@@ -13,45 +13,45 @@
 		<div id="form">
 			<form:form action = "" method = "post" modelAttribute = "getskill">
 			<div>
-					<label for="SKILL_ID">Skill Id</label>
+					<label for="skillId">Skill Id</label>
 					<div>
-						<form:input path="SKILL_ID" />
+						<form:input path="skillId" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="SKILL_NAME">Skill Name</label>
+					<label for="skillName">Skill Name</label>
 					<div>
-						<form:input path="SKILL_NAME" />
+						<form:input path="skillName" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="SKILL_TYPE">Skill Type</label>
+					<label for="skillType">Skill Type</label>
 					<div>
-						<form:input path="SKILL_TYPE" />
+						<form:input path="skillType" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="PREREQUEST">Prerequest</label>
+					<label for="prerequest">Prerequest</label>
 					<div>
-						<form:input path="PREREQUEST" />
+						<form:input path="prerequest" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="TEST_ID">Test Id</label>
+					<label for="testId">Test Id</label>
 					<div>
-						<form:input path="TEST_ID" />
+						<form:input path="testId" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="PASSMARK">PassMark</label>
+					<label for="passMark">PassMark</label>
 					<div>
-						<form:input path="PASSMARK" />
+						<form:input path="passMark" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="EMPLOYEE_LEVEL">Employee Level</label>
+					<label for="employeeLevel">Employee Level</label>
 					<div>
-						<form:input path="EMPLOYEE_LEVEL" />
+						<form:input path="employeeLevel" readonly="true" />
 					</div>
 				</div>
 			</form:form>
