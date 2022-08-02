@@ -11,7 +11,7 @@
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="add" method="post" modelAttribute="addemptest">
+			<form:form action="addnewemployeetest" method="post" modelAttribute="addemployeetest">
 				<div>
 					<label for="testId">Test Id</label>
 					<div>

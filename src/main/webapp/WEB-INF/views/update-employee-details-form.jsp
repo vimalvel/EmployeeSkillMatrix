@@ -1,19 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add Employee Details</title>
+<title>Update Employee details </title>
 </head>
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="addemp" method="post" modelAttribute="addempdetails">
-				<div>
-					<label for="employeeId">Employee Id</label>
+			<form:form action = "updatenewemployeedetails" method = "post" modelAttribute = "updateemployeedetails">
+			<div>
+					<label for="employeeId">Employee ID</label>
 					<div>
 						<form:input path="employeeId" />
 					</div>
@@ -37,7 +37,7 @@
 					</div>
 				</div>
 				<div>
-					<label for="dob">Date Of Birth</label>
+					<label for="dob ">Date Of Birth</label>
 					<div>
 						<form:input path="dob" />
 					</div>
@@ -61,7 +61,7 @@
 					</div>
 				</div>
 				<div>
-					<label for="designation ">Designation</label>
+					<label for="designation">Designation</label>
 					<div>
 						<form:input path="designation" />
 					</div>
@@ -85,7 +85,7 @@
 					</div>
 				</div>
 				<div>
-					<form:button>Add Employee</form:button>
+					<form:button>Update Employee Details</form:button>
 				</div>
 			</form:form>
 		</div>

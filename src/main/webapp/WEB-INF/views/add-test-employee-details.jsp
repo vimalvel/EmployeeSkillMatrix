@@ -6,12 +6,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Update Test Details</title>
+<title>Add Test Details</title>
 </head>
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action = "updatetestdetails" method = "post" modelAttribute = "updatetestempdetails">
+			<form:form action = "addnewtestemployeedetails" method = "post" modelAttribute = "addtestemployeedetails">
 			<div>
 					<label for="examId">Exam Id</label>
 					<div>
@@ -32,7 +32,7 @@
 				</div>
 				
 				<div>
-					<form:button>Update Test Details</form:button>
+					<form:button>Add Test Details</form:button>
 				</div>
 			</form:form>
 		</div>

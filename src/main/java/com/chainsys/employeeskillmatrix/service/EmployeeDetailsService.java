@@ -11,19 +11,19 @@ import com.chainsys.employeeskillmatrix.repository.EmployeeDetailsRepository;
 @Service
 public class EmployeeDetailsService {
 	@Autowired
-	private EmployeeDetailsRepository repo;
+	private EmployeeDetailsRepository employeeDetailsRepository;
 	public List<EmployeeDetails> getEmployeeDetails(){
-		List<EmployeeDetails> emplist = repo.findAll();
+		List<EmployeeDetails> emplist = employeeDetailsRepository.findAll();
 		return emplist;
 	}
 	public EmployeeDetails save(EmployeeDetails empdetails) {
-		return repo.save(empdetails);
+		return employeeDetailsRepository.save(empdetails);
 	}
 	public EmployeeDetails findByid(int id) {
-		return repo.findById(id);
+		return employeeDetailsRepository.findById(id);
 	}
 	public void deleteById(int emp_id) {
-		repo.deleteById(emp_id);
+		employeeDetailsRepository.deleteById(emp_id);
 	}
 
 }

@@ -11,7 +11,7 @@
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action = "updatesk" method = "post" modelAttribute = "updateskill">
+			<form:form action = "updatenewskill" method = "post" modelAttribute = "updateskill">
 			<div>
 					<label for="skillId">Skill Id</label>
 					<div>

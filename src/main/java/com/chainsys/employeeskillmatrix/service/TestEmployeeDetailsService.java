@@ -6,24 +6,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.chainsys.employeeskillmatrix.model.TestEmployeeDetails;
-import com.chainsys.employeeskillmatrix.repository.TestEmpDetailsRepository;
+import com.chainsys.employeeskillmatrix.repository.TestEmployeeDetailsRepository;
 
 @Service
-public class TestEmpDetailsService {
+public class TestEmployeeDetailsService {
 	@Autowired
-	private TestEmpDetailsRepository repo;
+	private TestEmployeeDetailsRepository testEmpDetailsRepository;
 	public List<TestEmployeeDetails> getEmpTestetails(){
-		List<TestEmployeeDetails> tests = repo.findAll();
+		List<TestEmployeeDetails> tests = testEmpDetailsRepository.findAll();
 		return tests;
 	}
 	public TestEmployeeDetails save(TestEmployeeDetails testdetails) {
-		return repo.save(testdetails);
+		return testEmpDetailsRepository.save(testdetails);
 	}
 	public TestEmployeeDetails findByid(int id) {
-		return repo.findById(id);
+		return testEmpDetailsRepository.findById(id);
 	}
 	public void deleteById(int id) {
-		repo.deleteById(id);
+		testEmpDetailsRepository.deleteById(id);
 	}
 
 

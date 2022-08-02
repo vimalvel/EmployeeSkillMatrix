@@ -11,19 +11,19 @@ import com.chainsys.employeeskillmatrix.repository.EmployeeTestRepository;
 @Service
 public class EmployeeTestService {
 	@Autowired
-	private EmployeeTestRepository repo;
+	private EmployeeTestRepository employeeTestRepository;
 	public List<EmployeeTest> getEmployeeTest(){
-		List<EmployeeTest> emptest = repo.findAll();
+		List<EmployeeTest> emptest = employeeTestRepository.findAll();
 		return emptest;
 	}
 	public EmployeeTest save(EmployeeTest emptest) {
-		return repo.save(emptest);
+		return employeeTestRepository.save(emptest);
 	}
 	public EmployeeTest findByid(int id) {
-		return repo.findById(id);
+		return employeeTestRepository.findById(id);
 	}
 	public void deleteById(int id) {
-		repo.deleteById(id);
+		employeeTestRepository.deleteById(id);
 	}
 
 }

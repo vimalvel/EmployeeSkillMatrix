@@ -24,7 +24,7 @@
 			</tr>
 			</thead>
 			<tbody>
-			<c:forEach var = "ex" items = "${allexam}">
+			<c:forEach var = "ex" items = "${allexamdetails}">
 			<tr>
 			<td>${ex.examId}</td>
 			<td>${ex.examDate}</td>

@@ -17,44 +17,45 @@ import com.chainsys.employeeskillmatrix.service.ExamDetailsService;
 @Controller
 @RequestMapping("/examdetails")
 public class ExamDetailsController {
-	@Autowired ExamDetailsService exservice;
-	@GetMapping("/getexambyid")
+	@Autowired 
+	private ExamDetailsService examDetailsService;
+	@GetMapping("/getexamdetailsbyid")
 	public String getexamdetails(@RequestParam("id") int id, Model model) {
-		ExamDetails ex = exservice.findByid(id);
-		model.addAttribute("getexam",ex);
-		return "find-exam-by-id";
+		ExamDetails examdetails = examDetailsService.findByid(id);
+		model.addAttribute("getexamdetails",examdetails);
+		return "find-examdetails-by-id";
 	}
-	@GetMapping("/addexdetails")
-	public String showForm(Model model) {
-		ExamDetails ex = new ExamDetails();
-		model.addAttribute("addexamdetails", ex);
+	@GetMapping("/addexamdetailsform")
+	public String addExamDetailsForm(Model model) {
+		ExamDetails examdetails = new ExamDetails();
+		model.addAttribute("addexamdetails", examdetails);
 		return "add-examdetails-form";
 	}
-	@PostMapping("/addexam")
-	public String addNewExamDetails(@ModelAttribute("addexamdetails")ExamDetails ex) {
-		exservice.save(ex);
+	@PostMapping("/addnewexamdetails")
+	public String addNewExamDetails(@ModelAttribute("addexamdetails")ExamDetails examdetails) {
+		examDetailsService.save(examdetails);
 		return "redirect:/examdetails/examlist";
 	}
-	@GetMapping("/updateexdetails")
-	public String showUpdateExamForm(@RequestParam("id") int id,Model model) {
-		ExamDetails ex = exservice.findByid(id);
-		model.addAttribute("updateexamdetails",ex);
+	@GetMapping("/updateexamdetailsform")
+	public String UpdateExamDetailsForm(@RequestParam("id") int id,Model model) {
+		ExamDetails examdetails = examDetailsService.findByid(id);
+		model.addAttribute("updateexamdetails",examdetails);
 		return "update-examdetails-form";
 	}
-	@PostMapping("/updateexam")
-	public String updateExamDetails(@ModelAttribute("updateexamdetails")ExamDetails ex) {
-		exservice.save(ex);
+	@PostMapping("/updatenewexamdetails")
+	public String updateNewExamDetails(@ModelAttribute("updateexamdetails")ExamDetails examdetails) {
+		examDetailsService.save(examdetails);
 		return "redirect:/examdetails/examlist";
 	}
-	@GetMapping("deleteexam")
+	@GetMapping("deleteexamdetails")
 	public String deleteExamDetails(@RequestParam("id") int id) {
-		exservice.deleteById(id);
+		examDetailsService.deleteById(id);
 		return "redirect:/examdetails/examlist";
 		}
 	@GetMapping("/examlist")
 	public String getAllExamDetails(Model model) {
-		List<ExamDetails> ex = exservice.getExamDetails();
-		model.addAttribute("allexam",ex);
+		List<ExamDetails> examdetails = examDetailsService.getExamDetails();
+		model.addAttribute("allexamdetails",examdetails);
 		return "list-examdetails";
 	}
 

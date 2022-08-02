@@ -27,7 +27,7 @@
 			</tr>
 			</thead>
 			<tbody>
-			<c:forEach var = "emp" items = "${allemp}">
+			<c:forEach var = "emp" items = "${allemployee}">
 			<tr>
 			<td>${emp.employeeId}</td>
 			<td>${emp.firstName}</td>

@@ -6,41 +6,44 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Find Test By Id</title>
+<title>Update Test</title>
 </head>
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="" method="post" modelAttribute="gettest">
-				<div>
+			<form:form action = "updatenewemployeetest" method = "post" modelAttribute = "updateemployeetest">
+			<div>
 					<label for="testId">Test Id</label>
 					<div>
-						<form:input path="testId" readonly="true" />
+						<form:input path="testId" />
 					</div>
 				</div>
 				<div>
 					<label for="testName">Test Name</label>
 					<div>
-						<form:input path="testName" readonly="true" />
+						<form:input path="testName" />
 					</div>
 				</div>
 				<div>
 					<label for="maxMark">Max Mark</label>
 					<div>
-						<form:input path="maxMark" readonly="true" />
+						<form:input path="maxMark" />
 					</div>
 				</div>
 				<div>
 					<label for="passMark">PassMark</label>
 					<div>
-						<form:input path="passMark" readonly="true" />
+						<form:input path="passMark" />
 					</div>
 				</div>
 				<div>
 					<label for="subject">Subject</label>
 					<div>
-						<form:input path="subject" readonly="true" />
+						<form:input path="subject" />
 					</div>
+				</div>
+				<div>
+					<form:button>Update Test</form:button>
 				</div>
 			</form:form>
 		</div>

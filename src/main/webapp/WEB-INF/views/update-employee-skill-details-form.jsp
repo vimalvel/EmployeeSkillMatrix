@@ -6,44 +6,44 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Update Test</title>
+<title>Update Employee Skill</title>
 </head>
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action = "update" method = "post" modelAttribute = "updatetest">
+			<form:form action = "updatenewemployeeskilldetails" method = "post" modelAttribute = "updateemployeeskilldetails">
 			<div>
-					<label for="testId">Test Id</label>
+					<label for="employeeId">Employee ID</label>
 					<div>
-						<form:input path="testId" />
+						<form:input path="employeeId" />
 					</div>
 				</div>
 				<div>
-					<label for="testName">Test Name</label>
+					<label for="skillId">Skill Id</label>
 					<div>
-						<form:input path="testName" />
+						<form:input path="skillId" />
 					</div>
 				</div>
 				<div>
-					<label for="maxMark">Max Mark</label>
+					<label for="examId">Exam Id</label>
 					<div>
-						<form:input path="maxMark" />
+						<form:input path="examId" />
 					</div>
 				</div>
 				<div>
-					<label for="passMark">PassMark</label>
+					<label for="markScore">Mark Score</label>
 					<div>
-						<form:input path="passMark" />
+						<form:input path="markScore" />
 					</div>
 				</div>
 				<div>
-					<label for="subject">Subject</label>
+					<label for="grade">Grade</label>
 					<div>
-						<form:input path="subject" />
+						<form:input path="grade" />
 					</div>
 				</div>
 				<div>
-					<form:button>Update Test</form:button>
+					<form:button>Update Skill Details</form:button>
 				</div>
 			</form:form>
 		</div>

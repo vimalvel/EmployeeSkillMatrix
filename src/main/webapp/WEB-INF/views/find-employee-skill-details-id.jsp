@@ -1,52 +1,51 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add Employee Skill</title>
+<title>Find Employee Skill By ID</title>
 </head>
 <body>
-<div id="root">
+<body>
+	<div id="root">
 		<div id="form">
-			<form:form action="addskill" method="post" modelAttribute="addempskilldetails">
+			<form:form action="" method="post" modelAttribute="getemployeeskilldetails">
 				<div>
 					<label for="employeeId">Employee Id</label>
 					<div>
-						<form:input path="employeeId" />
+						<form:input path="employeeId" readonly="true" />
 					</div>
 				</div>
 				<div>
 					<label for="skillId">Skill Id</label>
 					<div>
-						<form:input path="skillId" />
+						<form:input path="skillId" readonly="true" />
 					</div>
 				</div>
 				<div>
 					<label for="examId">Exam Id</label>
 					<div>
-						<form:input path="examId" />
+						<form:input path="examId" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="markScore">Mark Score</label>
+					<label for="markScore">MarkScore</label>
 					<div>
-						<form:input path="markScore" />
+						<form:input path="markScore" readonly="true" />
 					</div>
 				</div>
 				<div>
 					<label for="grade">Grade</label>
 					<div>
-						<form:input path="grade" />
+						<form:input path="grade" readonly="true" />
 					</div>
-				</div>
-				<div>
-					<form:button>Add Employee Skill</form:button>
 				</div>
 			</form:form>
 		</div>
 	</div>
+</body>
 </body>
 </html>

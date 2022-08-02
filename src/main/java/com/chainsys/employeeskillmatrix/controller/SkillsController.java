@@ -18,43 +18,43 @@ import com.chainsys.employeeskillmatrix.service.SkillsService;
 @RequestMapping("/skills")
 public class SkillsController {
 	@Autowired
-	private SkillsService skillservice;
+	private SkillsService skillsService;
 	@GetMapping("/getskillbyid")
-	public String getempdetails(@RequestParam("id") int id, Model model) {
-		Skills skill = skillservice.findByid(id);
+	public String getSkilldetails(@RequestParam("id") int id, Model model) {
+		Skills skill = skillsService.findByid(id);
 		model.addAttribute("getskill",skill);
 		return "find-skill-id";
 	}
-	@GetMapping("/addskills")
-	public String showForm(Model model) {
+	@GetMapping("/addskillsform")
+	public String addNewSkillForm(Model model) {
 		Skills skill = new Skills();
 		model.addAttribute("addskill", skill);
 		return "add-skill-form";
 	}
-	@PostMapping("/addsk")
-	public String addSkill(@ModelAttribute("addskill")Skills skill) {
-		skillservice.save(skill);
-		return "redirect:/skills/slist";
+	@PostMapping("/addnewskill")
+	public String addNewSkill(@ModelAttribute("addskill")Skills skill) {
+		skillsService.save(skill);
+		return "redirect:/skills/skilllist";
 	}
-	@GetMapping("/updateskills")
-	public String showUpdateskillForm(@RequestParam("id") int id,Model model) {
-		Skills skill = skillservice.findByid(id);
+	@GetMapping("/updateskillsform")
+	public String UpdateskillForm(@RequestParam("id") int id,Model model) {
+		Skills skill = skillsService.findByid(id);
 		model.addAttribute("updateskill",skill);
 		return "update-skill-form";
 	}
-	@PostMapping("/updatesk")
-	public String updateSkills(@ModelAttribute("updateskill")Skills skill) {
-		skillservice.save(skill);
-		return "redirect:/skills/slist";
+	@PostMapping("/updatenewskill")
+	public String updateNewSkills(@ModelAttribute("updateskill")Skills skill) {
+		skillsService.save(skill);
+		return "redirect:/skills/skilllist";
 	}
 	@GetMapping("deleteskill")
 	public String deleteSkills(@RequestParam("id") int id) {
-		skillservice.deleteById(id);
-		return "redirect:/skills/slist";
+		skillsService.deleteById(id);
+		return "redirect:/skills/skilllist";
 		}
-	@GetMapping("/slist")
+	@GetMapping("/skilllist")
 	public String getAllSkills(Model model) {
-		List<Skills> skill = skillservice.getSkills();
+		List<Skills> skill = skillsService.getSkills();
 		model.addAttribute("allskill",skill);
 		return "list-skill";
 	}

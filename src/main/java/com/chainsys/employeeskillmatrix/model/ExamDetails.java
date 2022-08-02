@@ -1,6 +1,6 @@
 package com.chainsys.employeeskillmatrix.model;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.Column;

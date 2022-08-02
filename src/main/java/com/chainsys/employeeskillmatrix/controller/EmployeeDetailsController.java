@@ -16,48 +16,48 @@ import com.chainsys.employeeskillmatrix.service.EmployeeDetailsService;
 
 
 @Controller
-@RequestMapping("/employeeskillmatrix")
+@RequestMapping("/employeedetails")
 public class EmployeeDetailsController {
 	@Autowired 
-	private EmployeeDetailsService empservice;
-	@GetMapping("/getempbyid")
-	public String getempdetails(@RequestParam("id") int id, Model model) {
-		EmployeeDetails emp = empservice.findByid(id);
-		model.addAttribute("getemp",emp);
-		return "find-emp-id";
+	private EmployeeDetailsService employeeDetailsService;
+	@GetMapping("/getemployeebyid")
+	public String getEmployeeDetails(@RequestParam("employeeid") int id, Model model) {
+		EmployeeDetails employeedetails = employeeDetailsService.findByid(id);
+		model.addAttribute("getemployeedetails",employeedetails);
+		return "find-employee-details-by-id";
 	}
-	@GetMapping("/addempdetails")
-	public String showForm(Model model) {
-		EmployeeDetails emp = new EmployeeDetails();
-		model.addAttribute("addempdetails", emp);
-		return "add-empdetails-form";
+	@GetMapping("/addemployeedetailsform")
+	public String showEmployeeDetailsForm(Model model) {
+		EmployeeDetails employeedetails = new EmployeeDetails();
+		model.addAttribute("addemployeedetails", employeedetails);
+		return "add-employee-details-form";
 	}
-	@PostMapping("/addemp")
-	public String addNewEmployeeDetails(@ModelAttribute("addempdetails")EmployeeDetails emp) {
-		empservice.save(emp);
-		return "redirect:/employeeskillmatrix/emplist";
+	@PostMapping("/addnewemployeedetails")
+	public String addNewEmployeeDetails(@ModelAttribute("addemployeedetails")EmployeeDetails emp) {
+		employeeDetailsService.save(emp);
+		return "redirect:/employeedetails/employeelist";
 	}
-	@GetMapping("/updateempdetails")
-	public String showUpdateempForm(@RequestParam("empid") int id,Model model) {
-		EmployeeDetails emp = empservice.findByid(id);
-		model.addAttribute("updateempdetails",emp);
-		return "update-empdetails-form";
+	@GetMapping("/updateemployeedetailsform")
+	public String showUpdateEmployeeDetailsForm(@RequestParam("employeeid") int id,Model model) {
+		EmployeeDetails employeedetails = employeeDetailsService.findByid(id);
+		model.addAttribute("updateemployeedetails",employeedetails);
+		return "update-employee-details-form";
 	}
-	@PostMapping("/updateemp")
-	public String updateEmpDetails(@ModelAttribute("updateempdetails")EmployeeDetails emp) {
-		empservice.save(emp);
-		return "redirect:/employeeskillmatrix/emplist";
+	@PostMapping("/updatenewemployeedetails")
+	public String updateEmployeeDetails(@ModelAttribute("updateemployeedetails")EmployeeDetails employee) {
+		employeeDetailsService.save(employee);
+		return "redirect:/employeedetails/employeelist";
 	}
-	@GetMapping("deleteemp")
-	public String deleteEmployeeDetails(@RequestParam("empid") int id) {
-		empservice.deleteById(id);
-		return "redirect:/employeeskillmatrix/emplist";
+	@GetMapping("deleteemployeedetails")
+	public String deleteEmployeeDetails(@RequestParam("employeeid") int id) {
+		employeeDetailsService.deleteById(id);
+		return "redirect:/employeedetails/employeelist";
 		}
-	@GetMapping("/emplist")
+	@GetMapping("/employeelist")
 	public String getAllEmployeeDetails(Model model) {
-		List<EmployeeDetails> emp = empservice.getEmployeeDetails();
-		model.addAttribute("allemp",emp);
-		return "list-empdetails";
+		List<EmployeeDetails> employeedetails = employeeDetailsService.getEmployeeDetails();
+		model.addAttribute("allemployee",employeedetails);
+		return "list-employee-details";
 	}
 
 }

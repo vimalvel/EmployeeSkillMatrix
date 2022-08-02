@@ -6,14 +6,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Update Employee Skill</title>
+<title>Add Employee Skill</title>
 </head>
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action = "updateskill" method = "post" modelAttribute = "updateempskilldetails">
-			<div>
-					<label for="employeeId">Employee ID</label>
+			<form:form action="addnewemployeeskilldetails" method="post" modelAttribute="addemployeeskilldetails">
+				<div>
+					<label for="employeeId">Employee Id</label>
 					<div>
 						<form:input path="employeeId" />
 					</div>
@@ -43,7 +43,7 @@
 					</div>
 				</div>
 				<div>
-					<form:button>Update Skill Details</form:button>
+					<form:button>Add Employee Skill</form:button>
 				</div>
 			</form:form>
 		</div>

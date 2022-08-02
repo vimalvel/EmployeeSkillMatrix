@@ -20,7 +20,7 @@
 			</tr>
 			</thead>
 			<tbody>
-			<c:forEach var = "skill" items = "${allskill}">
+			<c:forEach var = "skill" items = "${allemployeeskilldetails}">
 			<tr>
 			<td>${skill.employeeId}</td>
 			<td>${skill.skillId}</td>

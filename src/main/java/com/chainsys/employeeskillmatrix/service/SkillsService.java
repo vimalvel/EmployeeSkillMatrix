@@ -11,19 +11,19 @@ import com.chainsys.employeeskillmatrix.repository.SkillsRepository;
 @Service
 public class SkillsService {
 	@Autowired
-	private SkillsRepository repo;
+	private SkillsRepository skillsRepository;
 	public List<Skills> getSkills(){
-		List<Skills> skill = repo.findAll();
+		List<Skills> skill = skillsRepository.findAll();
 		return skill;
 	}
 	public Skills save(Skills sk) {
-		return repo.save(sk);
+		return skillsRepository.save(sk);
 	}
 	public Skills findByid(int id) {
-		return repo.findById(id);
+		return skillsRepository.findById(id);
 	}
 	public void deleteById(int id) {
-		repo.deleteById(id);
+		skillsRepository.deleteById(id);
 	}
 
 }
