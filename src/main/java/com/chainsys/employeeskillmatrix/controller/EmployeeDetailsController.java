@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.employeeskillmatrix.dto.EmployeeDetailsAndEmployeeSkillDetailsDTO;
 import com.chainsys.employeeskillmatrix.model.EmployeeDetails;
 import com.chainsys.employeeskillmatrix.service.EmployeeDetailsService;
 
@@ -22,7 +23,7 @@ public class EmployeeDetailsController {
 	private EmployeeDetailsService employeeDetailsService;
 	@GetMapping("/getemployeebyid")
 	public String getEmployeeDetails(@RequestParam("employeeid") int id, Model model) {
-		EmployeeDetails employeedetails = employeeDetailsService.findByid(id);
+		EmployeeDetails employeedetails = employeeDetailsService.findById(id);
 		model.addAttribute("getemployeedetails",employeedetails);
 		return "find-employee-details-by-id";
 	}
@@ -39,7 +40,7 @@ public class EmployeeDetailsController {
 	}
 	@GetMapping("/updateemployeedetailsform")
 	public String showUpdateEmployeeDetailsForm(@RequestParam("employeeid") int id,Model model) {
-		EmployeeDetails employeedetails = employeeDetailsService.findByid(id);
+		EmployeeDetails employeedetails = employeeDetailsService.findById(id);
 		model.addAttribute("updateemployeedetails",employeedetails);
 		return "update-employee-details-form";
 	}
@@ -58,6 +59,13 @@ public class EmployeeDetailsController {
 		List<EmployeeDetails> employeedetails = employeeDetailsService.getEmployeeDetails();
 		model.addAttribute("allemployee",employeedetails);
 		return "list-employee-details";
+	}
+	@GetMapping("/getemployeeiddetails")
+	public String getEmployeeDetailsAndEmpSkillDetails(@RequestParam("id") int id, Model model) {
+		EmployeeDetailsAndEmployeeSkillDetailsDTO dto = employeeDetailsService.getEmpDetailsAndEmpSkillDetails(id);
+		model.addAttribute("getemployeeid",dto.getEmployeedetails());
+		model.addAttribute("employeeidlist", dto.getEmployeeskilldetail());
+		return "employeedetails-employeeskilldetails";
 	}
 
 }

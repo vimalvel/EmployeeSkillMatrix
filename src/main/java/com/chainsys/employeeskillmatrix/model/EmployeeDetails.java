@@ -1,10 +1,13 @@
 package com.chainsys.employeeskillmatrix.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -35,6 +38,16 @@ public class EmployeeDetails {
 	private float salary;
 	@Column(name = "PASSWORD")
 	private String password;
+	@OneToMany(mappedBy="employeeDetails",fetch=FetchType.LAZY)
+	private List<EmployeeSkillDetails> employeeSkillDetails;
+	
+	
+	public List<EmployeeSkillDetails> getEmployeeSkillDetails() {
+		return employeeSkillDetails;
+	}
+	public void setEmployeeSkillDetails(List<EmployeeSkillDetails> employeeSkillDetails) {
+		this.employeeSkillDetails = employeeSkillDetails;
+	}
 	public int getEmployeeId() {
 		return employeeId;
 	}

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.employeeskillmatrix.dto.SkillsAndEmployeeSkillDetailsDTO;
 import com.chainsys.employeeskillmatrix.model.Skills;
 import com.chainsys.employeeskillmatrix.service.SkillsService;
 
@@ -57,6 +58,14 @@ public class SkillsController {
 		List<Skills> skill = skillsService.getSkills();
 		model.addAttribute("allskill",skill);
 		return "list-skill";
+	}
+	@GetMapping("getskillid")
+	public String getSkillsAndEmployeeSkillDetails(@RequestParam("id") int id, Model model) {
+		SkillsAndEmployeeSkillDetailsDTO dto = skillsService.getSkillsAndEmployeeSkillDetails(id);
+		model.addAttribute("getskillid",dto.getSkills());
+		model.addAttribute("skillidlist",dto.getEmployeeskilldetails());
+		return "skills-employeeskilldetails";
+
 	}
 
 

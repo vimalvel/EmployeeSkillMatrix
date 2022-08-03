@@ -1,8 +1,12 @@
 package com.chainsys.employeeskillmatrix.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,8 +27,12 @@ public class Skills {
     private int passMark;
 	@Column(name="EMPLOYEE_LEVEL")
     private int employeeLevel;
+	@OneToMany(mappedBy="skills",fetch=FetchType.LAZY)
+	private List<EmployeeSkillDetails> employeeskilldetails;
 	
-	
+	public List<EmployeeSkillDetails> getSkillDetails(){
+	return employeeskilldetails;
+	}
 	public int getSkillId() {
 		return skillId;
 	}

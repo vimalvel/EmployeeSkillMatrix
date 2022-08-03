@@ -11,5 +11,8 @@ public interface EmployeeSkillDetailsRepository extends CrudRepository<EmployeeS
 	EmployeeSkillDetails save(EmployeeSkillDetails empskill);
 	void deleteById(int id);
 	List<EmployeeSkillDetails> findAll();
+	
+	List<EmployeeSkillDetails> findByEmployeeDetailsEmployeeId(int id);
+	List<EmployeeSkillDetails> findBySkillsSkillId(int id);
 
 }
