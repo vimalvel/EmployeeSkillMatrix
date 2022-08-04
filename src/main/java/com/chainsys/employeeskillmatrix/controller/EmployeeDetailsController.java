@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.employeeskillmatrix.dto.EmployeeDetailsAndEmployeeSkillDetailsDTO;
+import com.chainsys.employeeskillmatrix.dto.EmployeeDetailsAndTestEmployeeDetailsDTO;
 import com.chainsys.employeeskillmatrix.model.EmployeeDetails;
 import com.chainsys.employeeskillmatrix.service.EmployeeDetailsService;
 
@@ -66,6 +67,13 @@ public class EmployeeDetailsController {
 		model.addAttribute("getemployeeid",dto.getEmployeedetails());
 		model.addAttribute("employeeidlist", dto.getEmployeeskilldetail());
 		return "employeedetails-employeeskilldetails";
+	}
+	@GetMapping("/getemployeeidtestdetails")
+	public String getEmployeeDetailsAndTestEmployeeDetails(@RequestParam("id") int id,Model model) {
+		EmployeeDetailsAndTestEmployeeDetailsDTO dto1 = employeeDetailsService.getEmployeeDetailsAndTestEmployeeDetailsDTO(id);
+		model.addAttribute("getemployeesid",dto1.getEmployeedetails());
+		model.addAttribute("employeesidlist",dto1.getTestemployeedetails());
+		return "employeedetails-testemployeedetails";
 	}
 
 }

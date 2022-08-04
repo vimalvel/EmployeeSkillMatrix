@@ -9,11 +9,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.chainsys.employeeskillmatrix.compositekey.EmployeeIdCompositeKey;
+import com.chainsys.employeeskillmatrix.compositekey.EmployeeSkillDetailsCompositeKey;
 
 @Entity
 @Table(name = "employeeskilldetails")
-@IdClass(EmployeeIdCompositeKey.class)
+@IdClass(EmployeeSkillDetailsCompositeKey.class)
 public class EmployeeSkillDetails {
 	@Id
 	@Column(name = "EMPLOYEE_ID")
@@ -49,6 +49,18 @@ public class EmployeeSkillDetails {
 
 	public void setSkills(Skills skills) {
 		this.skills = skills;
+	}
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="EXAM_ID",nullable= false, insertable = false, updatable = false)
+	private ExamDetails examdetails;
+	
+
+	public ExamDetails getExamdetails() {
+		return examdetails;
+	}
+
+	public void setExamdetails(ExamDetails examdetails) {
+		this.examdetails = examdetails;
 	}
 
 	public int getEmployeeId() {

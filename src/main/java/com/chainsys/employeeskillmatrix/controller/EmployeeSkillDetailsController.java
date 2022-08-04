@@ -1,6 +1,7 @@
 package com.chainsys.employeeskillmatrix.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.employeeskillmatrix.compositekey.EmployeeSkillDetailsCompositeKey;
 import com.chainsys.employeeskillmatrix.model.EmployeeSkillDetails;
 import com.chainsys.employeeskillmatrix.service.EmployeeSkillDetailsService;
 
@@ -20,8 +22,9 @@ public class EmployeeSkillDetailsController {
 	@Autowired
 	private EmployeeSkillDetailsService employeeSkillDetailsService;
 	@GetMapping("/getemployeeskillbyid")
-	public String getEmployeeSkillDetails(@RequestParam("id") int id, Model model) {
-		EmployeeSkillDetails employeeskilldetails = employeeSkillDetailsService.findByid(id);
+	public String getEmployeeSkillDetails(@RequestParam("id") int id, @RequestParam("sid") int sid,@RequestParam("eid") int eid,Model model) {
+		EmployeeSkillDetailsCompositeKey skillIdCompositeKey =new EmployeeSkillDetailsCompositeKey(id,sid,eid);
+		Optional<EmployeeSkillDetails> employeeskilldetails = employeeSkillDetailsService.findByid(skillIdCompositeKey);
 		model.addAttribute("getemployeeskilldetails", employeeskilldetails);
 		return "find-employee-skill-details-id";
 	}
@@ -37,8 +40,9 @@ public class EmployeeSkillDetailsController {
 		return "redirect:/employeeskilldetails/employeeskilldetailslist";
 	}
 	@GetMapping("/updateemployeeskilldetailsform")
-	public String updateEmployeeSkillDetailsForm(@RequestParam("id") int id,Model model) {
-		EmployeeSkillDetails employeeskilldetails = employeeSkillDetailsService.findByid(id);
+	public String updateEmployeeSkillDetailsForm(@RequestParam("id") int id,@RequestParam("sid") int sid,@RequestParam("eid") int eid,Model model) {
+		EmployeeSkillDetailsCompositeKey skillIdCompositeKey =new EmployeeSkillDetailsCompositeKey(id,sid,eid);
+		Optional<EmployeeSkillDetails> employeeskilldetails = employeeSkillDetailsService.findByid(skillIdCompositeKey);
 		model.addAttribute("updateemployeeskilldetails",employeeskilldetails);
 		return "update-employee-skill-details-form";
 	}
@@ -48,8 +52,9 @@ public class EmployeeSkillDetailsController {
 		return "redirect:/employeeskilldetails/employeeskilldetailslist";
 	}
 	@GetMapping("deleteemployeeskilldetails")
-	public String deleteEmployeeSkillDetails(@RequestParam("id") int id) {
-		employeeSkillDetailsService.deleteById(id);
+	public String deleteEmployeeSkillDetails(@RequestParam("id") int id,@RequestParam("sid") int sid,@RequestParam("eid") int eid) {
+		EmployeeSkillDetailsCompositeKey skillIdCompositeKey =new EmployeeSkillDetailsCompositeKey(id,sid,eid);
+		employeeSkillDetailsService.deleteById(skillIdCompositeKey);
 		return "redirect:/employeeskilldetails/employeeskilldetailslist";
 		}
 	@GetMapping("/employeeskilldetailslist")
@@ -58,6 +63,6 @@ public class EmployeeSkillDetailsController {
 		model.addAttribute("allemployeeskilldetails",employeeskilldetailslist);
 		return "list-employee-skill-details";
 	}
-
+	
 
 }

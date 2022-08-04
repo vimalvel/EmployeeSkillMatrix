@@ -2,10 +2,13 @@ package com.chainsys.employeeskillmatrix.model;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -30,7 +33,24 @@ public class ExamDetails {
 	private String supervicer;
 	@Column(name="NUMBER_OF_PASSED")
 	private int numberOfPassed; 
+	@OneToMany(mappedBy="examdetails",fetch=FetchType.LAZY)
+	private List<EmployeeSkillDetails> employeeSkillDetails;
 	
+	public List<EmployeeSkillDetails> getEmployeeSkillDetails() {
+		return employeeSkillDetails;
+	}
+	public void setEmployeeSkillDetails(List<EmployeeSkillDetails> employeeSkillDetails) {
+		this.employeeSkillDetails = employeeSkillDetails;
+	}
+	@OneToMany(mappedBy="examDetails",fetch=FetchType.LAZY)
+	private List<TestEmployeeDetails> testEmployeeDetails;
+	
+	public List<TestEmployeeDetails> getTestEmployeeDetails() {
+		return testEmployeeDetails;
+	}
+	public void setTestEmployeeDetails(List<TestEmployeeDetails> testEmployeeDetails) {
+		this.testEmployeeDetails = testEmployeeDetails;
+	}
 	public int getExamId() {
 		return examId;
 	}

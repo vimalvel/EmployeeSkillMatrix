@@ -1,6 +1,7 @@
 package com.chainsys.employeeskillmatrix.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.employeeskillmatrix.compositekey.TestEmployeeDetailsCompositeKey;
 import com.chainsys.employeeskillmatrix.model.TestEmployeeDetails;
 import com.chainsys.employeeskillmatrix.service.TestEmployeeDetailsService;
 
@@ -20,8 +22,9 @@ public class TestEmployeeDetailsController {
 	@Autowired
 	private TestEmployeeDetailsService testEmployeeDetailsService;
 	@GetMapping("/getemployeebyid")
-	public String getTestEmployeedetails(@RequestParam("id") int id, Model model) {
-		TestEmployeeDetails testemployeedetails = testEmployeeDetailsService.findByid(id);
+	public String getTestEmployeedetails(@RequestParam("examid") int examid,@RequestParam("employeeid") int employeeid, Model model) {
+		TestEmployeeDetailsCompositeKey testEmployeeDetailsCompositeKey = new TestEmployeeDetailsCompositeKey(examid,employeeid);
+		Optional<TestEmployeeDetails> testemployeedetails = testEmployeeDetailsService.findByid(testEmployeeDetailsCompositeKey);
 		model.addAttribute("getemployeetestdetails",testemployeedetails);
 		return "find-test-employee-details-id";
 	}
@@ -36,9 +39,10 @@ public class TestEmployeeDetailsController {
 		testEmployeeDetailsService.save(testemployeedetails);
 		return "redirect:/testemployeedetails/testemployeedetailslist";
 	}
-	@GetMapping("/updatenewtestemployeedetails")
-	public String updateTestEmployeeForm(@RequestParam("id") int id,Model model) {
-		TestEmployeeDetails testemployeedetails = testEmployeeDetailsService.findByid(id);
+	@GetMapping("/updatetestemployeedetailsform")
+	public String updateTestEmployeeForm(@RequestParam("examid") int examid,@RequestParam("employeeid") int employeeid,Model model) {
+		TestEmployeeDetailsCompositeKey testEmployeeDetailsCompositeKey = new TestEmployeeDetailsCompositeKey(examid,employeeid);
+		Optional<TestEmployeeDetails> testemployeedetails = testEmployeeDetailsService.findByid(testEmployeeDetailsCompositeKey);
 		model.addAttribute("updatetestemployeedetails",testemployeedetails);
 		return "update-test-employee-details";
 	}
@@ -48,8 +52,9 @@ public class TestEmployeeDetailsController {
 		return "redirect:/testemployeedetails/testemployeedetailslist";
 	}
 	@GetMapping("deletetestemployeedetails")
-	public String deleteTestEmployeeDetails(@RequestParam("id") int id) {
-		testEmployeeDetailsService.deleteById(id);
+	public String deleteTestEmployeeDetails(@RequestParam("examid") int examid,@RequestParam("employeeid") int employeeid) {
+		TestEmployeeDetailsCompositeKey testEmployeeDetailsCompositeKey = new TestEmployeeDetailsCompositeKey(examid,employeeid);
+		testEmployeeDetailsService.deleteById(testEmployeeDetailsCompositeKey);
 		return "redirect:/testemployeedetails/testemployeedetailslist";
 		}
 	@GetMapping("/testemployeedetailslist")

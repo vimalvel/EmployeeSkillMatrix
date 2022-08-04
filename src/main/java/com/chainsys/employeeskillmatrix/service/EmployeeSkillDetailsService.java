@@ -1,10 +1,12 @@
 package com.chainsys.employeeskillmatrix.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.chainsys.employeeskillmatrix.compositekey.EmployeeSkillDetailsCompositeKey;
 import com.chainsys.employeeskillmatrix.model.EmployeeSkillDetails;
 import com.chainsys.employeeskillmatrix.repository.EmployeeSkillDetailsRepository;
 
@@ -19,10 +21,10 @@ public class EmployeeSkillDetailsService {
 	public EmployeeSkillDetails save(EmployeeSkillDetails empskill) {
 		return employeeSkillDetailsRepository.save(empskill);
 	}
-	public EmployeeSkillDetails findByid(int id) {
+	public Optional<EmployeeSkillDetails> findByid(EmployeeSkillDetailsCompositeKey id) {
 		return employeeSkillDetailsRepository.findById(id);
 	}
-	public void deleteById(int id) {
+	public void deleteById(EmployeeSkillDetailsCompositeKey id) {
 		employeeSkillDetailsRepository.deleteById(id);
 	}
 

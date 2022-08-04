@@ -7,10 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.chainsys.employeeskillmatrix.dto.EmployeeDetailsAndEmployeeSkillDetailsDTO;
+import com.chainsys.employeeskillmatrix.dto.EmployeeDetailsAndTestEmployeeDetailsDTO;
 import com.chainsys.employeeskillmatrix.model.EmployeeDetails;
 import com.chainsys.employeeskillmatrix.model.EmployeeSkillDetails;
+import com.chainsys.employeeskillmatrix.model.TestEmployeeDetails;
 import com.chainsys.employeeskillmatrix.repository.EmployeeDetailsRepository;
 import com.chainsys.employeeskillmatrix.repository.EmployeeSkillDetailsRepository;
+import com.chainsys.employeeskillmatrix.repository.TestEmployeeDetailsRepository;
 
 @Service
 public class EmployeeDetailsService {
@@ -18,6 +21,8 @@ public class EmployeeDetailsService {
 	private EmployeeDetailsRepository employeeDetailsRepository;
 	@Autowired
 	private EmployeeSkillDetailsRepository employeeskilldetailsrepository;
+	@Autowired
+	private TestEmployeeDetailsRepository testemployeedetailsrepository;
 
 	public List<EmployeeDetails> getEmployeeDetails() {
 		List<EmployeeDetails> emplist = employeeDetailsRepository.findAll();
@@ -47,6 +52,17 @@ public class EmployeeDetailsService {
 		}
 		return dto;
 
+	}
+	public EmployeeDetailsAndTestEmployeeDetailsDTO getEmployeeDetailsAndTestEmployeeDetailsDTO(int id) {
+		EmployeeDetails employeedetail = employeeDetailsRepository.findById(id);
+		EmployeeDetailsAndTestEmployeeDetailsDTO dto1 = new EmployeeDetailsAndTestEmployeeDetailsDTO();
+		dto1.setEmployeedetails(employeedetail);
+		List<TestEmployeeDetails> testemployeedetails = testemployeedetailsrepository.findByEmployeeId(id);
+		Iterator<TestEmployeeDetails> itr = testemployeedetails.iterator();
+		while (itr.hasNext()) {
+			dto1.addTestEmployeeDetails((TestEmployeeDetails) itr.next());
+		}
+		return dto1;
 	}
 
 }

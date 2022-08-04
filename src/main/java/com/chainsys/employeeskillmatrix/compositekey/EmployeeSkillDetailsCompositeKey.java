@@ -4,15 +4,20 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 
-public class SkillIdCompositeKey implements Serializable {
+public class EmployeeSkillDetailsCompositeKey implements Serializable {
 	@Column(name="EMPLOYEE_ID")
 	private int employeeId;
 	@Column(name="SKILL_ID")
 	private int skillId;
 	@Column(name="EXAM_ID")
 	private int examId;
-	SkillIdCompositeKey(){
+	EmployeeSkillDetailsCompositeKey(){
 		
+	}
+	public EmployeeSkillDetailsCompositeKey(int employeeId,int skillId,int examId) {
+		this.employeeId=employeeId;
+		this.skillId=skillId;
+		this.examId=examId;
 	}
 	public int getEmployeeId() {
 		return employeeId;

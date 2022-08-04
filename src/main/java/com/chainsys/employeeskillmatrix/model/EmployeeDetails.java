@@ -48,6 +48,15 @@ public class EmployeeDetails {
 	public void setEmployeeSkillDetails(List<EmployeeSkillDetails> employeeSkillDetails) {
 		this.employeeSkillDetails = employeeSkillDetails;
 	}
+	@OneToMany(mappedBy="employeedetails",fetch=FetchType.LAZY)
+	private List<TestEmployeeDetails> testEmployeeDetails;
+	
+	public List<TestEmployeeDetails> getTestEmployeeDetails() {
+		return testEmployeeDetails;
+	}
+	public void setTestEmployeeDetails(List<TestEmployeeDetails> testEmployeeDetails) {
+		this.testEmployeeDetails = testEmployeeDetails;
+	}
 	public int getEmployeeId() {
 		return employeeId;
 	}

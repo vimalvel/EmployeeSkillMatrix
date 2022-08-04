@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.employeeskillmatrix.dto.ExamDetailsAndEmployeeSkillDetailsDTO;
+import com.chainsys.employeeskillmatrix.dto.ExamDetailsAndTestEmployeeDetailsDTO;
 import com.chainsys.employeeskillmatrix.model.ExamDetails;
 import com.chainsys.employeeskillmatrix.service.ExamDetailsService;
 
@@ -21,7 +23,7 @@ public class ExamDetailsController {
 	private ExamDetailsService examDetailsService;
 	@GetMapping("/getexamdetailsbyid")
 	public String getexamdetails(@RequestParam("id") int id, Model model) {
-		ExamDetails examdetails = examDetailsService.findByid(id);
+		ExamDetails examdetails = examDetailsService.findById(id);
 		model.addAttribute("getexamdetails",examdetails);
 		return "find-examdetails-by-id";
 	}
@@ -38,7 +40,7 @@ public class ExamDetailsController {
 	}
 	@GetMapping("/updateexamdetailsform")
 	public String UpdateExamDetailsForm(@RequestParam("id") int id,Model model) {
-		ExamDetails examdetails = examDetailsService.findByid(id);
+		ExamDetails examdetails = examDetailsService.findById(id);
 		model.addAttribute("updateexamdetails",examdetails);
 		return "update-examdetails-form";
 	}
@@ -58,6 +60,21 @@ public class ExamDetailsController {
 		model.addAttribute("allexamdetails",examdetails);
 		return "list-examdetails";
 	}
+	@GetMapping("/getexamiddetails")
+	public String getExamDetailsAndEmpSkillDetails(@RequestParam("id") int id, Model model) {
+		ExamDetailsAndEmployeeSkillDetailsDTO dto = examDetailsService.getExamDetailsAndEmpSkillDetails(id);
+		model.addAttribute("getexamid",dto.getExamdetails());
+		model.addAttribute("examidlist", dto.getEmployeeskilldetails());
+		return "examdetails-employeeskilldetails";
+	}
+	@GetMapping("/getexamid")
+	public String getExamDetailsAndTestEmployeeDetails(@RequestParam("id") int id,Model model) {
+		ExamDetailsAndTestEmployeeDetailsDTO dto1 = examDetailsService.getExamDetailsAndTestEmployeeDetailsDTO(id);
+		model.addAttribute("getexamsid", dto1.getExamdetails());
+		model.addAttribute("examsidlist", dto1.getTestemployeedetails());
+		return "examdetails-testemployeedetails";
+	}
+
 
 
 }
