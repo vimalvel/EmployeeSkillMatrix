@@ -64,5 +64,8 @@ public class EmployeeDetailsService {
 		}
 		return dto1;
 	}
+	public EmployeeDetails getEmployeeByIdAndEmailAndPassword(int id,String email,String password) {
+		return employeeDetailsRepository.findByEmployeeIdAndEmailAndPassword(id, email, password);
+	}
 
 }

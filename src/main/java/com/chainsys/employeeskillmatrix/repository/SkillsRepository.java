@@ -11,4 +11,5 @@ public interface SkillsRepository extends CrudRepository<Skills,Integer> {
 	Skills save(Skills sk);
 	void deleteById(int id);
 	List<Skills> findAll();
+	List<Skills> findByTestId(int id);
 }

@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -29,9 +31,22 @@ public class Skills {
     private int employeeLevel;
 	@OneToMany(mappedBy="skills",fetch=FetchType.LAZY)
 	private List<EmployeeSkillDetails> employeeskilldetails;
+	public List<EmployeeSkillDetails> getEmployeeskilldetails() {
+		return employeeskilldetails;
+	}
+	public void setEmployeeskilldetails(List<EmployeeSkillDetails> employeeskilldetails) {
+		this.employeeskilldetails = employeeskilldetails;
+	}
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "TEST_ID",nullable = false, insertable = false, updatable = false)
+	private EmployeeTest employeetest;
 	
-	public List<EmployeeSkillDetails> getSkillDetails(){
-	return employeeskilldetails;
+
+	public EmployeeTest getEmployeetest() {
+		return employeetest;
+	}
+	public void setEmployeetest(EmployeeTest employeetest) {
+		this.employeetest = employeetest;
 	}
 	public int getSkillId() {
 		return skillId;

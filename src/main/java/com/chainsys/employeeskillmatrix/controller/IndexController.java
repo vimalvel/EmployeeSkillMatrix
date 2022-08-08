@@ -9,5 +9,16 @@ public class IndexController {
 	private String indexPage() {
 		return "index";
 	}
-
+	@GetMapping("/index")
+	private String homepage() {
+		return "index";
+	}
+	@GetMapping("/home")
+	private String homePage() {
+		return "Home";
+	}
+	@GetMapping("/demos")
+	private String demoPage() {
+		return "demo";
+	}
 }

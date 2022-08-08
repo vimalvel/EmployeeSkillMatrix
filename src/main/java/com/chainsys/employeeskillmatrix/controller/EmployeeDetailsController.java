@@ -75,5 +75,21 @@ public class EmployeeDetailsController {
 		model.addAttribute("employeesidlist",dto1.getTestemployeedetails());
 		return "employeedetails-testemployeedetails";
 	}
+	@GetMapping("/employeeloginform")
+	public String employeeLoginForm(Model model) {
+		EmployeeDetails employeedetails = new EmployeeDetails();
+		model.addAttribute("employeelogin", employeedetails);
+		return "employee-login-form";
+	}
+	@PostMapping("/checkemployeeloginform")
+	public String checkingAccess(@ModelAttribute("employeelogin") EmployeeDetails employeedetail) {
+		EmployeeDetails employeedetails = employeeDetailsService.getEmployeeByIdAndEmailAndPassword(employeedetail.getEmployeeId(),employeedetail.getEmail(),employeedetail.getPassword());
+		if (employeedetails!=null) {
+			return "redirect:/employeedetails/employeelist";
+		}
+		else
+			return "redirect-employeeloginpage";
+		
+	}
 
 }

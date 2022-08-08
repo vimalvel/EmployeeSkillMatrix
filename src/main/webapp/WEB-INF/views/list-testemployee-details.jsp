@@ -18,7 +18,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="test" items="${testemployeedetailslist}">
+				<c:forEach var="test" items="${alltestemployeedetails}">
 					<tr>
 						<td>${test.examId}</td>
 						<td>${test.employeeId}</td>

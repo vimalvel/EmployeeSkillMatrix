@@ -9,8 +9,6 @@ public class TestEmployeeDetailsCompositeKey implements Serializable {
 	private int examId;
 	@Column(name="EMPLOYEE_ID")
 	private int employeeId;
-	@Column(name="STATUS")
-	private String status;
 	TestEmployeeDetailsCompositeKey(){
 		
 	}
@@ -30,11 +28,6 @@ public class TestEmployeeDetailsCompositeKey implements Serializable {
 	public void setEmployeeId(int employeeId) {
 		this.employeeId = employeeId;
 	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
+	
 
 }

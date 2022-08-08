@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.employeeskillmatrix.dto.EmployeeTestAndSkillsDTO;
 import com.chainsys.employeeskillmatrix.model.EmployeeTest;
 import com.chainsys.employeeskillmatrix.service.EmployeeTestService;
 
@@ -57,6 +58,13 @@ public class EmployeeTestController {
 		List<EmployeeTest> employeetest = employeetestservice.getEmployeeTest();
 		model.addAttribute("allemployeetest",employeetest);
 		return "list-employee-test";
+	}
+	@GetMapping("gettestidbyskills")
+	public String getEmployeeTestAndSkills(@RequestParam("id") int id,Model model) {
+		EmployeeTestAndSkillsDTO dto = employeetestservice.getEmployeeTestAndSkillsDTO(id);
+		model.addAttribute("gettestid", dto.getEmployeetest());
+		model.addAttribute("gettestlist", dto.getSkills());
+		return "employeetest-skills";
 	}
 
 

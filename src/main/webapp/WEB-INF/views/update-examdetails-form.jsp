@@ -21,7 +21,7 @@
 				<div>
 					<label for="examDate">Exam Date</label>
 					<div>
-						<form:input path="examDate" />
+						<form:input path="examDate" type = "date" />
 					</div>
 				</div>
 				<div>
@@ -33,13 +33,13 @@
 				<div>
 					<label for="startTime">Start Time</label>
 					<div>
-						<form:input path="startTime" />
+						<form:input path="startTime" type = "datetime-local" />
 					</div>
 				</div>
 				<div>
 					<label for="endTime">End Time</label>
 					<div>
-						<form:input path="endTime" />
+						<form:input path="endTime" type = "datetime-local" />
 					</div>
 				</div>
 				<div>
