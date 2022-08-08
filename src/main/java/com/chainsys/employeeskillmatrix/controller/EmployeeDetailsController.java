@@ -2,9 +2,12 @@ package com.chainsys.employeeskillmatrix.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,9 +38,13 @@ public class EmployeeDetailsController {
 		return "add-employee-details-form";
 	}
 	@PostMapping("/addnewemployeedetails")
-	public String addNewEmployeeDetails(@ModelAttribute("addemployeedetails")EmployeeDetails emp) {
+	public String addNewEmployeeDetails(@Valid@ModelAttribute("addemployeedetails")EmployeeDetails emp , Errors errors) {
+		if(errors.hasErrors()) {
+			return "add-employee-details-form";
+		}
+		else {
 		employeeDetailsService.save(emp);
-		return "redirect:/employeedetails/employeelist";
+		return "redirect:/employeedetails/employeelist";}
 	}
 	@GetMapping("/updateemployeedetailsform")
 	public String showUpdateEmployeeDetailsForm(@RequestParam("employeeid") int id,Model model) {
@@ -46,9 +53,13 @@ public class EmployeeDetailsController {
 		return "update-employee-details-form";
 	}
 	@PostMapping("/updatenewemployeedetails")
-	public String updateEmployeeDetails(@ModelAttribute("updateemployeedetails")EmployeeDetails employee) {
+	public String updateEmployeeDetails(@Valid@ModelAttribute("updateemployeedetails")EmployeeDetails employee , Errors errors) {
+		if(errors.hasErrors()) {
+			return "update-employee-details-form";
+		}
+		else {
 		employeeDetailsService.save(employee);
-		return "redirect:/employeedetails/employeelist";
+		return "redirect:/employeedetails/employeelist";}
 	}
 	@GetMapping("deleteemployeedetails")
 	public String deleteEmployeeDetails(@RequestParam("employeeid") int id) {

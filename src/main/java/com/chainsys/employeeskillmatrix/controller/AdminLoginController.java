@@ -41,7 +41,7 @@ public class AdminLoginController {
 		}
 		else {
 		adminLoginService.save(adminlogin);
-		return "redirect:/adminlogins/adminlist";
+		return "redirect:/adminlogins/adminloginform";
 		}
 	}
 	@GetMapping("/updateadminloginform")
@@ -51,9 +51,13 @@ public class AdminLoginController {
 		return "update-admin-login-form";
 	}
 	@PostMapping("/updatenewadminlogin")
-	public String updateNewAdminLogin(@ModelAttribute("updateadminlogin")AdminLogin adminlogin) {
+	public String updateNewAdminLogin(@Valid@ModelAttribute("updateadminlogin")AdminLogin adminlogin,Errors errors) {
+		if(errors.hasErrors()) {
+			return "update-admin-login-form";
+		}
+		else {
 		adminLoginService.save(adminlogin);
-		return "redirect:/adminlogins/adminlist";
+		return "redirect:/adminlogins/adminlist";}
 	}
 	@GetMapping("deleteadminlogin")
 	public String deleteAdminLogin(@RequestParam("adminid") int adminid) {

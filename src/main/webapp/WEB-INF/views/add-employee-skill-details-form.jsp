@@ -15,20 +15,26 @@
 				<div>
 					<label for="employeeId">Employee Id</label>
 					<div>
-						<form:input path="employeeId" />
+						<form:input path="employeeId" title="minimum 1 value should be inizialize"
+						pattern="^[0-9]+$" required="true" />
 					</div>
+					<form:errors path="employeeId" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="skillId">Skill Id</label>
 					<div>
-						<form:input path="skillId" />
+						<form:input path="skillId" title="minimum 1 value should be inizialize"
+						pattern="^[0-9]+$" required="true" />
 					</div>
+					<form:errors path="skillId" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="examId">Exam Id</label>
 					<div>
-						<form:input path="examId" />
+						<form:input path="examId" title="minimum 1 value should be inizialize"
+						pattern="^[0-9]+$" required="true" />
 					</div>
+					<form:errors path="examId" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="markScore">Mark Score</label>

@@ -3,9 +3,12 @@ package com.chainsys.employeeskillmatrix.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,9 +38,14 @@ public class EmployeeSkillDetailsController {
 		return "add-employee-skill-details-form";
 	}
 	@PostMapping("/addnewemployeeskilldetails")
-	public String addNewEmployeeSkillDetails(@ModelAttribute("addemployeeskilldetails")EmployeeSkillDetails employeeskilldetails) {
+	public String addNewEmployeeSkillDetails(@Valid@ModelAttribute("addemployeeskilldetails")EmployeeSkillDetails employeeskilldetails ,Errors error) {
+		if(error.hasErrors()) {
+			return "add-employee-skill-details-form";
+		}
+		else {
 		employeeSkillDetailsService.save(employeeskilldetails);
 		return "redirect:/employeeskilldetails/employeeskilldetailslist";
+		}
 	}
 	@GetMapping("/updateemployeeskilldetailsform")
 	public String updateEmployeeSkillDetailsForm(@RequestParam("id") int id,@RequestParam("sid") int sid,@RequestParam("eid") int eid,Model model) {
@@ -47,9 +55,13 @@ public class EmployeeSkillDetailsController {
 		return "update-employee-skill-details-form";
 	}
 	@PostMapping("/updatenewemployeeskilldetails")
-	public String updateNewEmployeeSkillDetails(@ModelAttribute("updateemployeeskilldetails")EmployeeSkillDetails employeeskilldetails) {
+	public String updateNewEmployeeSkillDetails(@Valid@ModelAttribute("updateemployeeskilldetails")EmployeeSkillDetails employeeskilldetails , Errors error) {
+		if(error.hasErrors()) {
+			return "update-employee-skill-details-form";
+		}
+		else {
 		employeeSkillDetailsService.save(employeeskilldetails);
-		return "redirect:/employeeskilldetails/employeeskilldetailslist";
+		return "redirect:/employeeskilldetails/employeeskilldetailslist";}
 	}
 	@GetMapping("deleteemployeeskilldetails")
 	public String deleteEmployeeSkillDetails(@RequestParam("id") int id,@RequestParam("sid") int sid,@RequestParam("eid") int eid) {

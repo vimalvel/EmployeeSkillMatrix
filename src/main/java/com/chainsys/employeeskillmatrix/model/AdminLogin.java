@@ -25,10 +25,12 @@ public class AdminLogin {
 	
 	@Column(name="ADMIN_EMAIL")
 	@Email(message="*example@45gmail.com")
+	@NotEmpty(message ="fill the email")
 	private String adminEmail;
 	
 	@Column(name="PASSWORD")
-	@Pattern(regexp="^.*(?=.{8,})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$",message="please enter the correct format")
+	@Pattern(regexp="^.*(?=.{8,})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$",message="please enter the correct format *Welcomee@13")
+	@NotEmpty(message = "fill the password")
 	private String password;
 	
 	public int getAdminId() {
