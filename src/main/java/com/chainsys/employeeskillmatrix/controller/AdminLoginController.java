@@ -41,7 +41,7 @@ public class AdminLoginController {
 		}
 		else {
 		adminLoginService.save(adminlogin);
-		return "redirect:/adminlogins/adminloginform";
+		return "redirect:/adminlogins/adminlist";
 		}
 	}
 	@GetMapping("/updateadminloginform")
@@ -78,8 +78,8 @@ public class AdminLoginController {
 	}
 	@PostMapping("/checkadminloginform")
 	public String checkingAccess(@ModelAttribute("adminlogin") AdminLogin adminlogin) {
-		AdminLogin adminLogin = adminLoginService.getAdminByIdAndEmailAndPassword(adminlogin.getAdminId(), adminlogin.getAdminEmail(), adminlogin.getPassword());
-		if (adminLogin!=null) {
+		AdminLogin adminLogin = adminLoginService.getAdminByIdAndPassword(adminlogin.getAdminId(), adminlogin.getPassword());
+		if(adminLogin!=null) {
 			return "redirect:/adminlogins/adminindex";
 		}
 		else
@@ -90,33 +90,5 @@ public class AdminLoginController {
 	public String skills() {
 		return "skill-page";
 	}
-	@GetMapping("/adminempindex")
-	public String employeeCrud() {
-		return "employee-crud";
-	}
-	@GetMapping("/adminskillindex")
-	public String skillCrud() {
-		return "skill-crud";
-	}
-	@GetMapping("/adminexamdetailsindex")
-	public String examDetailsCrud() {
-		return "exam-detail-crud";
-	}
-	@GetMapping("/adminemployeetestindex")
-	public String employeeTestCrud() {
-		return "employee-test-crud";
-	}
-	@GetMapping("/admintestemployeedetailsindex")
-	public String testEmployeeDetailsCrud() {
-		return "test-employee-details-crud";
-	}
-	@GetMapping("/adminemployeeskilldetailsindex")
-	public String employeeSkillDetailsCrud() {
-		return "employee-skill-details-crud";
-	}
-
-
-
-
-
+	
 }

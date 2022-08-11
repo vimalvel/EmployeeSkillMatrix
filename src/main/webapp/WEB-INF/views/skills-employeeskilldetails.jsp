@@ -30,31 +30,7 @@
 						<form:input path="skillType" />
 					</div>
 				</div>
-				<div>
-					<label for="prerequest">Prerequest</label>
-					<div>
-						<form:input path="prerequest" />
-					</div>
-				</div>
-				<div>
-					<label for="testId">Test Id</label>
-					<div>
-						<form:input path="testId" />
-					</div>
-				</div>
-				<div>
-					<label for="passMark">PassMark</label>
-					<div>
-						<form:input path="passMark" />
-					</div>
-				</div>
-				<div>
-					<label for="employeeLevel">Employee Level</label>
-					<div>
-						<form:input path="employeeLevel" />
-					</div>
-				</div>
-			</form:form>
+							</form:form>
 		</div>
 		<div id="table root">
 		<table>
@@ -65,6 +41,7 @@
 			<th>Exam Id</th>
 			<th>Mark Scored</th>
 			<th>Grade</th>
+			<th>Employee Level</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -75,6 +52,7 @@
 			<td>${skill.examId}</td>
 			<td>${skill.markScore}</td>
 		    <td>${skill.grade}</td>
+		    <td>${skill.employeeLevel}</td>
 			</c:forEach>
 			</tbody>
 		</table>

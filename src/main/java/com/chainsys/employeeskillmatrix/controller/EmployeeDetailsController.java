@@ -38,13 +38,14 @@ public class EmployeeDetailsController {
 		return "add-employee-details-form";
 	}
 	@PostMapping("/addnewemployeedetails")
-	public String addNewEmployeeDetails(@Valid@ModelAttribute("addemployeedetails")EmployeeDetails emp , Errors errors) {
+	public String addNewEmployeeDetails(@Valid@ModelAttribute("addemployeedetails")EmployeeDetails emp,Errors errors) {
 		if(errors.hasErrors()) {
 			return "add-employee-details-form";
 		}
 		else {
 		employeeDetailsService.save(emp);
-		return "redirect:/employeedetails/employeelist";}
+		return "redirect:/employeedetails/employeelist";
+		}
 	}
 	@GetMapping("/updateemployeedetailsform")
 	public String showUpdateEmployeeDetailsForm(@RequestParam("employeeid") int id,Model model) {
@@ -94,13 +95,18 @@ public class EmployeeDetailsController {
 	}
 	@PostMapping("/checkemployeeloginform")
 	public String checkingAccess(@ModelAttribute("employeelogin") EmployeeDetails employeedetail) {
-		EmployeeDetails employeedetails = employeeDetailsService.getEmployeeByIdAndEmailAndPassword(employeedetail.getEmployeeId(),employeedetail.getEmail(),employeedetail.getPassword());
+		EmployeeDetails employeedetails = employeeDetailsService.getEmployeeByIdAndPassword(employeedetail.getEmployeeId(),employeedetail.getPassword());
 		if (employeedetails!=null) {
-			return "redirect:/employeedetails/employeelist";
+			return "redirect:/employeedetails/loginindex";
 		}
 		else
 			return "redirect-employeeloginpage";
 		
 	}
+	@GetMapping("/loginindex")
+	public String employeeLogin() {
+		return "employee-page";
+	}
+	
 
 }

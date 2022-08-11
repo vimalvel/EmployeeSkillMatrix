@@ -11,6 +11,6 @@ public interface EmployeeDetailsRepository extends CrudRepository<EmployeeDetail
 	EmployeeDetails save(EmployeeDetails empdetails);
 	void deleteById(int emp_id);
 	List<EmployeeDetails> findAll();
-	EmployeeDetails findByEmployeeIdAndEmailAndPassword(int id,String email,String password);
+	EmployeeDetails findByEmployeeIdAndPassword(int id,String password);
        
 }

@@ -4,22 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.chainsys.employeeskillmatrix.model.EmployeeTest;
-import com.chainsys.employeeskillmatrix.model.Skills;
+import com.chainsys.employeeskillmatrix.model.ExamDetails;
 
-public class EmployeeTestAndSkillsDTO {
+public class ExamDetailsAndEmployeeTestDTO {
 	private EmployeeTest employeetest;
-	private List<Skills> skills = new ArrayList<Skills>();
+	public List<ExamDetails> examDetails = new ArrayList<ExamDetails>();
 	public EmployeeTest getEmployeetest() {
 		return employeetest;
 	}
 	public void setEmployeetest(EmployeeTest employeetest) {
 		this.employeetest = employeetest;
 	}
-	public List<Skills> getSkills() {
-		return skills;
+	public List<ExamDetails> getExamDetails() {
+		return examDetails;
 	}
-	public void addSkills(Skills skill) {
-		skills.add(skill);
+	public void addExamDetails(ExamDetails examDetail) {
+		examDetails.add(examDetail);
 	}
 
 }

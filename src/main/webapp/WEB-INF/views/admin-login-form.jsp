@@ -22,12 +22,6 @@
 					</div>
 				</div>
 				<div>
-					<label for="adminEmail">Admin Email</label>
-					<div>
-						<form:input path="adminEmail" />
-					</div>
-				</div>
-				<div>
 					<label for="password">Password</label>
 					<div>
 						<form:input path="password" type = "password" />

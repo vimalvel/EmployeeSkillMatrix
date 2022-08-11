@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div id="table root">
-		<table>
+		<table border='2' width="80%" cell-padding='2'>
 			<thead>
 			<tr>
 			<th>Employee Id</th>
@@ -24,6 +24,8 @@
 			<th>Employee Manager</th>
 			<th>Salary</th>
 			<th>Password</th>
+			<th>Edit</th>
+			<th>Delete</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -41,6 +43,8 @@
 		    <td>${emp.employeeManager }</td>
 		    <td>${emp.salary }</td>
 		    <td>${emp.password }</td>
+		    <td><a href="updateemployeedetailsform?employeeid=${emp.employeeId}"><button class = "button">Edit</button></a></td>
+		    <td><a href="deleteemployeedetails?employeeid=${emp.employeeId}"><button class = "button">Delete</button></a></td>
 			</c:forEach>
 			</tbody>
 		</table>

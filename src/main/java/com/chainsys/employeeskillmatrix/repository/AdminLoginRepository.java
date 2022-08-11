@@ -12,6 +12,6 @@ public interface AdminLoginRepository extends CrudRepository<AdminLogin,Integer>
 	AdminLogin save(AdminLogin login);
 	void deleteById(int id);
 	List<AdminLogin> findAll();
-	AdminLogin findByAdminIdAndAdminEmailAndPassword(int id,String email,String password);
+	AdminLogin findByAdminIdAndPassword(int id,String password);
 
 }

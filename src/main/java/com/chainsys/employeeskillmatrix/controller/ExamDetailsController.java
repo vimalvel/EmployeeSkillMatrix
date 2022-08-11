@@ -2,9 +2,12 @@ package com.chainsys.employeeskillmatrix.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,9 +37,14 @@ public class ExamDetailsController {
 		return "add-examdetails-form";
 	}
 	@PostMapping("/addnewexamdetails")
-	public String addNewExamDetails(@ModelAttribute("addexamdetails")ExamDetails examdetails) {
+	public String addNewExamDetails(@Valid@ModelAttribute("addexamdetails")ExamDetails examdetails,Errors errors) {
+		if(errors.hasErrors()) {
+			return "add-examdetails-form";	
+		}
+		else {
 		examDetailsService.save(examdetails);
 		return "redirect:/examdetails/examlist";
+		}
 	}
 	@GetMapping("/updateexamdetailsform")
 	public String UpdateExamDetailsForm(@RequestParam("id") int id,Model model) {
@@ -45,9 +53,14 @@ public class ExamDetailsController {
 		return "update-examdetails-form";
 	}
 	@PostMapping("/updatenewexamdetails")
-	public String updateNewExamDetails(@ModelAttribute("updateexamdetails")ExamDetails examdetails) {
+	public String updateNewExamDetails(@Valid@ModelAttribute("updateexamdetails")ExamDetails examdetails,Errors errors) {
+		if(errors.hasErrors()) {
+			return "update-examdetails-form";
+		}
+		else {
 		examDetailsService.save(examdetails);
 		return "redirect:/examdetails/examlist";
+		}
 	}
 	@GetMapping("deleteexamdetails")
 	public String deleteExamDetails(@RequestParam("id") int id) {

@@ -18,25 +18,17 @@
 <div id="root">
 		<div id="form">
 			<form:form action = "addnewadminlogin" method = "post" modelAttribute = "addadminlogin">
-			<div>
+			 <div>
 					<label for="adminId">Admin Id</label>
 					<div>
-						<form:input path="adminId" title="minimum 1 value should be inizialize"
-						pattern="^[0-9]+$" required="true" />
+						<form:input path="adminId"  placeholder = "Enter Admin Id" required="true" />
 					</div>
 					<form:errors path="adminId" cssClass="text-danger" />
 				</div>
 				<div>
-					<label for="adminEmail">Admin Email</label>
-					<div>
-						<form:input path="adminEmail" title="example@45gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required = "true" />
-					</div>
-					<form:errors path="adminEmail" cssClass="text-danger" />
-				</div>
-				<div>
 					<label for="password">Password</label>
 					<div>
-						<form:input path="password" type = "password" title="Welcomeee@123" pattern="^.*(?=.{8,})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$" required = "true"/>
+						<form:input path="password" placeholder = "Password" type = "password"  required = "true"/>
 					</div>
 					<form:errors path="password" cssClass="text-danger" />
 				</div>

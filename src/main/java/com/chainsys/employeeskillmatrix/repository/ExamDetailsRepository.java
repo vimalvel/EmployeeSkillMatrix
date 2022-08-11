@@ -12,5 +12,6 @@ public interface ExamDetailsRepository extends CrudRepository<ExamDetails,Intege
 	ExamDetails save(ExamDetails exdetails);
 	void deleteById(int id);
 	List<ExamDetails> findAll();
+	List<ExamDetails> findByTestId(int id);
 
 }

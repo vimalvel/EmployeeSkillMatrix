@@ -81,6 +81,7 @@
 			<th>Exam Id</th>
 			<th>Mark Scored</th>
 			<th>Grade</th>
+			<th>Employee Level</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -91,6 +92,7 @@
 			<td>${skill.examId}</td>
 			<td>${skill.markScore}</td>
 		    <td>${skill.grade}</td>
+		    <td>${skill.employeeLevel}</td>
 			</c:forEach>
 			</tbody>
 		</table>

@@ -9,7 +9,7 @@
 </head>
 <body>
 <div id="table root">
-		<table>
+		<table border='2' width="80%" cell-padding='2'>
 			<thead>
 			<tr>
 			<th>Exam Id</th>
@@ -21,6 +21,8 @@
 			<th>Total Participation</th>
 			<th>Supervicer</th>
 			<th>Number of Passed</th>
+			<th>Edit</th>
+			<th>Delete</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -35,6 +37,8 @@
 		    <td>${ex.totalParticipation}</td>
 		    <td>${ex.supervicer}</td>
 		    <td>${ex.numberOfPassed}</td>
+		    <td><a href="updateexamdetailsform?id=${ex.examId}"><button class = "button">Edit</button></a></td>
+		    <td><a href="deleteexamdetailsid=${ex.examId}"><button class = "button">Delete</button></a></td>
 			</c:forEach>
 			</tbody>
 		</table>

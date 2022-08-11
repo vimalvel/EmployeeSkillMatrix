@@ -22,12 +22,6 @@
 					</div>
 				</div>
 				<div>
-					<label for="email">Email</label>
-					<div>
-						<form:input path="email" />
-					</div>
-				</div>
-				<div>
 					<label for="password">Password</label>
 					<div>
 						<form:input path="password" type = "password"/>
@@ -35,7 +29,7 @@
 				</div>
 				<div>
 				<form:button value ="SignIn">SignIn</form:button>
-				<form:button> <a href="/employeedetails/addemployeeskilldetailsform">Signup</a> ></form:button>
+				<form:button> <a href="/employeedetails/addemployeedetailsform">Signup</a> ></form:button>
 				<form:button type = "reset" value = "Clear">Reset</form:button>
 				</div>
 			</form:form>

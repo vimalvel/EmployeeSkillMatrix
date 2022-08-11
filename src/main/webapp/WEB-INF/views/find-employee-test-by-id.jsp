@@ -36,12 +36,6 @@
 						<form:input path="passMark" readonly="true" />
 					</div>
 				</div>
-				<div>
-					<label for="subject">Subject</label>
-					<div>
-						<form:input path="subject" readonly="true" />
-					</div>
-				</div>
 			</form:form>
 		</div>
 	</div>

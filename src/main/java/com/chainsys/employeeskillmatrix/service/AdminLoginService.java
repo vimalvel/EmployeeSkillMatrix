@@ -26,8 +26,8 @@ public class AdminLoginService {
 	public void deleteById(int id) {
 		adminLoginRepository.deleteById(id);
 	}
-	public AdminLogin getAdminByIdAndEmailAndPassword(int id,String email,String password) {
-		return adminLoginRepository.findByAdminIdAndAdminEmailAndPassword(id, email, password);
+	public AdminLogin getAdminByIdAndPassword(int id,String password) {
+		return adminLoginRepository.findByAdminIdAndPassword(id, password);
 	}
 
 }

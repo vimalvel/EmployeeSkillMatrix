@@ -2,9 +2,12 @@ package com.chainsys.employeeskillmatrix.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,9 +36,13 @@ public class SkillsController {
 		return "add-skill-form";
 	}
 	@PostMapping("/addnewskill")
-	public String addNewSkill(@ModelAttribute("addskill")Skills skill) {
+	public String addNewSkill(@Valid@ModelAttribute("addskill")Skills skill,Errors errors) {
+		if(errors.hasErrors()) {
+			return "add-skill-form";
+		}
+		else {
 		skillsService.save(skill);
-		return "redirect:/skills/skilllist";
+		return "redirect:/skills/skilllist";}
 	}
 	@GetMapping("/updateskillsform")
 	public String UpdateskillForm(@RequestParam("id") int id,Model model) {
@@ -44,9 +51,14 @@ public class SkillsController {
 		return "update-skill-form";
 	}
 	@PostMapping("/updatenewskill")
-	public String updateNewSkills(@ModelAttribute("updateskill")Skills skill) {
+	public String updateNewSkills(@Valid@ModelAttribute("updateskill")Skills skill,Errors errors) {
+		if(errors.hasErrors()) {
+			return "update-skill-form";
+		}
+		else {
 		skillsService.save(skill);
 		return "redirect:/skills/skilllist";
+		}
 	}
 	@GetMapping("deleteskill")
 	public String deleteSkills(@RequestParam("id") int id) {

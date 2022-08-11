@@ -15,44 +15,50 @@
 				<div>
 					<label for="employeeId">Employee Id</label>
 					<div>
-						<form:input path="employeeId" title="minimum 1 value should be inizialize"
-						pattern="^[0-9]+$" required="true" />
+						<form:input path="employeeId" placeholder="Employee Id" required="true" />
 					</div>
 					<form:errors path="employeeId" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="skillId">Skill Id</label>
 					<div>
-						<form:input path="skillId" title="minimum 1 value should be inizialize"
-						pattern="^[0-9]+$" required="true" />
+						<form:input path="skillId" placeholder="Skill ID" required="true" />
 					</div>
 					<form:errors path="skillId" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="examId">Exam Id</label>
 					<div>
-						<form:input path="examId" title="minimum 1 value should be inizialize"
-						pattern="^[0-9]+$" required="true" />
+						<form:input path="examId" placeholder="Exam ID" required="true" />
 					</div>
 					<form:errors path="examId" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="markScore">Mark Score</label>
 					<div>
-						<form:input path="markScore" />
+						<form:input path="markScore" placeholder="MarkScore"  required="true"/>
 					</div>
+					<form:errors path="markScore" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="grade">Grade</label>
 					<div>
-						<form:input path="grade" />
+						<form:input path="grade" placeholder="Grade"  required="true"/>
 					</div>
+					<form:errors path="grade" cssClass="text-danger" />
+				</div>
+				<div>
+					<label for="employeeLevel">Employee Level</label>
+					<div>
+						<form:input path="employeeLevel" placeholder="Employee Level"  required="true"/>
+					</div>
+					<form:errors path="employeeLevel" cssClass="text-danger" />
 				</div>
 				<div>
 					<form:button>Update Employee Skill</form:button>
 				</div>
 			</form:form>
 		</div>
-		</div>
+	</div>
 </body>
 </html>

@@ -43,6 +43,12 @@
 						<form:input path="grade" readonly="true" />
 					</div>
 				</div>
+				<div>
+					<label for="employeeLevel">Employee Level</label>
+					<div>
+						<form:input path="employeeLevel" readonly="true" />
+					</div>
+					</div>
 			</form:form>
 		</div>
 	</div>

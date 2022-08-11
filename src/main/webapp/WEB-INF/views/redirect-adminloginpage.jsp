@@ -15,7 +15,7 @@
 			Again</h2>
 	</div>
 	<div align="center">
-		<a href="/adminlogin/adminloginform"><button type = "button" onclick = "">Redirect To Admin Login Page</button></a>
+		<a href="/adminlogins/adminloginform"><button type = "button" onclick = "">Redirect To Admin Login Page</button></a>
 	</div>
 </body>
 </html>

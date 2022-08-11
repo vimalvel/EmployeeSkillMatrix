@@ -2,16 +2,19 @@ package com.chainsys.employeeskillmatrix.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.employeeskillmatrix.dto.EmployeeTestAndSkillsDTO;
+import com.chainsys.employeeskillmatrix.dto.ExamDetailsAndEmployeeTestDTO;
 import com.chainsys.employeeskillmatrix.model.EmployeeTest;
 import com.chainsys.employeeskillmatrix.service.EmployeeTestService;
 
@@ -33,9 +36,13 @@ public class EmployeeTestController {
 		return "add-employee-test-form";
 	}
 	@PostMapping("/addnewemployeetest")
-	public String addNewEmployeeTest(@ModelAttribute("addemployeetest")EmployeeTest employeetest) {
+	public String addNewEmployeeTest(@Valid@ModelAttribute("addemployeetest")EmployeeTest employeetest , Errors errors) {
+		if(errors.hasErrors()) {
+			return "add-employee-test-form";
+		}
+		else {
 	    employeetestservice.save(employeetest);
-		return "redirect:/employeetest/employeetestlist";
+		return "redirect:/employeetest/employeetestlist";}
 	}
 	@GetMapping("/updateemployeetestform")
 	public String UpdateEmployeeTestForm(@RequestParam("id") int id,Model model) {
@@ -44,9 +51,13 @@ public class EmployeeTestController {
 		return "update-employee-test-form";
 	}
 	@PostMapping("/updatenewemployeetest")
-	public String updateNewEmployeeTest(@ModelAttribute("updateemployeetest")EmployeeTest employeetest) {
+	public String updateNewEmployeeTest(@Valid@ModelAttribute("updateemployeetest")EmployeeTest employeetest,Errors errors) {
+		if(errors.hasErrors()) {
+			return "update-employee-test-form";
+		}
+		else {
 		employeetestservice.save(employeetest);
-		return "redirect:/employeetest/employeetestlist";
+		return "redirect:/employeetest/employeetestlist";}
 	}
 	@GetMapping("deleteemployeetest")
 	public String deleteEmployeeTest(@RequestParam("id") int id) {
@@ -59,13 +70,14 @@ public class EmployeeTestController {
 		model.addAttribute("allemployeetest",employeetest);
 		return "list-employee-test";
 	}
-	@GetMapping("gettestidbyskills")
-	public String getEmployeeTestAndSkills(@RequestParam("id") int id,Model model) {
-		EmployeeTestAndSkillsDTO dto = employeetestservice.getEmployeeTestAndSkillsDTO(id);
-		model.addAttribute("gettestid", dto.getEmployeetest());
-		model.addAttribute("gettestlist", dto.getSkills());
-		return "employeetest-skills";
+	@GetMapping("/getexamdetails")
+	public String getExamDetailsAndEmployeeTestDTO(@RequestParam("id") int id, Model model) {
+		ExamDetailsAndEmployeeTestDTO dto = employeetestservice.getExamDetailsAndEmployeeTestDTO(id);
+		model.addAttribute("gettestid",dto.getEmployeetest());
+		model.addAttribute("testidlist", dto.getExamDetails());
+		return "examdetails-employeetest";
 	}
+	
 
 
 }

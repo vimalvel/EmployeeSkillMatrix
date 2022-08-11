@@ -20,23 +20,19 @@ import com.chainsys.employeeskillmatrix.compositekey.EmployeeSkillDetailsComposi
 public class EmployeeSkillDetails {
 	@Id
 	@Column(name = "EMPLOYEE_ID")
-	@Range(min=1 ,message = "*value should greater than 0")
-	@NotEmpty(message="*fill the employee id")
 	private int employeeId;
 	@Id
 	@Column(name = "SKILL_ID")
-	@Range(min=1 ,message = "*value should greater than 0")
-	@NotEmpty(message="*fill the skill id")
 	private int skillId;
 	@Id
 	@Column(name = "EXAM_ID")
-	@Range(min=1 ,message = "*value should greater than 0")
-	@NotEmpty(message="*fill the exam id")
 	private int examId;
 	@Column(name = "MARK_SCORED")
 	private int markScore;
 	@Column(name = "GRADE")
 	private String grade;
+	@Column(name="EMPLOYEE_LEVEL")
+	private String employeeLevel;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "EMPLOYEE_ID", nullable = false, insertable = false, updatable = false)
 	private EmployeeDetails employeeDetails;
@@ -111,5 +107,13 @@ public class EmployeeSkillDetails {
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
+	public String getEmployeeLevel() {
+		return employeeLevel;
+	}
+
+	public void setEmployeeLevel(String employeeLevel) {
+		this.employeeLevel = employeeLevel;
+	}
+
 
 }

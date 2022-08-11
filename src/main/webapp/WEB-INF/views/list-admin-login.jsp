@@ -9,11 +9,10 @@
 </head>
 <body>
 <div id="table root">
-		<table>
+		<table border='2' width="80%" cell-padding='2'>
 			<thead>
 			<tr>
 			<th>Admin Id</th>
-			<th>Admin Name</th>
 			<th>Password</th>
 			</tr>
 			</thead>
@@ -21,7 +20,6 @@
 			<c:forEach var = "admin" items = "${alladmin}">
 			<tr>
 			<td>${admin.adminId}</td>
-			<td>${admin.adminEmail}</td>
 			<td>${admin.password}</td>
 			</c:forEach>
 			</tbody>

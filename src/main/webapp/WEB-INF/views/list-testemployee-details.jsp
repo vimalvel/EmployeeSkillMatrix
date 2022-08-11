@@ -9,12 +9,14 @@
 </head>
 <body>
 	<div id="table root">
-		<table>
+		<table border='2' width="80%" cell-padding='2'>
 			<thead>
 				<tr>
 					<th>Exam Id</th>
 					<th>Employee Id</th>
 					<th>Status</th>
+					<th>Edit</th>
+					<th>Delete</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -23,6 +25,8 @@
 						<td>${test.examId}</td>
 						<td>${test.employeeId}</td>
 						<td>${test.status}</td>
+						<td><a href="updatetestemployeedetailsform?examid=${test.examId}&employeeid=${test.employeeId}"><button class = "button">Edit</button></a></td>
+						<td><a href="deletetestemployeedetails?examid=${test.examId}&employeeid=${test.employeeId}"><button class = "button">Delete</button></a></td>
 				</c:forEach>
 			</tbody>
 		</table>

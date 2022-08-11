@@ -1,15 +1,17 @@
 package com.chainsys.employeeskillmatrix.model;
 
 import java.sql.Date;
-import java.sql.Timestamp;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name="examdetails")
@@ -22,9 +24,9 @@ public class ExamDetails {
 	@Column(name="TEST_ID")
 	private int testId;
 	@Column(name="START_TIME")
-	private Timestamp startTime;
+	private String startTime;
 	@Column(name="END_TIME")
-	private Timestamp endTime;
+	private String endTime;
 	@Column(name="EXAM_MODE")
 	private String examMode;
 	@Column(name="TOTAL_PARTICIPATION")
@@ -33,6 +35,8 @@ public class ExamDetails {
 	private String supervicer;
 	@Column(name="NUMBER_OF_PASSED")
 	private int numberOfPassed; 
+	
+	
 	@OneToMany(mappedBy="examdetails",fetch=FetchType.LAZY)
 	private List<EmployeeSkillDetails> employeeSkillDetails;
 	
@@ -50,6 +54,16 @@ public class ExamDetails {
 	}
 	public void setTestEmployeeDetails(List<TestEmployeeDetails> testEmployeeDetails) {
 		this.testEmployeeDetails = testEmployeeDetails;
+	}
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="TEST_ID",nullable = false, insertable = false, updatable = false)
+	private EmployeeTest test;
+	
+	public EmployeeTest getTest() {
+		return test;
+	}
+	public void setTest(EmployeeTest test) {
+		this.test = test;
 	}
 	public int getExamId() {
 		return examId;
@@ -69,16 +83,17 @@ public class ExamDetails {
 	public void setTestId(int testId) {
 		this.testId = testId;
 	}
-	public Timestamp getStartTime() {
+	
+	public String getStartTime() {
 		return startTime;
 	}
-	public void setStartTime(Timestamp startTime) {
+	public void setStartTime(String startTime) {
 		this.startTime = startTime;
 	}
-	public Timestamp getEndTime() {
+	public String getEndTime() {
 		return endTime;
 	}
-	public void setEndTime(Timestamp endTime) {
+	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
 	public String getExamMode() {

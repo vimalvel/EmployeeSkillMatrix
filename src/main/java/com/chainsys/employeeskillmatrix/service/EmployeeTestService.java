@@ -6,16 +6,20 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.chainsys.employeeskillmatrix.dto.EmployeeTestAndSkillsDTO;
+import com.chainsys.employeeskillmatrix.dto.ExamDetailsAndEmployeeTestDTO;
 import com.chainsys.employeeskillmatrix.model.EmployeeTest;
-import com.chainsys.employeeskillmatrix.model.Skills;
+import com.chainsys.employeeskillmatrix.model.ExamDetails;
+import com.chainsys.employeeskillmatrix.model.TestEmployeeDetails;
 import com.chainsys.employeeskillmatrix.repository.EmployeeTestRepository;
+import com.chainsys.employeeskillmatrix.repository.ExamDetailsRepository;
 import com.chainsys.employeeskillmatrix.repository.SkillsRepository;
 
 @Service
 public class EmployeeTestService {
 	@Autowired
 	private EmployeeTestRepository employeeTestRepository;
+	@Autowired
+	private ExamDetailsRepository examDetailsRepository;
 	@Autowired
 	private SkillsRepository skillsrepository;
 	public List<EmployeeTest> getEmployeeTest(){
@@ -31,16 +35,17 @@ public class EmployeeTestService {
 	public void deleteById(int id) {
 		employeeTestRepository.deleteById(id);
 	}
-	public EmployeeTestAndSkillsDTO getEmployeeTestAndSkillsDTO(int id) {
-		EmployeeTest employeetest = employeeTestRepository.findById(id);
-		EmployeeTestAndSkillsDTO dto = new EmployeeTestAndSkillsDTO();
-		dto.setEmployeetest(employeetest);
-		List<Skills> skills = skillsrepository.findByTestId(id);
-		Iterator<Skills> itr = skills.iterator();
+	public ExamDetailsAndEmployeeTestDTO getExamDetailsAndEmployeeTestDTO(int id) {
+	    EmployeeTest employeeTest = employeeTestRepository.findById(id);
+	    ExamDetailsAndEmployeeTestDTO dto1 = new ExamDetailsAndEmployeeTestDTO();
+		dto1.setEmployeetest(employeeTest);
+		List<ExamDetails> examDetails = examDetailsRepository.findByTestId(id);
+		Iterator<ExamDetails> itr = examDetails.iterator();
 		while (itr.hasNext()) {
-			dto.addSkills((Skills) itr.next());
-			}
-		return dto;
+			dto1.addExamDetails((ExamDetails) itr.next());
+		}
+		return dto1;
 	}
+	
 
 }

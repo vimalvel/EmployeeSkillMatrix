@@ -15,82 +15,79 @@
 				<div>
 					<label for="employeeId">Employee Id</label>
 					<div>
-						<form:input path="employeeId" />
+						<form:input path="employeeId" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="firstName">First Name</label>
 					<div>
-						<form:input path="firstName" />
+						<form:input path="firstName" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="lastName">Last Name</label>
 					<div>
-						<form:input path="lastName" />
+						<form:input path="lastName" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="gender">Gender</label>
 					<div>
-						<form:input path="gender" />
+						<form:input path="gender" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="dob">Date Of Birth</label>
 					<div>
-						<form:input path="dob" />
+						<form:input path="dob" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="email">Email</label>
 					<div>
-						<form:input path="email" />
+						<form:input path="email" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="address">Address</label>
 					<div>
-						<form:input path="address" />
+						<form:input path="address" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="phoneNumber">Phone Number</label>
 					<div>
-						<form:input path="phoneNumber" />
+						<form:input path="phoneNumber" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="designation ">Designation</label>
 					<div>
-						<form:input path="designation" />
+						<form:input path="designation" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="employeeManager">Employee Manager</label>
 					<div>
-						<form:input path="employeeManager" />
+						<form:input path="employeeManager" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="salary">Salary</label>
 					<div>
-						<form:input path="salary" />
+						<form:input path="salary" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="password">Password</label>
 					<div>
-						<form:input path="password" />
+						<form:input path="password" readonly="true"/>
 					</div>
-				</div>
-				<div>
-					<form:button>Add Employee</form:button>
 				</div>
 			</form:form>
 		</div>
 		<div id="employeeidlist">
-		<table>
+		<table border='2' width="80%" cell-padding='2'>
 			<thead>
 			<tr>
 			<th>Employee Id</th>
@@ -98,6 +95,7 @@
 			<th>Exam Id</th>
 			<th>Mark Scored</th>
 			<th>Grade</th>
+			<th>Employee Level</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -108,6 +106,8 @@
 			<td>${skill.examId}</td>
 			<td>${skill.markScore}</td>
 		    <td>${skill.grade}</td>
+		     <td>${skill.employeeLevel}</td>
+	
 			</c:forEach>
 			</tbody>
 		</table>

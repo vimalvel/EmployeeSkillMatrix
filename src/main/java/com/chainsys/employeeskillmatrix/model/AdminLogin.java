@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -19,18 +20,11 @@ import org.springframework.lang.NonNull;
 @Table(name="adminlogin")
 public class AdminLogin {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "admin_id")
+    @SequenceGenerator(name = "admin_id", sequenceName = "admin_id",  allocationSize = 1)
 	@Column(name="ADMIN_ID")
-	@Range(min=1,message="*value should greater than 0")
 	private int adminId;
-	
-	@Column(name="ADMIN_EMAIL")
-	@Email(message="*example@45gmail.com")
-	@NotEmpty(message ="fill the email")
-	private String adminEmail;
-	
 	@Column(name="PASSWORD")
-	@Pattern(regexp="^.*(?=.{8,})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$",message="please enter the correct format *Welcomee@13")
-	@NotEmpty(message = "fill the password")
 	private String password;
 	
 	public int getAdminId() {
@@ -38,12 +32,6 @@ public class AdminLogin {
 	}
 	public void setAdminId(int adminId) {
 		this.adminId = adminId;
-	}
-	public String getAdminEmail() {
-		return adminEmail;
-	}
-	public void setAdminEmail(String adminEmail) {
-		this.adminEmail = adminEmail;
 	}
 	public String getPassword() {
 		return password;

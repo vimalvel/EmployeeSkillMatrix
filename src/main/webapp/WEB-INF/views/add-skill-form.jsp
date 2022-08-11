@@ -15,44 +15,23 @@
 			<div>
 					<label for="skillId">Skill Id</label>
 					<div>
-						<form:input path="skillId" />
+						<form:input path="skillId"  required="true" placeholder="Skill Id" />
 					</div>
+					<form:errors path="skillId" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="skillName">Skill Name</label>
 					<div>
-						<form:input path="skillName" />
+						<form:input path="skillName" required="true" placeholder="SkillName"/>
 					</div>
+					<form:errors path="skillName" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="skillType">Skill Type</label>
 					<div>
-						<form:input path="skillType" />
+						<form:input path="skillType" required="true"/>
 					</div>
-				</div>
-				<div>
-					<label for="prerequest">Prerequest</label>
-					<div>
-						<form:input path="prerequest" />
-					</div>
-				</div>
-				<div>
-					<label for="testId">Test Id</label>
-					<div>
-						<form:input path="testId" />
-					</div>
-				</div>
-				<div>
-					<label for="passMark">PassMark</label>
-					<div>
-						<form:input path="passMark" />
-					</div>
-				</div>
-				<div>
-					<label for="employeeLevel">Employee Level</label>
-					<div>
-						<form:input path="employeeLevel" />
-					</div>
+					<form:errors path="skillType" cssClass="text-danger" />
 				</div>
 				<div>
 					<form:button>Add Skills</form:button>

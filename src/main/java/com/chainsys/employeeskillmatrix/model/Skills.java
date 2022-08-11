@@ -10,6 +10,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Range;
 
 @Entity
 @Table(name="skills")
@@ -21,14 +26,7 @@ public class Skills {
 	private String skillName;
 	@Column(name="SKILL_TYPE")
 	private String skillType;
-	@Column(name="PREREQUEST")
-    private String prerequest ;
-	@Column(name="TEST_ID")
-    private int testId;
-	@Column(name="PASSMARK")
-    private int passMark;
-	@Column(name="EMPLOYEE_LEVEL")
-    private int employeeLevel;
+	
 	@OneToMany(mappedBy="skills",fetch=FetchType.LAZY)
 	private List<EmployeeSkillDetails> employeeskilldetails;
 	public List<EmployeeSkillDetails> getEmployeeskilldetails() {
@@ -36,17 +34,6 @@ public class Skills {
 	}
 	public void setEmployeeskilldetails(List<EmployeeSkillDetails> employeeskilldetails) {
 		this.employeeskilldetails = employeeskilldetails;
-	}
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "TEST_ID",nullable = false, insertable = false, updatable = false)
-	private EmployeeTest employeetest;
-	
-
-	public EmployeeTest getEmployeetest() {
-		return employeetest;
-	}
-	public void setEmployeetest(EmployeeTest employeetest) {
-		this.employeetest = employeetest;
 	}
 	public int getSkillId() {
 		return skillId;
@@ -66,30 +53,7 @@ public class Skills {
 	public void setSkillType(String skillType) {
 		this.skillType = skillType;
 	}
-	public String getPrerequest() {
-		return prerequest;
-	}
-	public void setPrerequest(String prerequest) {
-		this.prerequest = prerequest;
-	}
-	public int getTestId() {
-		return testId;
-	}
-	public void setTestId(int testId) {
-		this.testId = testId;
-	}
-	public int getPassMark() {
-		return passMark;
-	}
-	public void setPassMark(int passMark) {
-		this.passMark = passMark;
-	}
-	public int getEmployeeLevel() {
-		return employeeLevel;
-	}
-	public void setEmployeeLevel(int employeeLevel) {
-		this.employeeLevel = employeeLevel;
-	}
+	
 	
 
 }

@@ -52,7 +52,6 @@ color: #ff7200;
 <body>
 <div class = "menu">
 <ul>
-<li><a href="#">Home</a></li>
 <li><a href="/adminlogins/adminloginform">Admin Login</a></li>
 <li><a href="/employeedetails/employeeloginform">Employee Login</a></li>
 </ul>

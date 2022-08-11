@@ -15,35 +15,33 @@
 			<div>
 					<label for="testId">Test Id</label>
 					<div>
-						<form:input path="testId" />
+						<form:input path="testId" required="true" placeholder="Enter Test Id" />
 					</div>
+					<form:errors path="testId" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="testName">Test Name</label>
 					<div>
-						<form:input path="testName" />
+						<form:input path="testName" required="true" placeholder="TestName" />
 					</div>
+					<form:errors path="testName" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="maxMark">Max Mark</label>
 					<div>
-						<form:input path="maxMark" />
+						<form:input path="maxMark" required="true" placeholder="MaxMark"/>
 					</div>
+					<form:errors path="maxMark" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="passMark">PassMark</label>
 					<div>
-						<form:input path="passMark" />
+						<form:input path="passMark" required="true" placeholder="PassMark"/>
 					</div>
+					<form:errors path="passMark" cssClass="text-danger" />
 				</div>
 				<div>
-					<label for="subject">Subject</label>
-					<div>
-						<form:input path="subject" />
-					</div>
-				</div>
-				<div>
-					<form:button>Update Test</form:button>
+					<form:button>Update Employee Test</form:button>
 				</div>
 			</form:form>
 		</div>
