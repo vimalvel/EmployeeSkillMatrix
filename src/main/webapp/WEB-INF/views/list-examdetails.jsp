@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>List Exam Details</title>
@@ -38,7 +38,7 @@
 		    <td>${ex.supervicer}</td>
 		    <td>${ex.numberOfPassed}</td>
 		    <td><a href="updateexamdetailsform?id=${ex.examId}"><button class = "button">Edit</button></a></td>
-		    <td><a href="deleteexamdetailsid=${ex.examId}"><button class = "button">Delete</button></a></td>
+		    <td><a href="deleteexamdetails?id=${ex.examId}"><button class = "button">Delete</button></a></td>
 			</c:forEach>
 			</tbody>
 		</table>

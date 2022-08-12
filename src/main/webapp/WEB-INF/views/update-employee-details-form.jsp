@@ -3,7 +3,7 @@
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Employee details </title>
@@ -15,21 +15,21 @@
 			<div>
 					<label for="employeeId">Employee Id</label>
 					<div>
-						<form:input path="employeeId" placeholder = "Enter Employee Id" />
+						<form:input path="employeeId" placeholder = "Enter Employee Id" readonly="true"/>
 					</div>
 					<form:errors path="employeeId" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="firstName">First Name</label>
 					<div>
-						<form:input path="firstName"   pattern="^[a-z A-Z]+$" title="Please Enter Charactor Only"  placeholder = "Enter First Name"/>
+						<form:input path="firstName"   pattern="^[a-z A-Z]+$" title="Please Enter Charactor Only"  placeholder = "Enter First Name" readonly="true"/>
 					</div>
 					<form:errors path="firstName" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="lastName">Last Name</label>
 					<div>
-						<form:input path="lastName"  pattern="^[a-z A-Z]+$" title="Please Enter Charactor Only" placeholder = "Enter Last Name" />
+						<form:input path="lastName"  pattern="^[a-z A-Z]+$" title="Please Enter Charactor Only" placeholder = "Enter Last Name" readonly="true"/>
 					</div>
 					<form:errors path="firstName" cssClass="text-danger" />
 				</div>
@@ -48,14 +48,14 @@
 				<div>
 					<label for="dob">Date Of Birth</label>
 					<div>
-						<form:input path="dob"/>
+						<form:input path="dob" readonly="true"/>
 					</div>
 					<form:errors path="dob" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="email">Email</label>
 					<div>
-						<form:input path="email" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" title ="Enter a valid email welcome03@gmail.com" placeholder = "Enter a Email" required="true"/>
+						<form:input path="email" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" title ="Enter a valid email welcome03@gmail.com" placeholder = "Enter a Email" readonly="true"/>
 					</div>
 					<form:errors path="email" cssClass="text-danger" />
 				</div>

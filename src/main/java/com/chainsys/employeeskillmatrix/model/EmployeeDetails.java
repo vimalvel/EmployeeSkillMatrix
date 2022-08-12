@@ -1,13 +1,16 @@
 package com.chainsys.employeeskillmatrix.model;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
@@ -22,6 +25,8 @@ import org.hibernate.validator.constraints.Range;
 @Table(name = "employeedetails")
 public class EmployeeDetails {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "Employee_Id")
+    @SequenceGenerator(name = "Employee_Id", sequenceName = "Employee_Id",  allocationSize = 1)
 	@Column(name = "EMPLOYEE_ID")
 	private int employeeId;
 	@Column(name = "FIRST_NAME")

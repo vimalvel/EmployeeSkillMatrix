@@ -3,7 +3,7 @@
      <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Exam Details</title>
@@ -12,13 +12,6 @@
 <div id="root">
 		<div id="form">
 			<form:form action = "addnewexamdetails" method = "post" modelAttribute = "addexamdetails">
-			<div>
-					<label for="examId">Exam Id</label>
-					<div>
-						<form:input path="examId"  required="true"  placeholder="Enter Exam Id"/>
-					</div>
-					<form:errors path="examId" cssClass="text-danger" />
-				</div>
 				<div>
 					<label for="examDate">Exam Date</label>
 					<div>
@@ -36,14 +29,14 @@
 				<div>
 					<label for="startTime">Start Time</label>
 					<div>
-						<form:input path="startTime" type = "time" />
+						<form:input path="startTime"  type = "time" />
 					</div>
 					<form:errors path="startTime" cssClass="text-danger" />
 				</div>
 				<div>
 					<label for="endTime">End Time</label>
 					<div>
-						<form:input path="endTime" type = "time" />
+						<form:input path="endTime"  type = "time" />
 					</div>
 					<form:errors path="endTime" cssClass="text-danger" />
 				</div>
@@ -81,5 +74,8 @@
 			</form:form>
 		</div>
 	</div>
-</body>
+	<script src="../script/times.js">
+	</script>
+	</body>
+	
 </html>

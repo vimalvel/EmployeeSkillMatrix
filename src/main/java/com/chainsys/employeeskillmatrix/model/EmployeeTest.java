@@ -6,8 +6,11 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
@@ -15,6 +18,8 @@ import javax.persistence.Table;
 @Table(name = "employee_test")
 public class EmployeeTest {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "TEST_ID")
+    @SequenceGenerator(name = "TEST_ID", sequenceName = "TEST_ID",  allocationSize = 1)
 	@Column(name = "TEST_ID")
 	private int testId;
 	@Column(name = "TEST_NAME")

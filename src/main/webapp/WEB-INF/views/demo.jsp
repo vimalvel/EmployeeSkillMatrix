@@ -1,254 +1,114 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
 <style>
-body{
-	margin:0;
-	color:#6a6f8c;
-	background:#c8c8c8;
-	font:600 16px/18px 'Open Sans',sans-serif;
-}
 
-.login-box{
-	width:100%;
-	margin:auto;
-	max-width:525px;
-	min-height:1200px;
-	position:relative;
-	background:url(https://images.unsplash.com/photo-1507208773393-40d9fc670acf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1268&q=80) no-repeat center;
-	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+.demo{ background: #F2F2F2; }
+.form-container{
+    background: #ecf0f3;
+    font-family: 'Nunito', sans-serif;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
 }
-.login-snip{
-	width:100%;
-	height:100%;
-	position:absolute;
-	padding:90px 70px 50px 70px;
-	background:rgba(0, 77, 77,.9);
+.form-container .form-icon{
+    color: #ac40ab;
+    font-size: 55px;
+    text-align: center;
+    line-height: 100px;
+    width: 100px;
+    height:100px;
+    margin: 0 auto 15px;
+    border-radius: 50px;
+    box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px #fff;
 }
-.login-snip .login,
-.login-snip .sign-up-form{
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	position:absolute;
-	transform:rotateY(180deg);
-	backface-visibility:hidden;
-	transition:all .4s linear;
+.form-container .title{
+    color: #ac40ab;
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    margin: 0 0 20px;
 }
-.login-snip .sign-in,
-.login-snip .sign-up,
-.login-space .group .check{
-	display:none;
+.form-container .form-horizontal .form-group{ margin: 0 0 25px 0; }
+.form-container .form-horizontal .form-group label{
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
 }
-.login-snip .tab,
-.login-space .group .label,
-.login-space .group .button{
-	text-transform:uppercase;
+.form-container .form-horizontal .form-control{
+    color: #333;
+    background: #ecf0f3;
+    font-size: 15px;
+    height: 50px;
+    padding: 20px;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 50px;
+    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px #fff;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
 }
-.login-snip .tab{
-	font-size:22px;
-	margin-right:15px;
-	padding-bottom:5px;
-	margin:0 15px 10px 0;
-	display:inline-block;
-	border-bottom:2px solid transparent;
+.form-container .form-horizontal .form-control:focus{
+    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px #fff;
+    outline: none;
 }
-.login-snip .sign-in:checked + .tab,
-.login-snip .sign-up:checked + .tab{
-	color:#fff;
-	border-color:#1161ee;
+.form-container .form-horizontal .form-control::placeholder{
+    color: #808080;
+    font-size: 14px;
 }
-.login-space{
-	min-height:345px;
-	position:relative;
-	perspective:1000px;
-	transform-style:preserve-3d;
+.form-container .form-horizontal .btn{
+    color: #000;
+    background-color: #ac40ab;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+    padding: 12px 15px 11px;
+    border-radius: 20px;
+    box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px #fff;
+    border: none;
+    transition: all 0.5s ease 0s;
 }
-.login-space .group{
-	margin-bottom:15px;
+.form-container .form-horizontal .btn:hover,
+.form-container .form-horizontal .btn:focus{
+    color: #fff;
+    letter-spacing: 3px;
+    box-shadow: none;
+    outline: none;
 }
-.login-space .group .label,
-.login-space .group .input,
-.login-space .group .button{
-	width:100%;
-	color:#fff;
-	display:block;
-}
-.login-space .group .input,
-.login-space .group .button{
-	border:none;
-	padding:15px 20px;
-	border-radius:25px;
-	background:rgba(255,255,255,.1);
-}
-.login-space .group input[data-type="password"]{
-	text-security:circle;
-	-webkit-text-security:circle;
-}
-.login-space .group .label{
-	color:#aaa;
-	font-size:12px;
-}
-.login-space .group .button{
-	background:#1161ee;
-}
-.login-space .group label .icon{
-	width:15px;
-	height:15px;
-	border-radius:2px;
-	position:relative;
-	display:inline-block;
-	background:rgba(255,255,255,.1);
-}
-.login-space .group label .icon:before,
-.login-space .group label .icon:after{
-	content:'';
-	width:10px;
-	height:2px;
-	background:#fff;
-	position:absolute;
-	transition:all .2s ease-in-out 0s;
-}
-.login-space .group label .icon:before{
-	left:3px;
-	width:5px;
-	bottom:6px;
-	transform:scale(0) rotate(0);
-}
-.login-space .group label .icon:after{
-	top:6px;
-	right:0;
-	transform:scale(0) rotate(0);
-}
-.login-space .group .check:checked + label{
-	color:#fff;
-}
-.login-space .group .check:checked + label .icon{
-	background:#1161ee;
-}
-.login-space .group .check:checked + label .icon:before{
-	transform:scale(1) rotate(45deg);
-}
-.login-space .group .check:checked + label .icon:after{
-	transform:scale(1) rotate(-45deg);
-}
-.login-snip .sign-in:checked + .tab + .sign-up + .tab + .login-space .login{
-	transform:rotate(0);
-}
-.login-snip .sign-up:checked + .tab + .login-space .sign-up-form{
-	transform:rotate(0);
-}
-
-*,:after,:before{box-sizing:border-box}
-.clearfix:after,.clearfix:before{content:'';display:table}
-.clearfix:after{clear:both;display:block}
-a{color:inherit;text-decoration:none}
-
-
-.hr{
-	height:2px;
-	margin:60px 0 50px 0;
-	background:rgba(255,255,255,.2);
-}
-.foot{
-	text-align:center;
-}
-.card{
-	width: 500px;
-	left: 100px;
-}
-
-::placeholder{
-color: #b3b3b3;
-} </style>
+</style>
 </head>
-<body>
-<div class ="row" align="center">
-	<div class="col-md-6 mx-auto p-0">
-		<div class="card">
-<div class="login-box">
-	<div class="login-snip">
-		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label>
-		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-		<div class="login-space">
-			<div class="login">
-				<div class="group">
-					<label for="user" class="label">Employee Id</label>
-					<input id="user" type="text" class="input"  placeholder="Enter Your Employee Id">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Password</label>
-					<input id="pass" type="password" class="input" data-type="password" placeholder="Enter Your Password">
-				</div>
-				<div class="group">
-					<a href="/employeedetails/getemployeeiddetails"><input type="submit" class="button" value="Sign In"></a>
-				</div>
-				<div class="hr"></div>
-			</div>
-			<div class="sign-up-form">
-				<div class="group">
-					<label for="user" class="label">Employee Id</label>
-					<input id="user" type="text" class="input" placeholder="Create your Employee Id">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">First Name</label>
-					<input id="pass" type="password" class="input" data-type="password" placeholder="Create your First Name">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Last Name</label>
-					<input id="pass" type="password" class="input" data-type="password" placeholder="Create your Last Name" >
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Date Of Birth</label>
-					<input id="pass" type="text" class="input" placeholder="Date Of Birth">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Email</label>
-					<input id="pass" type="text" class="input" placeholder="Create your Email">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Address</label>
-					<input id="pass" type="text" class="input" placeholder="Address">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Phone Number</label>
-					<input id="pass" type="text" class="input" placeholder="PhoneNumber">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Designation</label>
-					<input id="pass" type="text" class="input" placeholder="Designation">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Employee Manager</label>
-					<input id="pass" type="text" class="input" placeholder="Employee Manager">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Salary</label>
-					<input id="pass" type="text" class="input" placeholder="Salary">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Password</label>
-					<input id="pass" type="text" class="input" placeholder="Password">
-				</div>
-				<div class="group">
-					<input type="submit" class="button" value="Sign Up">
-				</div>
-				<div class="hr"></div>
-				<div class="foot">
-					<label for="tab-1">Already Employee?</label>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>   
-</div>
-</div>
-</div>
 
+
+<body style="background: #214a80;">
+	<div class="form-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="form-container">
+                    <div class="form-icon"><i class="fa fa-user"></i></div>
+                    <h3 class="title">Login</h3>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label>email</label>
+                            <input class="form-control" type="email" placeholder="email address">
+                        </div>
+                        <div class="form-group">
+                            <label>password</label>
+                            <input class="form-control" type="password" placeholder="password">
+                        </div>
+                        <button type="button" class="btn btn-default">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
+
 </html>

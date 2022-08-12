@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Employee Details</title>
@@ -12,13 +12,13 @@
 	<div id="root">
 		<div id="form">
 			<form:form action="addnewemployeedetails" method="post" modelAttribute="addemployeedetails">
-				<div>
+				<%-- <div>
 					<label for="employeeId">Employee Id</label>
 					<div>
 						<form:input path="employeeId" placeholder = "Enter Employee Id" />
 					</div>
 					<form:errors path="employeeId" cssClass="text-danger" />
-				</div>
+				</div> --%>
 				<div>
 					<label for="firstName">First Name</label>
 					<div>
@@ -38,8 +38,6 @@
 					<div>
 						<form:select path="gender">
                                 <form:option value="Male">Male</form:option>
-                            </form:select>
-                            <form:select path="gender">
                                 <form:option value="Female">Female</form:option>
                             </form:select>
 					</div>
@@ -48,7 +46,7 @@
 				<div>
 					<label for="dob">Date Of Birth</label>
 					<div>
-						<form:input path="dob"/>
+						<form:input path="dob" type="date"/>
 					</div>
 					<form:errors path="dob" cssClass="text-danger" />
 				</div>
@@ -76,7 +74,19 @@
 				<div>
 					<label for="designation">Designation</label>
 					<div>
-						<form:input path="designation" placeholder = "Enter Designation" required = "true"/>
+						<form:select path="designation">
+                                <form:option value="Software Developer">Software Developer</form:option>
+                                <form:option value="Senior test engineer">Senior test engineer</form:option>
+                                <form:option value="Programmer">Programmer</form:option>
+                                <form:option value="Senior Programmer">Senior Programmer</form:option>
+                                <form:option value="Technology Lead">Technology Lead</form:option>
+                                <form:option value="Technical Lead">Technical Lead</form:option>
+                                <form:option value="QA lead">QA lead</form:option>
+                                <form:option value="Test Manager">Test Manager</form:option>
+                                <form:option value="Technical Manager">Technical Manager</form:option>
+                                <form:option value="Architect-Technology">Architect-Technology</form:option>
+                                <form:option value="Senior Software Engineer">Senior Software Engineer</form:option>
+                            </form:select>
 					</div>
 					<form:errors path="designation" cssClass="text-danger" />
 				</div>

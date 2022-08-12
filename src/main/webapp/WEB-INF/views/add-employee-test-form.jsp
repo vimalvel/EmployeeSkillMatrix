@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Test</title>
@@ -13,16 +13,9 @@
 		<div id="form">
 			<form:form action="addnewemployeetest" method="post" modelAttribute="addemployeetest">
 				<div>
-					<label for="testId">Test Id</label>
-					<div>
-						<form:input path="testId" required="true" placeholder="Enter Test Id" />
-					</div>
-					<form:errors path="testId" cssClass="text-danger" />
-				</div>
-				<div>
 					<label for="testName">Test Name</label>
 					<div>
-						<form:input path="testName" required="true" placeholder="TestName" />
+						<form:input path="testName" pattern="^[a-z A-Z]+$" required="true" placeholder="TestName" />
 					</div>
 					<form:errors path="testName" cssClass="text-danger" />
 				</div>

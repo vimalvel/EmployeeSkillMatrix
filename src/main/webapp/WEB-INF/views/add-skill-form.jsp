@@ -3,7 +3,7 @@
      <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Skill</title>
@@ -12,13 +12,6 @@
 <div id="root">
 		<div id="form">
 			<form:form action = "addnewskill" method = "post" modelAttribute = "addskill">
-			<div>
-					<label for="skillId">Skill Id</label>
-					<div>
-						<form:input path="skillId"  required="true" placeholder="Skill Id" />
-					</div>
-					<form:errors path="skillId" cssClass="text-danger" />
-				</div>
 				<div>
 					<label for="skillName">Skill Name</label>
 					<div>
