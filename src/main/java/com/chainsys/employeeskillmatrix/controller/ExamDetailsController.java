@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.chainsys.employeeskillmatrix.dto.ExamDetailsAndEmployeeSkillDetailsDTO;
 import com.chainsys.employeeskillmatrix.dto.ExamDetailsAndTestEmployeeDetailsDTO;
 import com.chainsys.employeeskillmatrix.model.ExamDetails;
+import com.chainsys.employeeskillmatrix.service.EmployeeTestService;
 import com.chainsys.employeeskillmatrix.service.ExamDetailsService;
 
 @Controller
@@ -24,6 +25,8 @@ import com.chainsys.employeeskillmatrix.service.ExamDetailsService;
 public class ExamDetailsController {
 	@Autowired 
 	private ExamDetailsService examDetailsService;
+	@Autowired
+	private EmployeeTestService employeeTestService;
 	@GetMapping("/getexamdetailsbyid")
 	public String getexamdetails(@RequestParam("id") int id, Model model) {
 		ExamDetails examdetails = examDetailsService.findById(id);
@@ -34,6 +37,7 @@ public class ExamDetailsController {
 	public String addExamDetailsForm(Model model) {
 		ExamDetails examdetails = new ExamDetails();
 		model.addAttribute("addexamdetails", examdetails);
+		model.addAttribute("employeetest", employeeTestService.getEmployeeTest());
 		return "add-examdetails-form";
 	}
 	@PostMapping("/addnewexamdetails")
@@ -50,6 +54,7 @@ public class ExamDetailsController {
 	public String UpdateExamDetailsForm(@RequestParam("id") int id,Model model) {
 		ExamDetails examdetails = examDetailsService.findById(id);
 		model.addAttribute("updateexamdetails",examdetails);
+		model.addAttribute("employeetest", employeeTestService.getEmployeeTest());
 		return "update-examdetails-form";
 	}
 	@PostMapping("/updatenewexamdetails")

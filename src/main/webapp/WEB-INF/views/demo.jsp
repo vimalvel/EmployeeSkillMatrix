@@ -5,109 +5,208 @@
 <html lang="en">
 <head>
 <style>
+body{
+	margin:0;
+	color:#6a6f8c;
+	background:#c8c8c8;
+	font:600 16px/18px 'Open Sans',sans-serif;
+}
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
 
-.demo{ background: #F2F2F2; }
-.form-container{
-    background: #ecf0f3;
-    font-family: 'Nunito', sans-serif;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+.login-wrap{
+	width:100%;
+	margin:auto;
+	max-width:525px;
+	min-height:670px;
+	position:relative;
+	background:url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg) no-repeat center;
+	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
-.form-container .form-icon{
-    color: #ac40ab;
-    font-size: 55px;
-    text-align: center;
-    line-height: 100px;
-    width: 100px;
-    height:100px;
-    margin: 0 auto 15px;
-    border-radius: 50px;
-    box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px #fff;
+.login-html{
+	width:100%;
+	height:100%;
+	position:absolute;
+	padding:90px 70px 50px 70px;
+	background:rgba(40,57,101,.9);
 }
-.form-container .title{
-    color: #ac40ab;
-    font-size: 25px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-align: center;
-    margin: 0 0 20px;
+.login-html .sign-in-htm,
+.login-html .sign-up-htm{
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	position:absolute;
+	transform:rotateY(180deg);
+	backface-visibility:hidden;
+	transition:all .4s linear;
 }
-.form-container .form-horizontal .form-group{ margin: 0 0 25px 0; }
-.form-container .form-horizontal .form-group label{
-    font-size: 15px;
-    font-weight: 600;
-    text-transform: uppercase;
+.login-html .sign-in,
+.login-html .sign-up,
+.login-form .group .check{
+	display:none;
 }
-.form-container .form-horizontal .form-control{
-    color: #333;
-    background: #ecf0f3;
-    font-size: 15px;
-    height: 50px;
-    padding: 20px;
-    letter-spacing: 1px;
-    border: none;
-    border-radius: 50px;
-    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px #fff;
-    display: inline-block;
-    transition: all 0.3s ease 0s;
+.login-html .tab,
+.login-form .group .label,
+.login-form .group .button{
+	text-transform:uppercase;
 }
-.form-container .form-horizontal .form-control:focus{
-    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px #fff;
-    outline: none;
+.login-html .tab{
+	font-size:22px;
+	margin-right:15px;
+	padding-bottom:5px;
+	margin:0 15px 10px 0;
+	display:inline-block;
+	border-bottom:2px solid transparent;
 }
-.form-container .form-horizontal .form-control::placeholder{
-    color: #808080;
-    font-size: 14px;
+.login-html .sign-in:checked + .tab,
+.login-html .sign-up:checked + .tab{
+	color:#fff;
+	border-color:#1161ee;
 }
-.form-container .form-horizontal .btn{
-    color: #000;
-    background-color: #ac40ab;
-    font-size: 15px;
-    font-weight: bold;
-    text-transform: uppercase;
-    width: 100%;
-    padding: 12px 15px 11px;
-    border-radius: 20px;
-    box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px #fff;
-    border: none;
-    transition: all 0.5s ease 0s;
+.login-form{
+	min-height:345px;
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
 }
-.form-container .form-horizontal .btn:hover,
-.form-container .form-horizontal .btn:focus{
-    color: #fff;
-    letter-spacing: 3px;
-    box-shadow: none;
-    outline: none;
+.login-form .group{
+	margin-bottom:15px;
+}
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .button{
+	width:100%;
+	color:#fff;
+	display:block;
+}
+.login-form .group .input,
+.login-form .group .button{
+	border:none;
+	padding:15px 20px;
+	border-radius:25px;
+	background:rgba(255,255,255,.1);
+}
+.login-form .group input[data-type="password"]{
+	text-security:circle;
+	-webkit-text-security:circle;
+}
+.login-form .group .label{
+	color:#aaa;
+	font-size:12px;
+}
+.login-form .group .button{
+	background:#1161ee;
+}
+.login-form .group label .icon{
+	width:15px;
+	height:15px;
+	border-radius:2px;
+	position:relative;
+	display:inline-block;
+	background:rgba(255,255,255,.1);
+}
+.login-form .group label .icon:before,
+.login-form .group label .icon:after{
+	content:'';
+	width:10px;
+	height:2px;
+	background:#fff;
+	position:absolute;
+	transition:all .2s ease-in-out 0s;
+}
+.login-form .group label .icon:before{
+	left:3px;
+	width:5px;
+	bottom:6px;
+	transform:scale(0) rotate(0);
+}
+.login-form .group label .icon:after{
+	top:6px;
+	right:0;
+	transform:scale(0) rotate(0);
+}
+.login-form .group .check:checked + label{
+	color:#fff;
+}
+.login-form .group .check:checked + label .icon{
+	background:#1161ee;
+}
+.login-form .group .check:checked + label .icon:before{
+	transform:scale(1) rotate(45deg);
+}
+.login-form .group .check:checked + label .icon:after{
+	transform:scale(1) rotate(-45deg);
+}
+.login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
+	transform:rotate(0);
+}
+.login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
+	transform:rotate(0);
+}
+
+.hr{
+	height:2px;
+	margin:60px 0 50px 0;
+	background:rgba(255,255,255,.2);
+}
+.foot-lnk{
+	text-align:center;
 }
 </style>
 </head>
-
-
 <body style="background: #214a80;">
-	<div class="form-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="form-container">
-                    <div class="form-icon"><i class="fa fa-user"></i></div>
-                    <h3 class="title">Login</h3>
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <label>email</label>
-                            <input class="form-control" type="email" placeholder="email address">
-                        </div>
-                        <div class="form-group">
-                            <label>password</label>
-                            <input class="form-control" type="password" placeholder="password">
-                        </div>
-                        <button type="button" class="btn btn-default">Login</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+		<div class="login-form">
+			<div class="sign-in-htm">
+				<div class="group">
+					<label for="user" class="label">Employee Id</label>
+					<form:input path="employeeId" id="user" type="text" class="input"/>
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<form:input path="password" id="pass" type="password" class="input" data-type="password"/>
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Sign In">
+				</div>
+				<div class="hr"></div>
+				<div class="foot-lnk">
+					<a href="#forgot">Forgot Password?</a>
+				</div>
+			</div>
+			<div class="sign-up-htm">
+				<div class="group">
+					<label for="user" class="label">Username</label>
+					<input id="user" type="text" class="input">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input id="pass" type="password" class="input" data-type="password">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Repeat Password</label>
+					<input id="pass" type="password" class="input" data-type="password">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Email Address</label>
+					<input id="pass" type="text" class="input">
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Sign Up">
+				</div>
+				<div class="hr"></div>
+				<div class="foot-lnk">
+					<label for="tab-1">Already Member?</label>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 </body>
 

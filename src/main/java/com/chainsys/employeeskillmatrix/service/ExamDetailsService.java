@@ -24,8 +24,7 @@ public class ExamDetailsService {
 	@Autowired
 	private TestEmployeeDetailsRepository testEmployeeDetailsRepository;
 	public List<ExamDetails> getExamDetails(){
-		List<ExamDetails> exlist = examDetailsRepository.findAll();
-		return exlist;
+		return examDetailsRepository.findAll();
 	}
 	public ExamDetails save(ExamDetails exdetails) {
 		return examDetailsRepository.save(exdetails);

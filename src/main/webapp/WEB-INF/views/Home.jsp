@@ -12,13 +12,14 @@ padding: 0;
 body
 {
     background-image:
-        url("https://as2.ftcdn.net/v2/jpg/00/69/61/21/1000_F_69612172_SbHUXJUvTH0ZcLp0lkDEPmJZTZZPukZD.jpg");
+        url("https://img.freepik.com/premium-vector/skills-concept-education-training-improvement-people-get-knowledge-build-career-illustration_277904-4760.jpg?w=2000");
     height: 768px;
     width: 1366px;
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
+    background-attachment: fixed;
+    position: fixed;
 }
 .menu{
 width: 400px;
@@ -39,13 +40,13 @@ font-size: 20px;
 }
 ul li a{
 text-decoration: none;
-color: #fff;
+color: black;
 font-family: Arial;
 font-weight: bold;
 transition: 0.4s ease-in-out;
 }
 ul li a:hover{
-color: #ff7200;
+color:#d4eb7a;
 }
 </style>
 </head>

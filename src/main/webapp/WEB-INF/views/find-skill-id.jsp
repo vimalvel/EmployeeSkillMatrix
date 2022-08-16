@@ -29,6 +29,13 @@
 					<div>
 						<form:input path="skillType" readonly="true" />
 					</div>
+					<div>
+					<label for="testId">Test Id</label>
+					<div>
+						<form:input path="testId" required="true"/>
+					</div>
+					<form:errors path="testId" cssClass="text-danger" />
+				</div>
 				</div>
 			</form:form>
 		</div>

@@ -14,23 +14,25 @@ body {
 body
 {
     background-image:
-        url("https://thumbs.dreamstime.com/b/coach-motivation-to-skills-improvement-education-concept-training-leadership-human-abilities-236278779.jpg");
+        url("https://i.pinimg.com/originals/9d/42/a4/9d42a4deb737a0b757a48e0b2d635eb4.jpg");
     height: 768px;
     width: 1366px;
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
+    background-attachment: fixed;
+    position: fixed;
+
 }
 .navbar {
     overflow: hidden;
     background-color: #354e78;
-}
+    }
 
 .navbar a {
     float: left;
     font-size: 16px;
-    color: white;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -44,7 +46,7 @@ body
     font-size: 16px;
     border: none;
     outline: none;
-    color: white;
+    color: #048a50;
     padding: 14px 16px;
     background-color: inherit;
     font-family: inherit;
@@ -85,21 +87,12 @@ body
 <body>
 <body>
 <div class="navbar">
-    <div class="dropdown">
-            <button class="dropbtn">
-                Admin <i class="fa fa-caret-down"></i>
-            </button>
-             <div class="dropdown-content">
-                <a href="/adminlogins/addadminloginform">Add a new admin</a> 
-                <a href="/adminlogins/adminlist">View all admins details</a>                             
-        </div>
         </div>
         <div class="dropdown">
             <button class="dropbtn">
                 Employee <i class="fa fa-caret-down"></i>
             </button>
              <div class="dropdown-content">
-                <a href="/employeedetails/addemployeedetailsform">Add Employee Details</a> 
                 <a href="/employeedetails/employeelist">Employee Details</a>                             
         </div>
         </div>
@@ -148,7 +141,6 @@ body
                 <a href="/employeeskilldetails/employeeskilldetailslist">Edit Employee Skill Details</a>                             
         </div>
         </div>
-		</div>
 </body>
 </body>
 </html>

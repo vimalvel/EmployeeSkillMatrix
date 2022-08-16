@@ -15,8 +15,7 @@ public class EmployeeSkillDetailsService {
 	@Autowired
 	private EmployeeSkillDetailsRepository employeeSkillDetailsRepository;
 	public List<EmployeeSkillDetails> getEmployeeSkill(){
-		List<EmployeeSkillDetails> empskilllist = employeeSkillDetailsRepository.findAll();
-		return empskilllist;
+		return employeeSkillDetailsRepository.findAll();
 	}
 	public EmployeeSkillDetails save(EmployeeSkillDetails empskill) {
 		return employeeSkillDetailsRepository.save(empskill);

@@ -15,8 +15,7 @@ public class TestEmployeeDetailsService {
 	@Autowired
 	private TestEmployeeDetailsRepository testEmpDetailsRepository;
 	public List<TestEmployeeDetails> getEmpTestetails(){
-		List<TestEmployeeDetails> tests = testEmpDetailsRepository.findAll();
-		return tests;
+		return testEmpDetailsRepository.findAll();
 	}
 	public TestEmployeeDetails save(TestEmployeeDetails testdetails) {
 		return testEmpDetailsRepository.save(testdetails);

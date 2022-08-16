@@ -19,8 +19,7 @@ public class SkillsService {
 	@Autowired 
 	private EmployeeSkillDetailsRepository employeeskilldetailsrepository;
 	public List<Skills> getSkills(){
-		List<Skills> skill = skillsRepository.findAll();
-		return skill;
+		return skillsRepository.findAll();
 	}
 	public Skills save(Skills sk) {
 		return skillsRepository.save(sk);

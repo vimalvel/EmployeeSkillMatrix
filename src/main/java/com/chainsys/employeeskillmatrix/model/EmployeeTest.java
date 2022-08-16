@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -28,6 +29,7 @@ public class EmployeeTest {
 	private int maxMark;
 	@Column(name = "PASSMARK")
 	private int passMark;
+	
 	@OneToMany(mappedBy="test",fetch=FetchType.LAZY)
 	private List<ExamDetails> examDetails;
 	
@@ -36,6 +38,15 @@ public class EmployeeTest {
 	}
 	public void setExamDetails(List<ExamDetails> examDetails) {
 		this.examDetails = examDetails;
+	}
+	@OneToOne(mappedBy="employeeTest",fetch=FetchType.LAZY)
+	private Skills skills;
+	
+	public Skills getSkills() {
+		return skills;
+	}
+	public void setSkills(Skills skills) {
+		this.skills = skills;
 	}
 	public int getTestId() {
 		return testId;

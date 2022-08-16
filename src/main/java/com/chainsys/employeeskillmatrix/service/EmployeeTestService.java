@@ -23,8 +23,7 @@ public class EmployeeTestService {
 	@Autowired
 	private SkillsRepository skillsrepository;
 	public List<EmployeeTest> getEmployeeTest(){
-		List<EmployeeTest> emptest = employeeTestRepository.findAll();
-		return emptest;
+		return employeeTestRepository.findAll();
 	}
 	public EmployeeTest save(EmployeeTest emptest) {
 		return employeeTestRepository.save(emptest);

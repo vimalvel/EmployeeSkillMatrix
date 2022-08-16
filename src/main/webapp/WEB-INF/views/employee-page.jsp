@@ -10,8 +10,8 @@
 <div align="center">
                 <div><h1>Employee Skill Matrix</h1></div>
             <div>
-            <div><h4><a href="/employeedetails/getemployeeiddetails?id=${employeeId}"><button class="button">Check Employee Mark</button></a></h4></div>
-            <div><h4><a href="/employeedetails/getemployeeidtestdetails?id=${employeeId}"><button class="button">Check Employee Status</button></a></h4></div>
+            <div><h4><a href="/employeedetails/getemployeeiddetails?id=${employeeid}"><button class="button">Check Employee Mark</button></a></h4></div>
+            <div><h4><a href="/employeedetails/getemployeeidtestdetails?id=${employeeid}"><button class="button">Check Employee Status</button></a></h4></div>
             </div>
     </div>
 </body>

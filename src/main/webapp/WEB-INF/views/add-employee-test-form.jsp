@@ -7,37 +7,43 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Test</title>
+<style>
+<%@include file="/WEB-INF/CSS/forms.css" %>
+</style>
 </head>
 <body>
-	<div id="root">
-		<div id="form">
-			<form:form action="addnewemployeetest" method="post" modelAttribute="addemployeetest">
-				<div>
-					<label for="testName">Test Name</label>
-					<div>
-						<form:input path="testName" pattern="^[a-z A-Z]+$" required="true" placeholder="TestName" />
-					</div>
-					<form:errors path="testName" cssClass="text-danger" />
-				</div>
-				<div>
-					<label for="maxMark">Max Mark</label>
-					<div>
-						<form:input path="maxMark" required="true" placeholder="MaxMark"/>
-					</div>
-					<form:errors path="maxMark" cssClass="text-danger" />
-				</div>
-				<div>
-					<label for="passMark">PassMark</label>
-					<div>
-						<form:input path="passMark" required="true" placeholder="PassMark"/>
-					</div>
-					<form:errors path="passMark" cssClass="text-danger" />
-				</div>
-				<div>
-					<form:button>Add Test</form:button>
-				</div>
-			</form:form>
+	<form:form action="addnewemployeetest" method="post"
+		modelAttribute="addemployeetest">
+		<div class="form">
+			<table>
+				<tbody>
+					<tr>
+						<td><label for="testName">Test Name</label></td>
+						<td><form:select path="testName">
+								<form:option value="Big Data Analysis">Big Data Analysis</form:option>
+								<form:option value="Coding and Programming">Coding and Programming</form:option>
+								<form:option value="Project Management">Project Management</form:option>
+								<form:option value="Social Media Management & Digital Marketing">Social Media Management & Digital Marketing</form:option>
+								<form:option value="Technical Writing">Technical Writing</form:option>
+							</form:select></td>
+						<form:errors path="testName" cssClass="text-danger" />
+					</tr>
+					<tr>
+						<td><label for="maxMark">Max Mark</label></td>
+						<td><form:input path="maxMark" required="true"
+								placeholder="MaxMark" /></td>
+						<form:errors path="maxMark" cssClass="text-danger" />
+					</tr>
+					<tr>
+						<td><label for="passMark">PassMark</label></td>
+						<td><form:input path="passMark" required="true"
+								placeholder="PassMark" /></td>
+						<form:errors path="passMark" cssClass="text-danger" />
+					</tr>
+				</tbody>
+			</table>
+			<form:button>Add Test</form:button>
 		</div>
-	</div>
+	</form:form>
 </body>
 </html>

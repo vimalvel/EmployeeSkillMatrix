@@ -18,12 +18,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.chainsys.employeeskillmatrix.compositekey.EmployeeSkillDetailsCompositeKey;
 import com.chainsys.employeeskillmatrix.model.EmployeeSkillDetails;
 import com.chainsys.employeeskillmatrix.service.EmployeeSkillDetailsService;
+import com.chainsys.employeeskillmatrix.service.SkillsService;
 
 @Controller
 @RequestMapping("/employeeskilldetails")
 public class EmployeeSkillDetailsController {
 	@Autowired
 	private EmployeeSkillDetailsService employeeSkillDetailsService;
+	@Autowired
+	private SkillsService skillsServices;
 	@GetMapping("/getemployeeskillbyid")
 	public String getEmployeeSkillDetails(@RequestParam("id") int id, @RequestParam("sid") int sid,@RequestParam("eid") int eid,Model model) {
 		EmployeeSkillDetailsCompositeKey skillIdCompositeKey =new EmployeeSkillDetailsCompositeKey(id,sid,eid);
@@ -33,8 +36,10 @@ public class EmployeeSkillDetailsController {
 	}
 	@GetMapping("/addemployeeskilldetailsform")
 	public String addEmployeeSkillDetailsForm(Model model) {
+	
 		EmployeeSkillDetails employeeskilldetails = new EmployeeSkillDetails();
 		model.addAttribute("addemployeeskilldetails", employeeskilldetails);
+		model.addAttribute("skills",skillsServices.getSkills());
 		return "add-employee-skill-details-form";
 	}
 	@PostMapping("/addnewemployeeskilldetails")
@@ -52,6 +57,7 @@ public class EmployeeSkillDetailsController {
 		EmployeeSkillDetailsCompositeKey skillIdCompositeKey =new EmployeeSkillDetailsCompositeKey(id,sid,eid);
 		Optional<EmployeeSkillDetails> employeeskilldetails = employeeSkillDetailsService.findByid(skillIdCompositeKey);
 		model.addAttribute("updateemployeeskilldetails",employeeskilldetails);
+		model.addAttribute("skills",skillsServices.getSkills());
 		return "update-employee-skill-details-form";
 	}
 	@PostMapping("/updatenewemployeeskilldetails")

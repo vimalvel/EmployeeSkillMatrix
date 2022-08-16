@@ -34,6 +34,13 @@
 					<form:errors path="skillType" cssClass="text-danger" />
 				</div>
 				<div>
+					<label for="testId">Test Id</label>
+					<div>
+						<form:input path="testId" required="true"/>
+					</div>
+					<form:errors path="testId" cssClass="text-danger" />
+				</div>
+				<div>
 					<form:button>Update Skills</form:button>
 				</div>
 			</form:form>

@@ -6,10 +6,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Test List</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='https://css.gg/pen.css' rel='stylesheet'>
+<style>
+<%@include file="/WEB-INF/CSS/listforms.css"%>
+</style>
 </head>
 <body>
-<div id="table root">
-		<table border='2' width="80%" cell-padding='2'>
+<div>
+		<table>
 			<thead>
 			<tr>
 			<th>Test Id</th>
@@ -27,8 +32,8 @@
 			<td>${test.testName}</td>
 			<td>${test.maxMark}</td>
 			<td>${test.passMark}</td>
-			<td><a href="updateemployeetestform?id=${test.testId}"><button class = "button">Edit</button></a></td>
-			<td><a href="deleteexamdetails?id=${test.testId}"><button class = "button">Delete</button></a></td>
+			<td><a href="updateemployeetestform?id=${test.testId}"><button title="edit"><em class="gg-pen"></em></button></a></td>
+			<td><a href="deleteexamdetails?id=${test.testId}"><button title="delete"><em class="fa fa-trash"></em></button></a></td>
 			</c:forEach>
 			</tbody>
 		</table>

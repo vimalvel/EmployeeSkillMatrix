@@ -25,8 +25,7 @@ public class EmployeeDetailsService {
 	private TestEmployeeDetailsRepository testemployeedetailsrepository;
 
 	public List<EmployeeDetails> getEmployeeDetails() {
-		List<EmployeeDetails> emplist = employeeDetailsRepository.findAll();
-		return emplist;
+		return employeeDetailsRepository.findAll();
 	}
 
 	public EmployeeDetails save(EmployeeDetails empdetails) {

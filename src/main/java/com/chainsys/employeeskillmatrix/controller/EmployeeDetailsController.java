@@ -77,18 +77,12 @@ public class EmployeeDetailsController {
 	public String getEmployeeDetailsAndEmpSkillDetails(@RequestParam("id") int id, Model model) {
 		EmployeeDetailsAndEmployeeSkillDetailsDTO dto = employeeDetailsService.getEmpDetailsAndEmpSkillDetails(id);
 		model.addAttribute("getemployeeid",dto.getEmployeedetails());
-		model.addAttribute("employeeidlist", dto.getEmployeeskilldetail());
-		model.addAttribute("employeeId", dto.getEmployeedetails().getEmployeeId());
-		dto.getEmployeedetails().setEmployeeId(id);
 		return "employeedetails-employeeskilldetails";
 	}
 	@GetMapping("/getemployeeidtestdetails")
 	public String getEmployeeDetailsAndTestEmployeeDetails(@RequestParam("id") int id,Model model) {
 		EmployeeDetailsAndTestEmployeeDetailsDTO dto1 = employeeDetailsService.getEmployeeDetailsAndTestEmployeeDetailsDTO(id);
 		model.addAttribute("getemployeesid",dto1.getEmployeedetails());
-		model.addAttribute("employeesidlist",dto1.getTestemployeedetails());
-		model.addAttribute("employeeId", dto1.getEmployeedetails().getEmployeeId());
-		dto1.getEmployeedetails().setEmployeeId(id);
 		return "employeedetails-testemployeedetails";
 	}
 	@GetMapping("/employeeloginform")
@@ -101,17 +95,12 @@ public class EmployeeDetailsController {
 	public String checkingAccess(@ModelAttribute("employeelogin") EmployeeDetails employeedetail,Model model) {
 		EmployeeDetails employeedetails = employeeDetailsService.getEmployeeByIdAndPassword(employeedetail.getEmployeeId(),employeedetail.getPassword());
 		if (employeedetails!=null) {
-			return "redirect:/employeedetails/loginindex";
+			model.addAttribute("employeeid",employeedetails.getEmployeeId());
+			return "employee-page";
 		}
 		else
-			model.addAttribute("employeeId", employeedetails.getEmployeeId());
 			return "redirect-employeeloginpage";
 		
 	}
-	@GetMapping("/loginindex")
-	public String employeeLogin() {
-		return "employee-page";
-	}
-	
 
 }

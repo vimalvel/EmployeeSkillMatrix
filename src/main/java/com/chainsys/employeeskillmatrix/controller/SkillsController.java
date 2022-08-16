@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.employeeskillmatrix.dto.SkillsAndEmployeeSkillDetailsDTO;
 import com.chainsys.employeeskillmatrix.model.Skills;
+import com.chainsys.employeeskillmatrix.service.EmployeeTestService;
 import com.chainsys.employeeskillmatrix.service.SkillsService;
 
 @Controller
@@ -23,6 +24,8 @@ import com.chainsys.employeeskillmatrix.service.SkillsService;
 public class SkillsController {
 	@Autowired
 	private SkillsService skillsService;
+	@Autowired
+	private EmployeeTestService employeeTestService;
 	@GetMapping("/getskillbyid")
 	public String getSkilldetails(@RequestParam("id") int id, Model model) {
 		Skills skill = skillsService.findByid(id);
@@ -33,6 +36,7 @@ public class SkillsController {
 	public String addNewSkillForm(Model model) {
 		Skills skill = new Skills();
 		model.addAttribute("addskill", skill);
+		model.addAttribute("employeetest", employeeTestService.getEmployeeTest());
 		return "add-skill-form";
 	}
 	@PostMapping("/addnewskill")
@@ -48,6 +52,7 @@ public class SkillsController {
 	public String UpdateskillForm(@RequestParam("id") int id,Model model) {
 		Skills skill = skillsService.findByid(id);
 		model.addAttribute("updateskill",skill);
+		model.addAttribute("employeetest", employeeTestService.getEmployeeTest());
 		return "update-skill-form";
 	}
 	@PostMapping("/updatenewskill")
