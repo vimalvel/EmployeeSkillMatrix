@@ -30,8 +30,8 @@ body {
 }
 
 form {
-	height: 500px;
-	width: 400px;
+	height: 450px;
+	width: 350px;
 	background-color: rgba(255, 255, 255, 0.13);
 	position: absolute;
 	transform: translate(-50%, -50%);
@@ -69,8 +69,8 @@ label {
 
 input {
 	display: block;
-	height: 50px;
-	width: 100%;
+	height: 40px;
+	width: 80%;
 	background-color: rgba(255, 255, 255, 0.07);
 	border-radius: 3px;
 	padding: 0 10px;
@@ -85,10 +85,10 @@ input {
 
 button {
 	margin-top: 50px;
-	width: 100%;
+	width: 50%;
 	background-color: #ffffff;
 	color: #080710;
-	padding: 15px 0;
+	padding: 10px 0;
 	font-size: 18px;
 	font-weight: 600;
 	border-radius: 5px;
@@ -168,8 +168,8 @@ button:after{
 
 
 		<label for="password"> Password : </label>
-		<form:input id="adminpassword" path="password"
-			placeholder="Enter Admin Password" required="true" />
+		<form:input id="password" path="password"
+			placeholder="Enter Admin Password" type="password" required="true" />
 		<form:errors path="password" cssClass="text-danger" />
 
 		<form:button>SignIn</form:button>

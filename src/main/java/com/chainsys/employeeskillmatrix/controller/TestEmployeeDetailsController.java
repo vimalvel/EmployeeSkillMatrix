@@ -3,12 +3,10 @@ package com.chainsys.employeeskillmatrix.controller;
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +22,9 @@ import com.chainsys.employeeskillmatrix.service.TestEmployeeDetailsService;
 public class TestEmployeeDetailsController {
 	@Autowired
 	private TestEmployeeDetailsService testEmployeeDetailsService;
+	private static final String ADDTESTEMPLOYEEDETAILS="add-test-employee-details";
+	private static final String TESTEMPLOYEEDETAILSLIST="redirect:/testemployeedetails/testemployeedetailslist";
+	private static final String UPDATETESTEMPLOYEEDETAILS="update-test-employee-details";
 	@GetMapping("/getemployeebyid")
 	public String getTestEmployeedetails(@RequestParam("examid") int examid,@RequestParam("employeeid") int employeeid, Model model) {
 		TestEmployeeDetailsCompositeKey testEmployeeDetailsCompositeKey = new TestEmployeeDetailsCompositeKey(examid,employeeid);
@@ -35,38 +36,30 @@ public class TestEmployeeDetailsController {
 	public String addEmployeeTestForm(Model model) {
 		TestEmployeeDetails testemployeedetails = new TestEmployeeDetails();
 		model.addAttribute("addtestemployeedetails", testemployeedetails);
-		return "add-test-employee-details";
+		return ADDTESTEMPLOYEEDETAILS;
 	}
 	@PostMapping("/addnewtestemployeedetails")
-	public String addNewTestEmployeeDetails(@Valid@ModelAttribute("addtestemployeedetails")TestEmployeeDetails testemployeedetails,Errors errors) {
-		if(errors.hasErrors()) {
-			return "add-test-employee-details";
-		}
-		else {
+	public String addNewTestEmployeeDetails(@ModelAttribute("addtestemployeedetails")TestEmployeeDetails testemployeedetails) {
 		testEmployeeDetailsService.save(testemployeedetails);
-		return "redirect:/testemployeedetails/testemployeedetailslist";}
+		return TESTEMPLOYEEDETAILSLIST;
 	}
 	@GetMapping("/updatetestemployeedetailsform")
 	public String updateTestEmployeeForm(@RequestParam("examid") int examid,@RequestParam("employeeid") int employeeid,Model model) {
 		TestEmployeeDetailsCompositeKey testEmployeeDetailsCompositeKey = new TestEmployeeDetailsCompositeKey(examid,employeeid);
 		Optional<TestEmployeeDetails> testemployeedetails = testEmployeeDetailsService.findByid(testEmployeeDetailsCompositeKey);
 		model.addAttribute("updatetestemployeedetails",testemployeedetails);
-		return "update-test-employee-details";
+		return UPDATETESTEMPLOYEEDETAILS;
 	}
 	@PostMapping("/updatenewtestemployeedetails")
-	public String updateTestEmployeeDetails(@Valid@ModelAttribute("updatetestemployeedetails")TestEmployeeDetails testemployeedetails,Errors errors) {
-		if(errors.hasErrors()) {
-			return "update-test-employee-details";
-		}
-		else {
+	public String updateTestEmployeeDetails(@ModelAttribute("updatetestemployeedetails")TestEmployeeDetails testemployeedetails) {
 		testEmployeeDetailsService.save(testemployeedetails);
-		return "redirect:/testemployeedetails/testemployeedetailslist";}
+		return TESTEMPLOYEEDETAILSLIST;
 	}
 	@GetMapping("deletetestemployeedetails")
 	public String deleteTestEmployeeDetails(@RequestParam("examid") int examid,@RequestParam("employeeid") int employeeid) {
 		TestEmployeeDetailsCompositeKey testEmployeeDetailsCompositeKey = new TestEmployeeDetailsCompositeKey(examid,employeeid);
 		testEmployeeDetailsService.deleteById(testEmployeeDetailsCompositeKey);
-		return "redirect:/testemployeedetails/testemployeedetailslist";
+		return TESTEMPLOYEEDETAILSLIST;
 		}
 	@GetMapping("/testemployeedetailslist")
 	public String getAllTestEmployeeDetails(Model model) {

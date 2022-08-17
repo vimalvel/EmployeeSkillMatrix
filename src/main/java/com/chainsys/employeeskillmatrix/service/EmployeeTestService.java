@@ -9,10 +9,8 @@ import org.springframework.stereotype.Service;
 import com.chainsys.employeeskillmatrix.dto.ExamDetailsAndEmployeeTestDTO;
 import com.chainsys.employeeskillmatrix.model.EmployeeTest;
 import com.chainsys.employeeskillmatrix.model.ExamDetails;
-import com.chainsys.employeeskillmatrix.model.TestEmployeeDetails;
 import com.chainsys.employeeskillmatrix.repository.EmployeeTestRepository;
 import com.chainsys.employeeskillmatrix.repository.ExamDetailsRepository;
-import com.chainsys.employeeskillmatrix.repository.SkillsRepository;
 
 @Service
 public class EmployeeTestService {
@@ -20,8 +18,6 @@ public class EmployeeTestService {
 	private EmployeeTestRepository employeeTestRepository;
 	@Autowired
 	private ExamDetailsRepository examDetailsRepository;
-	@Autowired
-	private SkillsRepository skillsrepository;
 	public List<EmployeeTest> getEmployeeTest(){
 		return employeeTestRepository.findAll();
 	}

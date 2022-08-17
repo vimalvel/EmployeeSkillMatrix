@@ -8,7 +8,7 @@ import com.chainsys.employeeskillmatrix.model.TestEmployeeDetails;
 
 public class ExamDetailsAndTestEmployeeDetailsDTO {
 	private ExamDetails examdetails;
-	private List<TestEmployeeDetails> testemployeedetails = new ArrayList<TestEmployeeDetails>();
+	private List<TestEmployeeDetails> testemployeedetails = new ArrayList<>();
 	public ExamDetails getExamdetails() {
 		return examdetails;
 	}

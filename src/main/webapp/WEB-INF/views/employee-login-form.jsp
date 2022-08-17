@@ -22,8 +22,8 @@ body {
 }
 
 .background {
-	width: 430px;
-	height: 520px;
+	width: 450px;
+	height: 350px;
 	position: absolute;
 	transform: translate(-50%, -50%);
 	left: 50%;
@@ -32,7 +32,7 @@ body {
 
 form {
 	height: 400px;
-	width: 400px;
+	width: 350px;
 	background-color: rgba(255, 255, 255, 0.13);
 	position: absolute;
 	transform: translate(-50%, -50%);
@@ -70,8 +70,8 @@ label {
 
 input {
 	display: block;
-	height: 50px;
-	width: 100%;
+	height: 40px;
+	width: 80%;
 	background-color: rgba(255, 255, 255, 0.07);
 	border-radius: 3px;
 	padding: 0 10px;
@@ -86,7 +86,7 @@ input {
 
 button {
 	margin-top: 50px;
-	width: 100%;
+	width: 50%;
 	background-color: #ffffff;
 	color: #080710;
 	padding: 15px 0;

@@ -2,12 +2,10 @@ package com.chainsys.employeeskillmatrix.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,73 +20,79 @@ import com.chainsys.employeeskillmatrix.service.AdminLoginService;
 public class AdminLoginController {
 	@Autowired
 	private AdminLoginService adminLoginService;
+	private static final String ADDADMINFORM  ="add-admin-login-form";
+	private static final String ADMINLISTFORM  ="redirect:/adminlogins/adminlist";
+	private static final String UPDATEADMINFORM  ="update-admin-login-form";
+
 	@GetMapping("/getadminloginbyid")
 	public String getAdminLoginId(@RequestParam("adminid") int adminid, Model model) {
 		AdminLogin adminlogin = adminLoginService.findById(adminid);
-		model.addAttribute("getadminlogin",adminlogin);
+		model.addAttribute("getadminlogin", adminlogin);
 		return "find-admin-login-by-id";
 	}
+
 	@GetMapping("/addadminloginform")
 	public String showAdminLoginForm(Model model) {
 		AdminLogin adminlogin = new AdminLogin();
 		model.addAttribute("addadminlogin", adminlogin);
-		return "add-admin-login-form";
+		return ADDADMINFORM ;
 	}
+
 	@PostMapping("/addnewadminlogin")
-	public String addNewAdminLogin(@Valid@ModelAttribute("addadminlogin")AdminLogin adminlogin, Errors errors) {
-		if(errors.hasErrors()) {
-			return "add-admin-login-form";
-		}
-		else {
+	public String addNewAdminLogin(@ModelAttribute("addadminlogin") AdminLogin adminlogin) {
 		adminLoginService.save(adminlogin);
-		return "redirect:/adminlogins/adminlist";
-		}
+		return ADMINLISTFORM ;
+
 	}
+
 	@GetMapping("/updateadminloginform")
-	public String showUpdateAdminLoginForm(@RequestParam("adminid") int adminid,Model model) {
+	public String showUpdateAdminLoginForm(@RequestParam("adminid") int adminid, Model model) {
 		AdminLogin adminlogin = adminLoginService.findById(adminid);
-		model.addAttribute("updateadminlogin",adminlogin);
-		return "update-admin-login-form";
+		model.addAttribute("updateadminlogin", adminlogin);
+		return UPDATEADMINFORM;
 	}
+
 	@PostMapping("/updatenewadminlogin")
-	public String updateNewAdminLogin(@Valid@ModelAttribute("updateadminlogin")AdminLogin adminlogin,Errors errors) {
-		if(errors.hasErrors()) {
-			return "update-admin-login-form";
-		}
-		else {
+	public String updateNewAdminLogin(@ModelAttribute("updateadminlogin") AdminLogin adminlogin) {
+
 		adminLoginService.save(adminlogin);
-		return "redirect:/adminlogins/adminlist";}
+		return ADMINLISTFORM;
 	}
+
 	@GetMapping("deleteadminlogin")
 	public String deleteAdminLogin(@RequestParam("adminid") int adminid) {
 		adminLoginService.deleteById(adminid);
-		return "redirect:/adminlogins/adminlist";
-		}
+		return ADMINLISTFORM;
+	}
+
 	@GetMapping("/adminlist")
 	public String getAllAdminLogin(Model model) {
 		List<AdminLogin> adminlogin = adminLoginService.getAdminLogin();
-		model.addAttribute("alladmin",adminlogin);
+		model.addAttribute("alladmin", adminlogin);
 		return "list-admin-login";
 	}
+
 	@GetMapping("/adminloginform")
 	public String adminLoginForm(Model model) {
 		AdminLogin adminlogin = new AdminLogin();
 		model.addAttribute("adminlogin", adminlogin);
 		return "admin-login-form";
 	}
+
 	@PostMapping("/checkadminloginform")
 	public String checkingAccess(@ModelAttribute("adminlogin") AdminLogin adminlogin) {
-		AdminLogin adminLogin = adminLoginService.getAdminByIdAndPassword(adminlogin.getAdminId(), adminlogin.getPassword());
-		if(adminLogin!=null) {
+		AdminLogin adminLogin = adminLoginService.getAdminByIdAndPassword(adminlogin.getAdminId(),
+				adminlogin.getPassword());
+		if (adminLogin != null) {
 			return "redirect:/adminlogins/adminindex";
-		}
-		else
+		} else
 			return "redirect-adminloginpage";
-		
+
 	}
+
 	@GetMapping("/adminindex")
 	public String skills() {
 		return "skill-page";
 	}
-	
+
 }

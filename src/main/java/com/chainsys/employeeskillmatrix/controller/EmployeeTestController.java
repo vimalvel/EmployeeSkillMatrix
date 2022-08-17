@@ -23,6 +23,9 @@ import com.chainsys.employeeskillmatrix.service.EmployeeTestService;
 public class EmployeeTestController {
 	@Autowired
 	private EmployeeTestService employeetestservice;
+	private static final String ADDEMPLOYEETESTFORM="add-employee-test-form";
+	private static final String EMPLOYEETESTLIST="redirect:/employeetest/employeetestlist";
+	private static final String UPDATEEMPLOYEETESTFORM= "update-employee-test-form";
 	@GetMapping("/getemployeetestbyid")
 	public String getEmployeetestdetails(@RequestParam("id") int id, Model model) {
 		EmployeeTest employeetest = employeetestservice.findByid(id);
@@ -33,36 +36,28 @@ public class EmployeeTestController {
 	public String addEmployeeTestForm(Model model) {
 		EmployeeTest employeetest = new EmployeeTest();
 		model.addAttribute("addemployeetest", employeetest);
-		return "add-employee-test-form";
+		return ADDEMPLOYEETESTFORM;
 	}
 	@PostMapping("/addnewemployeetest")
-	public String addNewEmployeeTest(@Valid@ModelAttribute("addemployeetest")EmployeeTest employeetest , Errors errors) {
-		if(errors.hasErrors()) {
-			return "add-employee-test-form";
-		}
-		else {
+	public String addNewEmployeeTest(@ModelAttribute("addemployeetest")EmployeeTest employeetest) {
 	    employeetestservice.save(employeetest);
-		return "redirect:/employeetest/employeetestlist";}
+		return EMPLOYEETESTLIST;
 	}
 	@GetMapping("/updateemployeetestform")
 	public String UpdateEmployeeTestForm(@RequestParam("id") int id,Model model) {
 		EmployeeTest employeetest = employeetestservice.findByid(id);
 		model.addAttribute("updateemployeetest",employeetest);
-		return "update-employee-test-form";
+		return UPDATEEMPLOYEETESTFORM;
 	}
 	@PostMapping("/updatenewemployeetest")
 	public String updateNewEmployeeTest(@Valid@ModelAttribute("updateemployeetest")EmployeeTest employeetest,Errors errors) {
-		if(errors.hasErrors()) {
-			return "update-employee-test-form";
-		}
-		else {
 		employeetestservice.save(employeetest);
-		return "redirect:/employeetest/employeetestlist";}
+		return EMPLOYEETESTLIST;
 	}
 	@GetMapping("deleteemployeetest")
 	public String deleteEmployeeTest(@RequestParam("id") int id) {
         employeetestservice.deleteById(id);
-		return "redirect:/employeetest/employeetestlist";
+		return EMPLOYEETESTLIST;
 		}
 	@GetMapping("/employeetestlist")
 	public String getAllEmployeeTest(Model model) {

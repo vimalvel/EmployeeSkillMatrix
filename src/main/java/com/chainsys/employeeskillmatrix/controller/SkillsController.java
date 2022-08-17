@@ -2,12 +2,10 @@ package com.chainsys.employeeskillmatrix.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +22,9 @@ import com.chainsys.employeeskillmatrix.service.SkillsService;
 public class SkillsController {
 	@Autowired
 	private SkillsService skillsService;
+	private static final String ADDSKILLSFORM="add-skill-form";
+	private static final String SKILLLIST="redirect:/skills/skilllist";
+	private static final String UPDATESKILLSFORM="update-skill-form";
 	@Autowired
 	private EmployeeTestService employeeTestService;
 	@GetMapping("/getskillbyid")
@@ -37,38 +38,29 @@ public class SkillsController {
 		Skills skill = new Skills();
 		model.addAttribute("addskill", skill);
 		model.addAttribute("employeetest", employeeTestService.getEmployeeTest());
-		return "add-skill-form";
+		return ADDSKILLSFORM;
 	}
 	@PostMapping("/addnewskill")
-	public String addNewSkill(@Valid@ModelAttribute("addskill")Skills skill,Errors errors) {
-		if(errors.hasErrors()) {
-			return "add-skill-form";
-		}
-		else {
+	public String addNewSkill(@ModelAttribute("addskill")Skills skill) {
 		skillsService.save(skill);
-		return "redirect:/skills/skilllist";}
-	}
+		return SKILLLIST;
+		}
 	@GetMapping("/updateskillsform")
 	public String UpdateskillForm(@RequestParam("id") int id,Model model) {
 		Skills skill = skillsService.findByid(id);
 		model.addAttribute("updateskill",skill);
 		model.addAttribute("employeetest", employeeTestService.getEmployeeTest());
-		return "update-skill-form";
+		return UPDATESKILLSFORM;
 	}
 	@PostMapping("/updatenewskill")
-	public String updateNewSkills(@Valid@ModelAttribute("updateskill")Skills skill,Errors errors) {
-		if(errors.hasErrors()) {
-			return "update-skill-form";
-		}
-		else {
+	public String updateNewSkills(@ModelAttribute("updateskill")Skills skill) {
 		skillsService.save(skill);
-		return "redirect:/skills/skilllist";
+		return SKILLLIST;
 		}
-	}
 	@GetMapping("deleteskill")
 	public String deleteSkills(@RequestParam("id") int id) {
 		skillsService.deleteById(id);
-		return "redirect:/skills/skilllist";
+		return SKILLLIST;
 		}
 	@GetMapping("/skilllist")
 	public String getAllSkills(Model model) {

@@ -12,8 +12,7 @@ public class AdminLoginService {
 	@Autowired
 	private AdminLoginRepository adminLoginRepository;
 	public List<AdminLogin> getAdminLogin(){
-		List<AdminLogin> adminlist = adminLoginRepository.findAll();
-		return adminlist;
+		return adminLoginRepository.findAll();
 	}
 	public AdminLogin save(AdminLogin login) {
 		return adminLoginRepository.save(login);

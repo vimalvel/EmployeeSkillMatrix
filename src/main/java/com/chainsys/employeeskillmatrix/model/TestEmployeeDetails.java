@@ -8,10 +8,6 @@ import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
-
-import org.hibernate.validator.constraints.Range;
-
 import com.chainsys.employeeskillmatrix.compositekey.TestEmployeeDetailsCompositeKey;
 
 @Entity

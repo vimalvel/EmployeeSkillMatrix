@@ -2,12 +2,10 @@ package com.chainsys.employeeskillmatrix.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +23,9 @@ import com.chainsys.employeeskillmatrix.service.ExamDetailsService;
 public class ExamDetailsController {
 	@Autowired 
 	private ExamDetailsService examDetailsService;
+	private static final String ADDEXAMDETAILS="add-examdetails-form";
+	private static final String UPDATEEXAMDETAILS="update-examdetails-form";
+	private static final String EXAMDETAILSLIST="redirect:/examdetails/examlist";
 	@Autowired
 	private EmployeeTestService employeeTestService;
 	@GetMapping("/getexamdetailsbyid")
@@ -38,39 +39,29 @@ public class ExamDetailsController {
 		ExamDetails examdetails = new ExamDetails();
 		model.addAttribute("addexamdetails", examdetails);
 		model.addAttribute("employeetest", employeeTestService.getEmployeeTest());
-		return "add-examdetails-form";
+		return ADDEXAMDETAILS;
 	}
 	@PostMapping("/addnewexamdetails")
-	public String addNewExamDetails(@Valid@ModelAttribute("addexamdetails")ExamDetails examdetails,Errors errors) {
-		if(errors.hasErrors()) {
-			return "add-examdetails-form";	
-		}
-		else {
+	public String addNewExamDetails(@ModelAttribute("addexamdetails")ExamDetails examdetails) {
 		examDetailsService.save(examdetails);
-		return "redirect:/examdetails/examlist";
-		}
+		return EXAMDETAILSLIST;
 	}
 	@GetMapping("/updateexamdetailsform")
 	public String UpdateExamDetailsForm(@RequestParam("id") int id,Model model) {
 		ExamDetails examdetails = examDetailsService.findById(id);
 		model.addAttribute("updateexamdetails",examdetails);
 		model.addAttribute("employeetest", employeeTestService.getEmployeeTest());
-		return "update-examdetails-form";
+		return UPDATEEXAMDETAILS;
 	}
 	@PostMapping("/updatenewexamdetails")
-	public String updateNewExamDetails(@Valid@ModelAttribute("updateexamdetails")ExamDetails examdetails,Errors errors) {
-		if(errors.hasErrors()) {
-			return "update-examdetails-form";
-		}
-		else {
+	public String updateNewExamDetails(@ModelAttribute("updateexamdetails")ExamDetails examdetails) {
 		examDetailsService.save(examdetails);
-		return "redirect:/examdetails/examlist";
+		return EXAMDETAILSLIST;
 		}
-	}
 	@GetMapping("deleteexamdetails")
 	public String deleteExamDetails(@RequestParam("id") int id) {
 		examDetailsService.deleteById(id);
-		return "redirect:/examdetails/examlist";
+		return EXAMDETAILSLIST;
 		}
 	@GetMapping("/examlist")
 	public String getAllExamDetails(Model model) {
