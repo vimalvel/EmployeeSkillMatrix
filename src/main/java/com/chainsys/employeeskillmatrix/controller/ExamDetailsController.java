@@ -47,7 +47,7 @@ public class ExamDetailsController {
 		return EXAMDETAILSLIST;
 	}
 	@GetMapping("/updateexamdetailsform")
-	public String UpdateExamDetailsForm(@RequestParam("id") int id,Model model) {
+	public String updateExamDetailsForm(@RequestParam("id") int id,Model model) {
 		ExamDetails examdetails = examDetailsService.findById(id);
 		model.addAttribute("updateexamdetails",examdetails);
 		model.addAttribute("employeetest", employeeTestService.getEmployeeTest());

@@ -44,7 +44,7 @@ public class EmployeeTestController {
 		return EMPLOYEETESTLIST;
 	}
 	@GetMapping("/updateemployeetestform")
-	public String UpdateEmployeeTestForm(@RequestParam("id") int id,Model model) {
+	public String updateEmployeeTestForm(@RequestParam("id") int id,Model model) {
 		EmployeeTest employeetest = employeetestservice.findByid(id);
 		model.addAttribute("updateemployeetest",employeetest);
 		return UPDATEEMPLOYEETESTFORM;
