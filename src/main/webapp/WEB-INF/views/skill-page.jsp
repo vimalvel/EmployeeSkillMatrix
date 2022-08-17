@@ -90,7 +90,7 @@ body
         </div>
         <div class="dropdown">
             <button class="dropbtn">
-                Employee <i class="fa fa-caret-down"></i>
+                Employee <em class="fa fa-caret-down"></em>
             </button>
              <div class="dropdown-content">
                 <a href="/employeedetails/employeelist">Employee Details</a>                             
@@ -98,7 +98,7 @@ body
         </div>
         <div class="dropdown">
             <button class="dropbtn">
-                Skills <i class="fa fa-caret-down"></i>
+                Skills <em class="fa fa-caret-down"></em>
             </button>
              <div class="dropdown-content">
                 <a href="/skills/addskillsform">Add Skills To Employee</a> 
@@ -107,7 +107,7 @@ body
         </div>
         <div class="dropdown">
             <button class="dropbtn">
-                Employee Test Details <i class="fa fa-caret-down"></i>
+                Employee Test Details <em class="fa fa-caret-down"></em>
             </button>
              <div class="dropdown-content">
                 <a href="/employeetest/addemployeetestform">Add New Test</a> 
@@ -116,7 +116,7 @@ body
         </div>
 			<div class="dropdown">
             <button class="dropbtn">
-                Exam Details <i class="fa fa-caret-down"></i>
+                Exam Details <em class="fa fa-caret-down"></em>
             </button>
              <div class="dropdown-content">
                 <a href="/examdetails/addexamdetailsform">Add New Exam Details</a> 
@@ -125,7 +125,7 @@ body
         </div>
 			<div class="dropdown">
             <button class="dropbtn">
-               Employee Test Status <i class="fa fa-caret-down"></i>
+               Employee Test Status <em class="fa fa-caret-down"></em>
             </button>
              <div class="dropdown-content">
                 <a href="/testemployeedetails/addemployeetestdetails">Add New Employee Test Status </a> 
@@ -134,7 +134,7 @@ body
         </div>
 			<div class="dropdown">
             <button class="dropbtn">
-               Employee Skill Details <i class="fa fa-caret-down"></i>
+               Employee Skill Details <em class="fa fa-caret-down"></em>
             </button>
              <div class="dropdown-content">
                 <a href="/employeeskilldetails/addemployeeskilldetailsform">Add New Employee Skill Details </a> 

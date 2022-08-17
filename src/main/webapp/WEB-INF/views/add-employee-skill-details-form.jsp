@@ -51,6 +51,8 @@ function gradeCalculation(){
 		modelAttribute="addemployeeskilldetails">
 		<div class="form">
 			<table>
+			<caption></caption>
+			<tr><th></th></tr>
 				<tbody>
 					<tr>
 						<td><label for="employeeId">Employee Id</label></td>

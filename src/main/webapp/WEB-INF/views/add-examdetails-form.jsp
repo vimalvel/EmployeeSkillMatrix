@@ -16,6 +16,8 @@
 		modelAttribute="addexamdetails">
 		<div class="form">
 			<table>
+			<caption></caption>
+			<tr><th></th></tr>
 				<tbody>
 					<tr>
 						<td><label for="examDate">Exam Date</label></td>

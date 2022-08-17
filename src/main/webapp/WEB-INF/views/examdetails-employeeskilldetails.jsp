@@ -74,6 +74,8 @@
 	</div>
 <div id="examidlist">
 		<table>
+		<caption></caption>
+			<tr></tr>
 			<thead>
 			<tr>
 			<th>Employee Id</th>

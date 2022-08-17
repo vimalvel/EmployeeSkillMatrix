@@ -7,7 +7,7 @@
 <title>Index Page</title>
 </head>
 <body>
-<h1 align="center">INDEX</h1>
+<h1>INDEX</h1>
 <h1>Employee Details</h1>
 <a href="/employeedetails/addemployeedetailsform">Add Employee Details</a><br>
 <a href="/employeedetails/employeelist">View All Employee Details</a><br>

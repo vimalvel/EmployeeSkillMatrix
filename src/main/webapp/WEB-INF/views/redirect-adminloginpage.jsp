@@ -5,16 +5,24 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Error</title>
+<style>
+h2{
+text-align:"center";
+}
+admin{
+text-align:"center";
+}
+</style>
 </head>
 <body>
 	<div>
-		<h2 align="center">Please Enter Correct Admin Login Details</h2>
+		<h2>Please Enter Correct Admin Login Details</h2>
 	</div>
 	<div>
-		<h2 align="center">Press The Button To Go Admin Login Page
+		<h2>Press The Button To Go Admin Login Page
 			Again</h2>
 	</div>
-	<div align="center">
+	<div class = "admin">
 		<a href="/adminlogins/adminloginform"><button type = "button" onclick = "">Redirect To Admin Login Page</button></a>
 	</div>
 </body>

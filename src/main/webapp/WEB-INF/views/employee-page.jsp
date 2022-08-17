@@ -5,9 +5,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style>
+.div{
+text-align: center;
+}
+</style>
 </head>
 <body>
-<div align="center">
+<div class="div">
                 <div><h1>Employee Skill Matrix</h1></div>
             <div>
             <div><h4><a href="/employeedetails/getemployeeiddetails?id=${employeeid}"><button class="button">Check Employee Mark</button></a></h4></div>

@@ -15,6 +15,8 @@
 	<form:form action="" method="post" modelAttribute="getemployeeid">
 		<div class="form">
 			<table>
+			<caption></caption>
+			<tr><th></th></tr>
 				<tbody>
 					<tr>
 						<td><label for="employeeId">Employee Id</label></td>
@@ -97,6 +99,8 @@
 	</form:form>
 	<div class="list">
 		<table>
+		<caption></caption>
+		<tr></tr>
 			<thead>
 				<tr>
 					<th>Employee Id</th>

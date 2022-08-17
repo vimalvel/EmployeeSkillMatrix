@@ -15,6 +15,8 @@
 <body>
 	<div>
 		<table>
+		<caption></caption>
+		<tr></tr>
 			<thead>
 			<tr>
 			<th>Employee Id</th>

@@ -71,7 +71,9 @@
 		</div>
 	</div>
 	<div id="table root">
-	<table border='2' width="80%" cell-padding='2'>
+	<table>
+	<caption></caption>
+			<tr></tr>
 			<thead>
 				<tr>
 					<th>Exam Id</th>

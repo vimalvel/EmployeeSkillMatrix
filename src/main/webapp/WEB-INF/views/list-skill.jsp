@@ -14,6 +14,8 @@
 <body>
 	<div>
 		<table>
+		<caption></caption>
+		<tr></tr>
 			<thead>
 				<tr>
 					<th>Skill Id</th>
