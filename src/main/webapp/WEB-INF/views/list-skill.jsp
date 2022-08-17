@@ -34,7 +34,7 @@
 						<td>${skill.skillType}</td>
 						<td>${skill.testId}</td>
 						<td><a href="updateskillsform?id=${skill.skillId}"><button title="edit"><em class="gg-pen"></em></button></a></td>
-						<td><a href="deleteskill?id=${skill.skillId}"><button title="delete"><em class="fa fa-trash"></em></button></a></td>
+						<td><a href="deleteskill?id=${skill.skillId}"><button title="delete"><em class="fafa-trash"></em></button></a></td>
 				</c:forEach>
 			</tbody>
 		</table>

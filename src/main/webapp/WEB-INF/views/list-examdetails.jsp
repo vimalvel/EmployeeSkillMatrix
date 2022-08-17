@@ -45,7 +45,7 @@
 		    <td>${ex.supervicer}</td>
 		    <td>${ex.numberOfPassed}</td>
 		    <td><a href="updateexamdetailsform?id=${ex.examId}"><button title="edit"><em class="gg-pen"></em></button></a></td>
-		    <td><a href="deleteexamdetails?id=${ex.examId}"><button title="delete"><em class="fa fa-trash"></em></button></a></td>
+		    <td><a href="deleteexamdetails?id=${ex.examId}"><button title="delete"><em class="fafa-trash"></em></button></a></td>
 			</c:forEach>
 			</tbody>
 		</table>

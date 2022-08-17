@@ -35,7 +35,7 @@
 			<td>${test.maxMark}</td>
 			<td>${test.passMark}</td>
 			<td><a href="updateemployeetestform?id=${test.testId}"><button title="edit"><em class="gg-pen"></em></button></a></td>
-			<td><a href="deleteexamdetails?id=${test.testId}"><button title="delete"><em class="fa fa-trash"></em></button></a></td>
+			<td><a href="deleteexamdetails?id=${test.testId}"><button title="delete"><em class="fafa-trash"></em></button></a></td>
 			</c:forEach>
 			</tbody>
 		</table>

@@ -33,7 +33,7 @@
 						<td>${test.employeeId}</td>
 						<td>${test.status}</td>
 						<td><a href="updatetestemployeedetailsform?examid=${test.examId}&employeeid=${test.employeeId}"><button title="edit"><em class="gg-pen"></em></button></a></td>
-						<td><a href="deletetestemployeedetails?examid=${test.examId}&employeeid=${test.employeeId}"><button title="delete"><em class="fa fa-trash"></em></button></a></td>
+						<td><a href="deletetestemployeedetails?examid=${test.examId}&employeeid=${test.employeeId}"><button title="delete"><em class="fafa-trash"></em></button></a></td>
 				</c:forEach>
 			</tbody>
 		</table>

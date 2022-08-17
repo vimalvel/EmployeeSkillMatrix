@@ -51,7 +51,7 @@
 		    <td>${emp.salary }</td>
 		    <td>${emp.password }</td>
 		    <td><a href="updateemployeedetailsform?employeeid=${emp.employeeId}"><button title="edit"><em class="gg-pen"></em></button></a></td>
-		    <td><a href="deleteemployeedetails?employeeid=${emp.employeeId}"><button title="delete"><em class="fa fa-trash"></em></button></a></td>
+		    <td><a href="deleteemployeedetails?employeeid=${emp.employeeId}"><button title="delete"><em class="fafa-trash"></em></button></a></td>
 			</c:forEach>
 			</tbody>
 		</table>

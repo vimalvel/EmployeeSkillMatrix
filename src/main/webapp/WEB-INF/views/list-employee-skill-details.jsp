@@ -47,7 +47,7 @@
 						<td><a
 							href="deleteemployeeskilldetails?id=${skill.employeeId}&sid=${skill.skillId}&eid=${skill.examId}"><button
 									title="delete">
-									<em class="fa fa-trash"></em>
+									<em class="fafa-trash"></em>
 								</button></a></td>
 				</c:forEach>
 			</tbody>
