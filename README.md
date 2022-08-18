@@ -28,11 +28,10 @@ Employee Skill Matrix is a trending system where you can manage your employee sk
 
 # Features
 
-1.DB Connectivity
-2.DB Relational data Handling.
-   Lookup relation.
-   One to many relation.
-3. Exception Handling with try and catch.
-4.Form validation in frontend level.
-5.Form validation in JavaScript level.
-6.Form null validation in Oracle database level.
+1. DataBase Connectivity.
+2. DataBase Relational data Handling.
+3. One to many relation.
+4. Exception Handling with try and catch.
+5. Form validation in frontend level.
+6. Form validation in JavaScript level.
+7. Form null validation in Oracle database level.
