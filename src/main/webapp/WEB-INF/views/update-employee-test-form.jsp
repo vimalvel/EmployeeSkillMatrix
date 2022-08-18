@@ -7,44 +7,42 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Test</title>
+<style>
+<%@include file="/WEB-INF/CSS/forms.css"%>
+</style>
 </head>
 <body>
-<div id="root">
-		<div id="form">
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; width:10% " onclick="history.back()">Go Back</button>
 			<form:form action = "updatenewemployeetest" method = "post" modelAttribute = "updateemployeetest">
-			<div>
-					<label for="testId">Test Id</label>
-					<div>
-						<form:input path="testId" required="true" placeholder="Enter Test Id" />
-					</div>
-					<form:errors path="testId" cssClass="text-danger" />
-				</div>
-				<div>
-					<label for="testName">Test Name</label>
-					<div>
-						<form:input path="testName" required="true" placeholder="TestName" />
-					</div>
-					<form:errors path="testName" cssClass="text-danger" />
-				</div>
-				<div>
-					<label for="maxMark">Max Mark</label>
-					<div>
-						<form:input path="maxMark" required="true" placeholder="MaxMark"/>
-					</div>
-					<form:errors path="maxMark" cssClass="text-danger" />
-				</div>
-				<div>
-					<label for="passMark">PassMark</label>
-					<div>
-						<form:input path="passMark" required="true" placeholder="PassMark"/>
-					</div>
-					<form:errors path="passMark" cssClass="text-danger" />
-				</div>
-				<div>
-					<form:button>Update Employee Test</form:button>
-				</div>
-			</form:form>
+			<div class="form">
+			<table>
+			<caption></caption>
+			<tr><th></th></tr>
+				<tbody>
+					<tr>
+						<td><label for="testName">Test Name</label></td>
+						<td><form:select path="testName" required="true">
+								<form:option value="Big Data Analysis">Big Data Analysis</form:option>
+								<form:option value="Coding and Programming">Coding and Programming</form:option>
+								<form:option value="Project Management">Project Management</form:option>
+								<form:option value="Social Media Management & Digital Marketing">Social Media Management & Digital Marketing</form:option>
+								<form:option value="Technical Writing">Technical Writing</form:option>
+							</form:select></td>
+					</tr>
+					<tr>
+						<td><label for="maxMark">Max Mark</label></td>
+						<td><form:input path="maxMark" required="true"
+								placeholder="MaxMark" /></td>
+					</tr>
+					<tr>
+						<td><label for="passMark">PassMark</label></td>
+						<td><form:input path="passMark" required="true"
+								placeholder="PassMark" /></td>
+					</tr>
+				</tbody>
+			</table>
+			<form:button>Add Test</form:button>
 		</div>
-	</div>
+	</form:form>
 </body>
 </html>

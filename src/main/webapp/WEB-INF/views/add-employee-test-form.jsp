@@ -12,6 +12,7 @@
 </style>
 </head>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; width:10% " onclick="history.back()">Go Back</button>
 	<form:form action="addnewemployeetest" method="post"
 		modelAttribute="addemployeetest">
 		<div class="form">
@@ -21,26 +22,23 @@
 				<tbody>
 					<tr>
 						<td><label for="testName">Test Name</label></td>
-						<td><form:select path="testName">
+						<td><form:select path="testName" required="true">
 								<form:option value="Big Data Analysis">Big Data Analysis</form:option>
 								<form:option value="Coding and Programming">Coding and Programming</form:option>
 								<form:option value="Project Management">Project Management</form:option>
 								<form:option value="Social Media Management & Digital Marketing">Social Media Management & Digital Marketing</form:option>
 								<form:option value="Technical Writing">Technical Writing</form:option>
 							</form:select></td>
-						<form:errors path="testName" cssClass="text-danger" />
 					</tr>
 					<tr>
 						<td><label for="maxMark">Max Mark</label></td>
 						<td><form:input path="maxMark" required="true"
 								placeholder="MaxMark" /></td>
-						<form:errors path="maxMark" cssClass="text-danger" />
 					</tr>
 					<tr>
 						<td><label for="passMark">PassMark</label></td>
 						<td><form:input path="passMark" required="true"
 								placeholder="PassMark" /></td>
-						<form:errors path="passMark" cssClass="text-danger" />
 					</tr>
 				</tbody>
 			</table>

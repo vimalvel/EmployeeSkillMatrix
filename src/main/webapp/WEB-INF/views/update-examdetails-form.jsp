@@ -7,79 +7,65 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Exam Details</title>
+<style>
+<%@include file="/WEB-INF/CSS/forms.css"%>
+</style>
 </head>
 <body>
-<div id="root">
-		<div id="form">
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; width:10% " onclick="history.back()">Go Back</button>
 			<form:form action = "updatenewexamdetails" method = "post" modelAttribute = "updateexamdetails">
-			<div>
-					<label for="examId">Exam Id</label>
-					<div>
-						<form:input path="examId"  required="true"  placeholder="Enter Exam Id"/>
-					</div>
-					<form:errors path="examId" cssClass="text-danger" />
-				</div>
-				<div>
-					<label for="examDate">Exam Date</label>
-					<div>
-						<form:input path="examDate" type = "date"  />
-					</div>
-					<form:errors path="examDate" cssClass="text-danger" />
-				</div>
-				<div>
-					<label for="testId">Test Id</label>
-					<div>
-						<form:input path="testId"  required="true"  placeholder="Enter Test Id"/>
-					</div>
-					<form:errors path="testId" cssClass="text-danger" />
-				</div>
-				<div>
-					<label for="startTime">Start Time</label>
-					<div>
-						<form:input path="startTime" type = "time" />
-					</div>
-					<form:errors path="startTime" cssClass="text-danger" />
-				</div>
-				<div>
-					<label for="endTime">End Time</label>
-					<div>
-						<form:input path="endTime" type = "time" />
-					</div>
-					<form:errors path="endTime" cssClass="text-danger" />
-				</div>
-				<div>
-					<label for="examMode">Exam Mode</label>
-					<div>
-						<form:input path="examMode" required="true" placeholder="Enter Exam Mode" />
-					</div>
-					<form:errors path="examMode" cssClass="text-danger" />
-				</div>
-				<div>
-					<label for="totalParticipation">Total Particpation</label>
-					<div>
-						<form:input path="totalParticipation" required="true" placeholder="Enter Total Participation" />
-					</div>
-					<form:errors path="totalParticipation" cssClass="text-danger" />
-				</div>
-				<div>
-					<label for="supervicer">Supervicer</label>
-					<div>
-						<form:input path="supervicer" required="true" placeholder="Enter Supervicer"/>
-					</div>
-					<form:errors path="supervicer" cssClass="text-danger" />
-				</div>
-				<div>
-					<label for="numberOfPassed">Number Of Passed</label>
-					<div>
-						<form:input path="numberOfPassed" required="true" placeholder="Enter Number Of Passed"/>
-					</div>
-					<form:errors path="numberOfPassed" cssClass="text-danger" />
-				</div>
-				<div>
-					<form:button>Update Exam Details</form:button>
-				</div>
-			</form:form>
+			<div class="form">
+			<table>
+			<caption></caption>
+			<tr><th></th></tr>
+				<tbody>
+					<tr>
+						<td><label for="examDate">Exam Date</label></td>
+						<td><form:input path="examDate" type="date" /></td>
+					</tr>
+					<tr>
+						<td><label for="testId">Test Name</label></td>
+						<td><form:select path="testId">
+								<c:forEach var="test" items="${employeetest}">
+									<form:option value="${test.testId}" label="${test.testName}" />
+								</c:forEach>
+							</form:select></td>
+					</tr>
+					<tr>
+						<td><label for="startTime">Start Time</label></td>
+						<td><form:input  path="startTime" name="startTime" type="time" /></td>
+					</tr>
+					<tr>
+						<td><label for="endTime">End Time</label></td>
+						<td><form:input  path="endTime" name="endTime" onblur="timeCheck();" type="time" /></td>
+					</tr>
+					<tr>
+						<td><label for="examMode">Exam Mode</label></td>
+						<td><form:select path="examMode" required="true">
+								<form:option value="Online">Online</form:option>
+								<form:option value="Offline">Offline</form:option>
+							</form:select></td>
+					</tr>
+					<tr>
+						<td><label for="totalParticipation">Total
+								Particpation</label></td>
+						<td><form:input path="totalParticipation" required="true"
+								placeholder="Enter Total Participation" /></td>
+					</tr>
+					<tr>
+						<td><label for="supervicer">Supervicer</label></td>
+						<td><form:input path="supervicer" required="true"
+								placeholder="Enter Supervicer" /></td>
+					</tr>
+					<tr>
+						<td><label for="numberOfPassed">Number Of Passed</label></td>
+						<td><form:input path="numberOfPassed" required="true"
+								placeholder="Enter Number Of Passed" /></td>
+					</tr>
+				</tbody>
+			</table>
+			<form:button>Add Exam Details</form:button>
 		</div>
-	</div>
+	</form:form>
 </body>
 </html>

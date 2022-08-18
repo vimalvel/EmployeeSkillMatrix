@@ -12,6 +12,7 @@
 </style>
 </head>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; width:10% " onclick="history.back()">Go Back</button>
 	<form:form action="addnewtestemployeedetails" method="post"
 		modelAttribute="addtestemployeedetails">
 		<div class="form">
@@ -21,20 +22,28 @@
 				<tbody>
 					<tr>
 						<td><label for="examId">Exam Id</label></td>
-						<td><form:input path="examId" required="true"
-								placeholder="Enter ExamId" pattern="^[0-9]+$" /></td>
-						<form:errors path="examId" cssClass="text-danger" />
+						<td><form:select path="examId">
+								<c:forEach var="exam" items="${examid}">
+									<form:option value="${exam.examId}"
+										label="${exam.examId}" />
+								</c:forEach>
+							</form:select></td>
 					<tr>
 						<td><label for="employeeId">Employee Id</label></td>
-						<td><form:input path="employeeId" required="true"
-								placeholder="Enter EmployeeId" pattern="^[0-9]+$" /></td>
-						<form:errors path="employeeId" cssClass="text-danger" />
+						<td><form:select path="employeeId">
+								<c:forEach var="emp" items="${employeeid}">
+									<form:option value="${emp.employeeId}" 
+									label="${emp.employeeId}"/>
+								</c:forEach>
+							</form:select> /></td>
 					</tr>
 					<tr>
 						<td><label for="status">Status</label></td>
-						<td><form:input path="status" required="true"
-								placeholder="Status" /></td>
-						<form:errors path="status" cssClass="text-danger" />
+						<td><form:select path="status" required="true">
+								<form:option value="Pending">Pending</form:option>
+								<form:option value="Completed">Completed</form:option>
+								<form:option value="Yet TOO Start">Yet TOO Start</form:option>
+							</form:select> /></td>
 					</tr>
 				</tbody>
 			</table>

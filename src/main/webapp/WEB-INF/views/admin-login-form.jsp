@@ -157,7 +157,7 @@ button:after{
 </style>
 </head>
 <body>
-	
+	<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; width:10% " onclick="history.back()">Go Back</button>
 	<form:form action="checkadminloginform" method="post"
 		modelAttribute="adminlogin">
 		<label for="adminId">Admin ID : </label>

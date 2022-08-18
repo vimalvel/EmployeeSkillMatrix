@@ -47,6 +47,7 @@ function gradeCalculation(){
 </script>
 </head>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; width:10% " onclick="history.back()">Go Back</button>
 	<form:form action="addnewemployeeskilldetails" method="post"
 		modelAttribute="addemployeeskilldetails">
 		<div class="form">
@@ -56,11 +57,13 @@ function gradeCalculation(){
 				<tbody>
 					<tr>
 						<td><label for="employeeId">Employee Id</label></td>
-						<td><form:input path="employeeId" placeholder="Employee Id"
-								required="true" /></td>
+						<td><form:select path="employeeId">
+								<c:forEach var="emp" items="${employeeid}">
+									<form:option value="${emp.employeeId}" 
+									label="${emp.employeeId}"/>
+								</c:forEach>
+							</form:select></td>
 					</tr>
-					<form:errors path="employeeId" cssClass="text-danger" />
-
 					<tr>
 						<td><label for="skillId">Skill Name</label></td>
 						<td><form:select path="skillId">
@@ -71,39 +74,34 @@ function gradeCalculation(){
 							</form:select></td>
 
 					</tr>
-					<form:errors path="skillId" cssClass="text-danger" />
-
 					<tr>
 						<td><label for="examId">Exam Id</label></td>
-						<td><form:input path="examId" placeholder="Exam ID"
-								required="true" /></td>
+						<td><form:select path="examId">
+								<c:forEach var="exam" items="${examid}">
+									<form:option value="${exam.examId}"
+										label="${exam.examId}" />
+								</c:forEach>
+							</form:select></td>
 
 					</tr>
-					<form:errors path="examId" cssClass="text-danger" />
-
 					<tr>
 						<td><label for="markScore">Mark Score</label></td>
 						<td><form:input path="markScore" id="markScore" onchange="gradeCalculation();" placeholder="MarkScore"
 								required="true" /></td>
 
 					</tr>
-					<form:errors path="markScore" cssClass="text-danger" />
-
 					<tr>
 						<td><label for="grade">Grade</label></td>
 						<td><form:input path="grade" id="grade" onchange="gradeCalculation();" placeholder="Grade"
 								required="true" /></td>
 
 					</tr>
-					<form:errors path="grade" cssClass="text-danger" />
-
 					<tr>
 						<td><label for="employeeLevel">Employee Level</label></td>
 						<td><form:input path="employeeLevel" id="employeeLevel" onchange="gradeCalculation(this.form);"
 								placeholder="Employee Level" required="true" /></td>
 
 					</tr>
-					<form:errors path="employeeLevel" cssClass="text-danger" />
 				</tbody>
 			</table>
 

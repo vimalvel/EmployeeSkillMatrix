@@ -9,7 +9,7 @@ import com.chainsys.employeeskillmatrix.model.EmployeeDetails;
 public interface EmployeeDetailsRepository extends CrudRepository<EmployeeDetails,Integer> {
 	EmployeeDetails findById(int id);
 	EmployeeDetails save(EmployeeDetails empdetails);
-	void deleteById(int emp_id);
+	void deleteById(int empid);
 	List<EmployeeDetails> findAll();
 	EmployeeDetails findByEmployeeIdAndPassword(int id,String password);
        

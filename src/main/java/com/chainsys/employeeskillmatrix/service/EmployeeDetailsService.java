@@ -36,8 +36,8 @@ public class EmployeeDetailsService {
 		return employeeDetailsRepository.findById(id);
 	}
 
-	public void deleteById(int emp_id) {
-		employeeDetailsRepository.deleteById(emp_id);
+	public void deleteById(int empid) {
+		employeeDetailsRepository.deleteById(empid);
 	}
 
 	public EmployeeDetailsAndEmployeeSkillDetailsDTO getEmpDetailsAndEmpSkillDetails(int id) {
@@ -59,7 +59,7 @@ public class EmployeeDetailsService {
 		List<TestEmployeeDetails> testemployeedetails = testemployeedetailsrepository.findByEmployeeId(id);
 		Iterator<TestEmployeeDetails> itr = testemployeedetails.iterator();
 		while (itr.hasNext()) {
-			dto1.addTestEmployeeDetails((TestEmployeeDetails) itr.next());
+			dto1.addTestEmployeeDetails( itr.next());
 		}
 		return dto1;
 	}

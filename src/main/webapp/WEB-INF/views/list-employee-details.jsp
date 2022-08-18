@@ -13,6 +13,7 @@
 </style>
 </head>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; width:10% " onclick="history.back()">Go Back</button>
 	<div>
 		<table>
 		<caption></caption>
@@ -30,7 +31,6 @@
 			<th>Designation</th>
 			<th>Employee Manager</th>
 			<th>Salary</th>
-			<th>Password</th>
 			<th>Edit</th>
 			<th>Delete</th>
 			</tr>
@@ -49,7 +49,6 @@
 		    <td>${emp.designation}</td>
 		    <td>${emp.employeeManager }</td>
 		    <td>${emp.salary }</td>
-		    <td>${emp.password }</td>
 		    <td><a href="updateemployeedetailsform?employeeid=${emp.employeeId}"><button title="edit"><em class="gg-pen"></em></button></a></td>
 		    <td><a href="deleteemployeedetails?employeeid=${emp.employeeId}"><button title="delete"><em class="fafa-trash"></em></button></a></td>
 			</c:forEach>

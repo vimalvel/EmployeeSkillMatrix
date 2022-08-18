@@ -43,7 +43,7 @@ a {
 	color: red;
 	text-decoration: none;
 }
-fafa-trash{
+.fafa-trash{
 	box-sizing: border-box;
     position: relative;
     display: block;
@@ -59,15 +59,15 @@ fafa-trash{
     border-bottom-right-radius: 1px;
     margin-top: 4px
 }
-fafa-trash::after,
-fafa-trash::before
+.fafa-trash::after,
+.fafa-trash::before
 {
 	content: "";
     display: block;
     box-sizing: border-box;
     position: absolute
 }
-fafa-trash::after{
+.fafa-trash::after{
 	background: currentColor;
     border-radius: 3px;
     width: 16px;
@@ -75,7 +75,7 @@ fafa-trash::after{
     top: -4px;
     left: -5px
 }
-fafa-trash::before{
+.fafa-trash::before{
 	width: 10px;
     height: 4px;
     border: 2px solid;

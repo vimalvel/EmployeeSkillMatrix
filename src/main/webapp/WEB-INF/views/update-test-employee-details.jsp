@@ -7,38 +7,47 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Test Details</title>
+<style>
+<%@include file="/WEB-INF/CSS/forms.css"%>
+</style>
 </head>
 <body>
-<div id="root">
-		<div id="form">
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; width:10% " onclick="history.back()">Go Back</button>
 			<form:form action = "updatenewtestemployeedetails" method = "post" modelAttribute = "updatetestemployeedetails">
-			<div>
-					<label for="examId">Exam Id</label>
-					<div>
-						<form:input path="examId" required="true" placeholder="Enter ExamId" pattern="^[0-9]+$"/>
-					</div>
-					<form:errors path="examId" cssClass="text-danger" />
-				</div>
-				<div>
-					<label for="employeeId">Employee Id</label>
-					<div>
-						<form:input path="employeeId"  required="true" placeholder="Enter EmployeeId" pattern="^[0-9]+$"/>
-					</div>
-					<form:errors path="employeeId" cssClass="text-danger" />
-				</div>
-				<div>
-					<label for="status">Status</label>
-					<div>
-						<form:input path="status" required="true" placeholder="Status"/>
-					</div>
-					<form:errors path="status" cssClass="text-danger" />
-				</div>
-				
-				<div>
-					<form:button>Update Test Details</form:button>
-				</div>
-			</form:form>
+			<div class="form">
+			<table>
+			<caption></caption>
+			<tr><th></th></tr>
+				<tbody>
+					<tr>
+						<td><label for="examId">Exam Id</label></td>
+						<td><form:select path="examId">
+								<c:forEach var="exam" items="${examid}">
+									<form:option value="${exam.examId}"
+										label="${exam.examId}" />
+								</c:forEach>
+							</form:select></td>
+					<tr>
+						<td><label for="employeeId">Employee Id</label></td>
+						<td><form:select path="employeeId">
+								<c:forEach var="emp" items="${employeeid}">
+									<form:option value="${emp.employeeId}" 
+									label="${emp.employeeId}"/>
+								</c:forEach>
+							</form:select> /></td>
+					</tr>
+					<tr>
+						<td><label for="status">Status</label></td>
+						<td><form:select path="status" required="true">
+								<form:option value="Pending">Pending</form:option>
+								<form:option value="Completed">Completed</form:option>
+								<form:option value="Yet TOO Start">Yet TOO Start</form:option>
+							</form:select> /></td>
+					</tr>
+				</tbody>
+			</table>
+			<form:button>Update Test Details</form:button>
 		</div>
-	</div>
+	</form:form>
 </body>
 </html>

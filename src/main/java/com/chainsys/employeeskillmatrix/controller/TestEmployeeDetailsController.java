@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.employeeskillmatrix.compositekey.TestEmployeeDetailsCompositeKey;
 import com.chainsys.employeeskillmatrix.model.TestEmployeeDetails;
+import com.chainsys.employeeskillmatrix.service.EmployeeDetailsService;
+import com.chainsys.employeeskillmatrix.service.ExamDetailsService;
 import com.chainsys.employeeskillmatrix.service.TestEmployeeDetailsService;
 
 @Controller
@@ -22,6 +24,10 @@ import com.chainsys.employeeskillmatrix.service.TestEmployeeDetailsService;
 public class TestEmployeeDetailsController {
 	@Autowired
 	private TestEmployeeDetailsService testEmployeeDetailsService;
+	@Autowired
+	private ExamDetailsService examDetailsService;
+	@Autowired
+	private EmployeeDetailsService employeeDetailsService;
 	private static final String ADDTESTEMPLOYEEDETAILS="add-test-employee-details";
 	private static final String TESTEMPLOYEEDETAILSLIST="redirect:/testemployeedetails/testemployeedetailslist";
 	private static final String UPDATETESTEMPLOYEEDETAILS="update-test-employee-details";
@@ -36,6 +42,8 @@ public class TestEmployeeDetailsController {
 	public String addEmployeeTestForm(Model model) {
 		TestEmployeeDetails testemployeedetails = new TestEmployeeDetails();
 		model.addAttribute("addtestemployeedetails", testemployeedetails);
+		model.addAttribute("examid", examDetailsService.getExamDetails());
+		model.addAttribute("employeeid", employeeDetailsService.getEmployeeDetails());
 		return ADDTESTEMPLOYEEDETAILS;
 	}
 	@PostMapping("/addnewtestemployeedetails")
@@ -48,6 +56,8 @@ public class TestEmployeeDetailsController {
 		TestEmployeeDetailsCompositeKey testEmployeeDetailsCompositeKey = new TestEmployeeDetailsCompositeKey(examid,employeeid);
 		Optional<TestEmployeeDetails> testemployeedetails = testEmployeeDetailsService.findByid(testEmployeeDetailsCompositeKey);
 		model.addAttribute("updatetestemployeedetails",testemployeedetails);
+		model.addAttribute("examid", examDetailsService.getExamDetails());
+		model.addAttribute("employeeid", employeeDetailsService.getEmployeeDetails());
 		return UPDATETESTEMPLOYEEDETAILS;
 	}
 	@PostMapping("/updatenewtestemployeedetails")

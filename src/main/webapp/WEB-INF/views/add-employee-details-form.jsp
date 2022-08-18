@@ -11,43 +11,8 @@
 <%@include file="/WEB-INF/CSS/forms.css"%>
 </style>
 <script>
-		var firstnameCheck = function() {
-			var nameRegex = new RegExp("^[a-z A-Z]+$");
-			if (!document.form.firstname.value.match(nameRegex)) {
-				if (alert("Name can't be empty & must contain only alphabets")) {
-					document.form.firstname.focus();
-				} else
-					document.activeElement.blur();
-			} else {
-				return false;
-			}
-
-		}
-		var lastnameCheck = function() {
-			var nameRegex = new RegExp("^[a-z A-Z]+$");
-			if (!document.form.lastname.value.match(nameRegex)) {
-				if (alert("Must contain only alphabets")) {
-					document.form.lastname.focus();
-				} else
-					document.activeElement.blur();
-			} else {
-				return false;
-			}
-
-		}
-		var lastnameCheck = function() {
-			var nameRegex = new RegExp("^[a-z A-Z]+$");
-			if (!document.form.lastname.value.match(nameRegex)) {
-				if (alert("Must contain only alphabets")) {
-					document.form.lastname.focus();
-				} else
-					document.activeElement.blur();
-			} else {
-				return false;
-			}
-
-		}
-	</script>
+<%@include file="/WEB-INF/Script/employeedetails.js"%>
+</script>
 </head>
 <body>
 	<form:form action="addnewemployeedetails" method="post"
@@ -60,43 +25,39 @@
 				<tbody>
 					<tr>
 						<td><label for="firstName">First Name</label></td>
-						<td><form:input path="firstName" name="firstName"
-								placeholder="Enter First Name" onblur="firstnameCheck();" /></td>
+						<td><form:input path="firstName" name="firstName" onblur="firstCheck();" pattern ="^[a-z A-Z]+$" title="Name can't be empty or must contain only alphabets" placeholder="Enter First Name" required="true" /></td>
 					</tr>
 					<tr>
 						<td><label for="lastName">Last Name</label></td>
-						<td><form:input path="lastName" name="lastname"
-								placeholder="Enter Last Name" onblur="lastnameCheck();" /></td>
+						<td><form:input path="lastName" name="lastName" onblur="lastCheck();" pattern ="^[a-z A-Z]+$" title="Name must be in alphabets" placeholder="Enter Last Name"  /></td>
 					</tr>
 					<tr>
 						<td><label for="gender">Gender</label></td>
-						<td><form:select path="gender">
+						<td><form:select path="gender" required="true">
 								<form:option value="Male">Male</form:option>
 								<form:option value="Female">Female</form:option>
 							</form:select></td>
 					</tr>
 					<tr>
 						<td><label for="dob">Date Of Birth</label></td>
-						<td><form:input path="dob" type="date" /></td>
+						<td><form:input path="dob" name="dob" onblur="checkDateOfBirth();" type="date" required="true"/></td>
 					</tr>
 					<tr>
 						<td><label for="email">Email</label></td>
-						<td><form:input path="email" placeholder="Enter a Email"
-								required="true" /></td>
+						<td><form:input path="email" name="email" onblur="emailCheck();" pattern ="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" title="email not in correct format" placeholder="Enter a Email" required="true" /></td>
 					</tr>
 					<tr>
 						<td><label for="address">Address</label></td>
-						<td><form:input path="address" placeholder="Enter Address"
+						<td><form:input path="address" name="address" onblur="addressCheck();" placeholder="Enter Address" 
 								required="true" /></td>
 					</tr>
 					<tr>
 						<td><label for="phoneNumber">Phone Number</label></td>
-						<td><form:input path="phoneNumber"
-								placeholder="Enter Phone Number" required="true" /></td>
+						<td><form:input path="phoneNumber" name="phoneNo" onblur="phoneNoCheck();" pattern="[0-9]{10}" title="Phone number must have 10 digits" placeholder="Enter Phone Number" required="true" /></td>
 					</tr>
 					<tr>
 						<td><label for="designation">Designation</label></td>
-						<td><form:select path="designation">
+						<td><form:select path="designation" required="true">
 								<form:option value="Software Developer">Software Developer</form:option>
 								<form:option value="Senior test engineer">Senior test engineer</form:option>
 								<form:option value="Programmer">Programmer</form:option>
@@ -112,18 +73,17 @@
 					</tr>
 					<tr>
 						<td><label for="employeeManager">Employee Manager</label></td>
-						<td><form:input path="employeeManager"
+						<td><form:input path="employeeManager" pattern="^[a-z A-Z]+$" title="Name can't be empty or must contain only alphabets"
 								placeholder="Employee Manager" required="true" /></td>
 					</tr>
 					<tr>
 						<td><label for="salary">Salary</label></td>
-						<td><form:input path="salary" placeholder="Salary"
+						<td><form:input path="salary" pattern="[0-9][1-9.]*[0-9]+[1-9]*" title="It Should be in Integer Only" placeholder="Salary"
 								required="true" /></td>
 					</tr>
 					<tr>
 						<td><label for="password">Password</label></td>
-						<td><form:input path="password" placeholder="Enter Password"
-								type="password" required="true" /></td>
+						<td><form:input path="password" name="password" onblur="passwordCheck();" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" title="Password must begin with letter and contain atleast one number and must have atleast 8 characters" placeholder="Enter a Password" type="password" required="true" /></td>
 					</tr>
 				</tbody>
 			</table>

@@ -46,7 +46,7 @@ public class SkillsController {
 		return SKILLLIST;
 		}
 	@GetMapping("/updateskillsform")
-	public String UpdateskillForm(@RequestParam("id") int id,Model model) {
+	public String updateskillForm(@RequestParam("id") int id,Model model) {
 		Skills skill = skillsService.findByid(id);
 		model.addAttribute("updateskill",skill);
 		model.addAttribute("employeetest", employeeTestService.getEmployeeTest());

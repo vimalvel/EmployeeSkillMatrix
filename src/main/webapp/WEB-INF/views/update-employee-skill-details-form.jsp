@@ -7,58 +7,71 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Employee Skill</title>
+<style>
+<%@include file="/WEB-INF/CSS/forms.css"%>
+</style>
 </head>
 <body>
-<div id="root">
-		<div id="form">
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; width:10% " onclick="history.back()">Go Back</button>
 			<form:form action="updatenewemployeeskilldetails" method="post" modelAttribute="updateemployeeskilldetails">
-				<div>
-					<label for="employeeId">Employee Id</label>
-					<div>
-						<form:input path="employeeId" placeholder="Employee Id" required="true" />
-					</div>
-					<form:errors path="employeeId" cssClass="text-danger" />
-				</div>
-				<div>
-					<label for="skillId">Skill Id</label>
-					<div>
-						<form:input path="skillId" placeholder="Skill ID" required="true" />
-					</div>
-					<form:errors path="skillId" cssClass="text-danger" />
-				</div>
-				<div>
-					<label for="examId">Exam Id</label>
-					<div>
-						<form:input path="examId" placeholder="Exam ID" required="true" />
-					</div>
-					<form:errors path="examId" cssClass="text-danger" />
-				</div>
-				<div>
-					<label for="markScore">Mark Score</label>
-					<div>
-						<form:input path="markScore" placeholder="MarkScore"  required="true"/>
-					</div>
-					<form:errors path="markScore" cssClass="text-danger" />
-				</div>
-				<div>
-					<label for="grade">Grade</label>
-					<div>
-						<form:input path="grade" placeholder="Grade"  required="true"/>
-					</div>
-					<form:errors path="grade" cssClass="text-danger" />
-				</div>
-				<div>
-					<label for="employeeLevel">Employee Level</label>
-					<div>
-						<form:input path="employeeLevel" placeholder="Employee Level"  required="true"/>
-					</div>
-					<form:errors path="employeeLevel" cssClass="text-danger" />
-				</div>
-				<div>
-					<form:button>Update Employee Skill</form:button>
-				</div>
-			</form:form>
+				<div class="form">
+			<table>
+			<caption></caption>
+			<tr><th></th></tr>
+				<tbody>
+					<tr>
+						<td><label for="employeeId">Employee Id</label></td>
+						<td><form:select path="employeeId">
+								<c:forEach var="emp" items="${employeeid}">
+									<form:option value="${emp.employeeId}" 
+									label="${emp.employeeId}"/>
+								</c:forEach>
+							</form:select></td>
+					</tr>
+					<tr>
+						<td><label for="skillId">Skill Name</label></td>
+						<td><form:select path="skillId">
+								<c:forEach var="skill" items="${skills}">
+									<form:option value="${skill.skillId}"
+										label="${skill.skillName}" />
+								</c:forEach>
+							</form:select></td>
+
+					</tr>
+					<tr>
+						<td><label for="examId">Exam Id</label></td>
+						<td><form:select path="examId">
+								<c:forEach var="exam" items="${examid}">
+									<form:option value="${exam.examId}"
+										label="${exam.examId}" />
+								</c:forEach>
+							</form:select></td>
+
+					</tr>
+					<tr>
+						<td><label for="markScore">Mark Score</label></td>
+						<td><form:input path="markScore" id="markScore" onchange="gradeCalculation();" placeholder="MarkScore"
+								required="true" /></td>
+
+					</tr>
+					<tr>
+						<td><label for="grade">Grade</label></td>
+						<td><form:input path="grade" id="grade" onchange="gradeCalculation();" placeholder="Grade"
+								required="true" /></td>
+
+					</tr>
+					<tr>
+						<td><label for="employeeLevel">Employee Level</label></td>
+						<td><form:input path="employeeLevel" id="employeeLevel" onchange="gradeCalculation(this.form);"
+								placeholder="Employee Level" required="true" /></td>
+
+					</tr>
+				</tbody>
+			</table>
+
 		</div>
-	</div>
+		<form:button>Update Employee Skill</form:button>
+	</form:form>
+
 </body>
 </html>

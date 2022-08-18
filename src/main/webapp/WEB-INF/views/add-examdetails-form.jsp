@@ -10,10 +10,14 @@
 <style>
 <%@include file="/WEB-INF/CSS/forms.css" %>
 </style>
+<script>
+<%@include file="/WEB-INF/Script/examdetails.js" %>   
+</script>
 </head>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; width:10% " onclick="history.back()">Go Back</button>
 	<form:form action="addnewexamdetails" method="post"
-		modelAttribute="addexamdetails">
+		modelAttribute="addexamdetails" name="myForm">
 		<div class="form">
 			<table>
 			<caption></caption>
@@ -21,8 +25,7 @@
 				<tbody>
 					<tr>
 						<td><label for="examDate">Exam Date</label></td>
-						<td><form:input path="examDate" type="date" /></td>
-						<form:errors path="examDate" cssClass="text-danger" />
+						<td><form:input path="examDate" type="date" name="examDate" onblur="checkExamDate();"/></td>
 					</tr>
 					<tr>
 						<td><label for="testId">Test Name</label></td>
@@ -31,42 +34,37 @@
 									<form:option value="${test.testId}" label="${test.testName}" />
 								</c:forEach>
 							</form:select></td>
-						<form:errors path="testId" cssClass="text-danger" />
 					</tr>
 					<tr>
 						<td><label for="startTime">Start Time</label></td>
-						<td><form:input path="startTime" type="time" /></td>
-						<form:errors path="startTime" cssClass="text-danger" />
+						<td><form:input  path="startTime" name="startTime" type="time" /></td>
 					</tr>
 					<tr>
 						<td><label for="endTime">End Time</label></td>
-						<td><form:input path="endTime" type="time" /></td>
-						<form:errors path="endTime" cssClass="text-danger" />
+						<td><form:input  path="endTime" name="endTime" onblur="timeCheck();" type="time" /></td>
 					</tr>
 					<tr>
 						<td><label for="examMode">Exam Mode</label></td>
-						<td><form:input path="examMode" required="true"
-								placeholder="Enter Exam Mode" /></td>
-						<form:errors path="examMode" cssClass="text-danger" />
+						<td><form:select path="examMode" required="true">
+								<form:option value="Online">Online</form:option>
+								<form:option value="Offline">Offline</form:option>
+							</form:select></td>
 					</tr>
 					<tr>
 						<td><label for="totalParticipation">Total
 								Particpation</label></td>
 						<td><form:input path="totalParticipation" required="true"
 								placeholder="Enter Total Participation" /></td>
-						<form:errors path="totalParticipation" cssClass="text-danger" />
 					</tr>
 					<tr>
 						<td><label for="supervicer">Supervicer</label></td>
 						<td><form:input path="supervicer" required="true"
 								placeholder="Enter Supervicer" /></td>
-						<form:errors path="supervicer" cssClass="text-danger" />
 					</tr>
 					<tr>
 						<td><label for="numberOfPassed">Number Of Passed</label></td>
 						<td><form:input path="numberOfPassed" required="true"
 								placeholder="Enter Number Of Passed" /></td>
-						<form:errors path="numberOfPassed" cssClass="text-danger" />
 					</tr>
 				</tbody>
 			</table>

@@ -42,7 +42,7 @@ public class ExamDetailsService {
 		List<EmployeeSkillDetails> employeeskilldetails = employeeSkillDetailsRepository.findByExamdetailsExamId(id);
 		Iterator<EmployeeSkillDetails> itr = employeeskilldetails.iterator();
 		while(itr.hasNext()) {
-			dto.addEmployeeSkillDetails((EmployeeSkillDetails) itr.next());
+			dto.addEmployeeSkillDetails(itr.next());
 			
 		}
 		return dto;
@@ -55,7 +55,7 @@ public class ExamDetailsService {
 		List<TestEmployeeDetails> testEmployeeDetails = testEmployeeDetailsRepository.findByExamId(id);
 		Iterator<TestEmployeeDetails> itr = testEmployeeDetails.iterator();
 		while(itr.hasNext()) {
-			dto1.addTestEmployeeDetails((TestEmployeeDetails) itr.next());
+			dto1.addTestEmployeeDetails( itr.next());
 		}
 		return dto1;
 	}

@@ -156,26 +156,21 @@ button:after{
   border-radius: 10px;
 }
 
+
 </style>
 </head>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; width:10% " onclick="history.back()">Go Back</button>
 	<form:form action="checkemployeeloginform" method="post"
 		modelAttribute="employeelogin">
 		<label for="employeeId">Employee ID  </label>
 		<form:input id="employeeid" path="employeeId"
-			placeholder="Enter Your Admin ID" required="true" />
-		<form:errors path="employeeId" cssClass="text-danger" />
-
-
-
+			placeholder="Enter Your Employee ID" />
 		<label for="password"> Password  </label>
 		<form:input id="password" path="password"
-			placeholder="Enter Admin Password" required="true" />
-		<form:errors path="password" cssClass="text-danger" />
-
+			placeholder="Enter Employee Password" type="password"/>
 		<form:button>SignIn</form:button>
-		<form:button> <a href="/employeedetails/addemployeedetailsform">Signup</a></form:button>
-
-	</form:form>
+		<form:button><a href="/employeedetails/addemployeedetailsform">SignUp</a></form:button>
+		</form:form>
 </body>
 </html>

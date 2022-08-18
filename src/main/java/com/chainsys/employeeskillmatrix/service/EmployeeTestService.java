@@ -37,7 +37,7 @@ public class EmployeeTestService {
 		List<ExamDetails> examDetails = examDetailsRepository.findByTestId(id);
 		Iterator<ExamDetails> itr = examDetails.iterator();
 		while (itr.hasNext()) {
-			dto1.addExamDetails((ExamDetails) itr.next());
+			dto1.addExamDetails( itr.next());
 		}
 		return dto1;
 	}

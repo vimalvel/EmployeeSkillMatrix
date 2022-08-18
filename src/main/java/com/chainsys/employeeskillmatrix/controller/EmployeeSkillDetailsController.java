@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.employeeskillmatrix.compositekey.EmployeeSkillDetailsCompositeKey;
 import com.chainsys.employeeskillmatrix.model.EmployeeSkillDetails;
+import com.chainsys.employeeskillmatrix.service.EmployeeDetailsService;
 import com.chainsys.employeeskillmatrix.service.EmployeeSkillDetailsService;
+import com.chainsys.employeeskillmatrix.service.ExamDetailsService;
 import com.chainsys.employeeskillmatrix.service.SkillsService;
 
 @Controller
@@ -28,6 +30,10 @@ public class EmployeeSkillDetailsController {
 	private static final String UPDATEEMPLOYEESKILLFORM="update-employee-skill-details-form";
 	@Autowired
 	private SkillsService skillsServices;
+	@Autowired
+	private EmployeeDetailsService employeeDetailsService;
+	@Autowired
+	private ExamDetailsService examDetailsService;
 	@GetMapping("/getemployeeskillbyid")
 	public String getEmployeeSkillDetails(@RequestParam("id") int id, @RequestParam("sid") int sid,@RequestParam("eid") int eid,Model model) {
 		EmployeeSkillDetailsCompositeKey skillIdCompositeKey =new EmployeeSkillDetailsCompositeKey(id,sid,eid);
@@ -41,6 +47,8 @@ public class EmployeeSkillDetailsController {
 		EmployeeSkillDetails employeeskilldetails = new EmployeeSkillDetails();
 		model.addAttribute("addemployeeskilldetails", employeeskilldetails);
 		model.addAttribute("skills",skillsServices.getSkills());
+		model.addAttribute("employeeid",employeeDetailsService.getEmployeeDetails());
+		model.addAttribute("examid",examDetailsService.getExamDetails());
 		return ADDEMPLOYEESKILLFORM;
 	}
 	@PostMapping("/addnewemployeeskilldetails")
@@ -56,6 +64,8 @@ public class EmployeeSkillDetailsController {
 		Optional<EmployeeSkillDetails> employeeskilldetails = employeeSkillDetailsService.findByid(skillIdCompositeKey);
 		model.addAttribute("updateemployeeskilldetails",employeeskilldetails);
 		model.addAttribute("skills",skillsServices.getSkills());
+		model.addAttribute("employeeid",employeeDetailsService.getEmployeeDetails());
+		model.addAttribute("examid",examDetailsService.getExamDetails());
 		return UPDATEEMPLOYEESKILLFORM;
 	}
 	@PostMapping("/updatenewemployeeskilldetails")

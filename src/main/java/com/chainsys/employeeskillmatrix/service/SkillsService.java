@@ -37,7 +37,7 @@ public class SkillsService {
 		List<EmployeeSkillDetails> employeeskilldetails = employeeskilldetailsrepository.findBySkillsSkillId(id);
 		Iterator<EmployeeSkillDetails> itr = employeeskilldetails.iterator();
 		while (itr.hasNext()) {
-			dto.addEmployeeSkillIdDetails((EmployeeSkillDetails) itr.next());
+			dto.addEmployeeSkillIdDetails( itr.next());
 		}
 		return dto;
 		

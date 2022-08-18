@@ -7,86 +7,76 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Employee Details By Id</title>
+<style>
+<%@include file="/WEB-INF/CSS/forms.css"%>
+</style>
 </head>
 <body>
-	<div id="root">
-		<div id="form">
-			<form:form action="" method="post"
-				modelAttribute="getemployeedetails">
-				<div>
-					<label for="employeeId"> Employee Id</label>
-					<div>
-						<form:input path="employeeId" readonly="true"/>
-					</div>
-				</div>
-				<div>
-					<label for="firstName"> First Name</label>
-					<div>
-						<form:input path="firstName" readonly="true"/>
-					</div>
-				</div>
-				<div>
-					<label for="lastName"> Last Name</label>
-					<div>
-						<form:input path="lastName" readonly="true"/>
-					</div>
-				</div>
-				<div>
-					<label for="gender"> Gender</label>
-					<div>
-						<form:input path="gender" readonly="true"/>
-					</div>
-				</div>
-				<div>
-					<label for="dob"> Date Of Birth</label>
-					<div>
-						<form:input path="dob" readonly="true"/>
-					</div>
-				</div>
-				<div>
-					<label for="email"> Email</label>
-					<div>
-						<form:input path="email" readonly="true" />
-					</div>
-				</div>
-				<div>
-					<label for="address"> Address</label>
-					<div>
-						<form:input path="address" readonly="true"/>
-					</div>
-				</div>
-				<div>
-					<label for="phoneNumber"> Phone Number</label>
-					<div>
-						<form:input path="phoneNumber" readonly="true"/>
-					</div>
-				</div>
-				<div>
-					<label for="designation"> Designation</label>
-					<div>
-						<form:input path="designation" readonly="true"/>
-					</div>
-				</div>
-				<div>
-					<label for="employeeManager"> Employee Manager</label>
-					<div>
-						<form:input path="employeeManager" readonly="true"/>
-					</div>
-				</div>
-				<div>
-					<label for="salary"> Salary</label>
-					<div>
-						<form:input path="salary" readonly="true"/>
-					</div>
-				</div>
-				<div>
-					<label for="password"> Password</label>
-					<div>
-						<form:input path="password" readonly="true"/>
-					</div>
-				</div>
-			</form:form>
+	<button
+		style="font-size: 12px; background-color: #e7e7e7; color: black; float: left; width: 10%"
+		onclick="history.back()">Go Back</button>
+	<form:form action="" method="post" modelAttribute="getemployeedetails">
+		<div class="form">
+			<table>
+			<caption></caption>
+			<tr><th></th></tr>
+				<tbody>
+					<tr>
+						<td><label for="employeeId"> Employee Id</label></td>
+						<td><form:input path="employeeId" readonly="true" /></td>
+					</tr>
+					<tr>
+						<td><label for="firstName"> First Name</label></td>
+						<td><form:input path="firstName" readonly="true" /></td>
+					</tr>
+					<tr>
+						<td><label for="lastName"> Last Name</label></td>
+						<td><form:input path="lastName" readonly="true" /></td>
+					</tr>
+					<tr>
+						<td><label for="gender"> Gender</label></td>
+						<td><form:input path="gender" readonly="true" /></td>
+					</tr>
+					<tr>
+						<td><label for="dob"> Date Of Birth</label></td>
+						<td><form:input path="dob" readonly="true" /></td>
+					</tr>
+					<tr>
+						<td><label for="email"> Email</label></td>
+						<td><form:input path="email" readonly="true" /></td>
+					</tr>
+					<tr>
+						<td><label for="address"> Address</label></td>
+						<td><form:input path="address" readonly="true" /></td>
+					</tr>
+					<tr>
+						<td><label for="phoneNumber"> Phone Number</label></td>
+						<td><form:input path="phoneNumber" readonly="true" /></td>
+					</tr>
+					<tr>
+						<td><label for="designation"> Designation</label></td>
+						<td><form:input path="designation" readonly="true" /></td>
+					</tr>
+					<tr>
+						<td><label for="employeeManager"> Employee Manager</label></td>
+						<td><form:input path="employeeManager" readonly="true" /></td>
+					</tr>
+					<tr>
+						<td><label for="salary"> Salary</label></td>
+						<td><form:input path="salary" readonly="true" /></td>
+					</tr>
+					<tr>
+						<td><label for="password"> Password</label></td>
+						<td><form:input path="password" readonly="true" /></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
-	</div>
+		<tr>
+		</tr>
+		<a href="/employeedetails/employeeloginform">
+			<form:button>Go To Login Page</form:button>
+		</a>
+	</form:form>
 </body>
 </html>
