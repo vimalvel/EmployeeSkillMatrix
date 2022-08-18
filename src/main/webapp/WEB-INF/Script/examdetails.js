@@ -1,7 +1,7 @@
 /**
  * 
  */
-let timeCheck = function() {
+function timeCheck() {
 		   let startTime = document.getElementById("startTime").value;
 			let endTime = document.getElementById("endTime").value;
 	         if(startTime >= endTime){

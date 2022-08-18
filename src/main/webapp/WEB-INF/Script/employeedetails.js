@@ -1,7 +1,7 @@
 /**
  * 
  */
-let firstCheck = function() {
+function firstCheck () {
     let nameRegex = /^[a-z A-Z]+$/;
     if(!document.form.firstName.value.match(nameRegex)){
            if(alert("Name can't be empty or must contain only alphabets")){ 
@@ -15,7 +15,7 @@ let firstCheck = function() {
    } 
   
 }
-let lastCheck = function() {
+function lastCheck () {
     let nameRegex = /^[a-z A-Z]+$/;
     if(!document.form.lastName.value.match(nameRegex)){
            if(alert("Name can't be empty or must contain only alphabets")){ 
@@ -29,7 +29,7 @@ let lastCheck = function() {
    } 
   
 }
-let emailCheck = function() {
+function emailCheck () {
     let nameRegex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
     if(!document.form.email.value.match(nameRegex)){
            if(alert("Email not in the correct format")){ 
