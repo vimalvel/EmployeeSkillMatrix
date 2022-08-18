@@ -1,9 +1,9 @@
 /**
  * 
  */
-var timeCheck = function() {
-		   var startTime = document.getElementById("startTime").value;
-			var endTime = document.getElementById("endTime").value;
+let timeCheck = function() {
+		   let startTime = document.getElementById("startTime").value;
+			let endTime = document.getElementById("endTime").value;
 	         if(startTime >= endTime){
 	                if(alert("Not valid time")){ 
 	                     document.form.endTime.focus();

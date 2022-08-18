@@ -1,8 +1,8 @@
 /**
  * 
  */
-var firstCheck = function() {
-    var nameRegex = new RegExp("^[a-z A-Z]+$");
+let firstCheck = function() {
+    let nameRegex = /^[a-z A-Z]+$/;
     if(!document.form.firstName.value.match(nameRegex)){
            if(alert("Name can't be empty or must contain only alphabets")){ 
                 document.form.firstName.focus();
@@ -15,8 +15,8 @@ var firstCheck = function() {
    } 
   
 }
-var lastCheck = function() {
-    var nameRegex = new RegExp("^[a-z A-Z]+$");
+let lastCheck = function() {
+    let nameRegex = /^[a-z A-Z]+$/;
     if(!document.form.lastName.value.match(nameRegex)){
            if(alert("Name can't be empty or must contain only alphabets")){ 
                 document.form.lastName.focus();
@@ -29,8 +29,8 @@ var lastCheck = function() {
    } 
   
 }
-var emailCheck = function() {
-    var nameRegex = new RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$");
+let emailCheck = function() {
+    let nameRegex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
     if(!document.form.email.value.match(nameRegex)){
            if(alert("Email not in the correct format")){ 
                 document.form.email.focus();
@@ -41,8 +41,8 @@ var emailCheck = function() {
    else{
        return false;
    } 
-    var phoneNoCheck = function() {
-        var nameRegex = new RegExp("[0-9]{10}");
+    let phoneNoCheck = function() {
+        let nameRegex =  /[0-9]{10}/;
         if(!document.form.phoneNo.value.match(nameRegex)){
                if(alert("Phone number must have 10 digits")){ 
                     document.form.phoneNo.focus();
@@ -54,8 +54,8 @@ var emailCheck = function() {
            return false;
        } 
     }
-    var passwordCheck = function() {
-        var nameRegex = new RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$");
+    let passwordCheck = function() {
+        let nameRegex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
         if(!document.form.password.value.match(nameRegex)){
                if(alert("Password must begin with letter and contain atleast one number and must have atleast 8 characters")){ 
                     document.form.password.focus();
@@ -68,7 +68,7 @@ var emailCheck = function() {
        } 
       
    }
-    var addressCheck = function() {
+    let addressCheck = function() {
         if(document.form.address.value == ""){
                if(alert("Address cannot be blank")){ 
                     document.form.address.focus();
