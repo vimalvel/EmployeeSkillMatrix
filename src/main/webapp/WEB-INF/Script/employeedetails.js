@@ -41,8 +41,8 @@ let emailCheck = function() {
    else{
        return false;
    } 
-    let phoneNoCheck = function() {
-        let nameRegex =  /[0-9]{10}/;
+function phoneNoCheck () {
+        let nameRegex =  /\d{10}/;
         if(!document.form.phoneNo.value.match(nameRegex)){
                if(alert("Phone number must have 10 digits")){ 
                     document.form.phoneNo.focus();
@@ -54,7 +54,7 @@ let emailCheck = function() {
            return false;
        } 
     }
-    let passwordCheck = function() {
+    function passwordCheck() {
         let nameRegex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
         if(!document.form.password.value.match(nameRegex)){
                if(alert("Password must begin with letter and contain atleast one number and must have atleast 8 characters")){ 
@@ -68,7 +68,7 @@ let emailCheck = function() {
        } 
       
    }
-    let addressCheck = function() {
+    function addressCheck() {
         if(document.form.address.value == ""){
                if(alert("Address cannot be blank")){ 
                     document.form.address.focus();
