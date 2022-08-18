@@ -27,7 +27,7 @@
 			<th>End Time</th>
 			<th>Exam Mode</th>
 			<th>Total Participation</th>
-			<th>Supervicer</th>
+			<th>Superviser</th>
 			<th>Number of Passed</th>
 			<th>Edit</th>
 			<th>Delete</th>

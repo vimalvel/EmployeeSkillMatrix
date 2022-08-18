@@ -47,7 +47,7 @@ function gradeCalculation(){
 </script>
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; width:10% " onclick="history.back()">Go Back</button>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; width:10% " onclick="history.back()">Home</button>
 	<form:form action="addnewemployeeskilldetails" method="post"
 		modelAttribute="addemployeeskilldetails">
 		<div class="form">

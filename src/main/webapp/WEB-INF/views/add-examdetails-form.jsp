@@ -7,6 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Exam Details</title>
+<link href='https://css.gg/arrow-left-r.css' rel='stylesheet'>
 <style>
 <%@include file="/WEB-INF/CSS/forms.css" %>
 </style>
@@ -15,7 +16,7 @@
 </script>
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; width:10% " onclick="history.back()">Go Back</button>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; width:5% " onclick="history.back()"><em class="gg-arrow-left-r"></em></button>
 	<form:form action="addnewexamdetails" method="post"
 		modelAttribute="addexamdetails" name="myForm">
 		<div class="form">
@@ -52,12 +53,12 @@
 					</tr>
 					<tr>
 						<td><label for="totalParticipation">Total
-								Particpation</label></td>
+								Participation</label></td>
 						<td><form:input path="totalParticipation" required="true"
 								placeholder="Enter Total Participation" /></td>
 					</tr>
 					<tr>
-						<td><label for="supervicer">Supervicer</label></td>
+						<td><label for="supervicer">Superviser</label></td>
 						<td><form:input path="supervicer" required="true"
 								placeholder="Enter Supervicer" /></td>
 					</tr>

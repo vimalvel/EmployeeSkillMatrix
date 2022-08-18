@@ -35,7 +35,7 @@
 									<form:option value="${emp.employeeId}" 
 									label="${emp.employeeId}"/>
 								</c:forEach>
-							</form:select> /></td>
+							</form:select></td>
 					</tr>
 					<tr>
 						<td><label for="status">Status</label></td>
@@ -43,7 +43,7 @@
 								<form:option value="Pending">Pending</form:option>
 								<form:option value="Completed">Completed</form:option>
 								<form:option value="Yet TOO Start">Yet TOO Start</form:option>
-							</form:select> /></td>
+							</form:select></td>
 					</tr>
 				</tbody>
 			</table>

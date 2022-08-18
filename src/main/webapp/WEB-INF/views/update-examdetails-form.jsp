@@ -48,12 +48,12 @@
 					</tr>
 					<tr>
 						<td><label for="totalParticipation">Total
-								Particpation</label></td>
+								Participation</label></td>
 						<td><form:input path="totalParticipation" required="true"
 								placeholder="Enter Total Participation" /></td>
 					</tr>
 					<tr>
-						<td><label for="supervicer">Supervicer</label></td>
+						<td><label for="supervicer">Superviser</label></td>
 						<td><form:input path="supervicer" required="true"
 								placeholder="Enter Supervicer" /></td>
 					</tr>
