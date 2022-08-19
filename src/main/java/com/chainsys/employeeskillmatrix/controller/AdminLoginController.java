@@ -80,13 +80,14 @@ public class AdminLoginController {
 	}
 
 	@PostMapping("/checkadminloginform")
-	public String checkingAccess(@ModelAttribute("adminlogin") AdminLogin adminlogin) {
+	public String checkingAccess(@ModelAttribute("adminlogin") AdminLogin adminlogin,Model model) {
 		AdminLogin adminLogin = adminLoginService.getAdminByIdAndPassword(adminlogin.getAdminId(),
 				adminlogin.getPassword());
 		if (adminLogin != null) {
 			return "redirect:/adminlogins/adminindex";
 		} else
-			return "redirect-adminloginpage";
+			model.addAttribute("result","Invalid Username and Password");
+			return "admin-login-form";
 
 	}
 

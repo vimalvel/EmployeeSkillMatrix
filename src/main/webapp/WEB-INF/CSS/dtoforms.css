@@ -1,7 +1,7 @@
 @charset "ISO-8859-1";
 body {
     background-image:
-        url(https://www.smashingmagazine.com/files/wallpapers/mar-22/spring-is-coming/nocal/mar-22-spring-is-coming-nocal-1366x768.jpg);
+        url(https://cdn.wallpapersafari.com/56/86/OHn0ha.jpg);
     background-repeat: no-repeat;
     background-size: 1366px 768px;
     text-align: center;
@@ -54,4 +54,26 @@ h1 {
     color: black;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+}
+.gg-arrow-left-r::after,
+.gg-arrow-left-r::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    left: 4px
+}
+.gg-arrow-left-r::after {
+    width: 6px;
+    height: 6px;
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+    transform: rotate(45deg);
+    bottom: 6px
+}
+.gg-arrow-left-r::before {
+    width: 10px;
+    height: 2px;
+    bottom: 8px;
+    background: currentColor
 }

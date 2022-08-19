@@ -7,12 +7,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Test</title>
+<link href='https://css.gg/arrow-left-r.css' rel='stylesheet'>
 <style>
 <%@include file="/WEB-INF/CSS/forms.css"%>
 </style>
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; width:10% " onclick="history.back()">Go Back</button>
+<em class="gg-arrow-left-r" onclick="history.back()"></em>
 			<form:form action = "updatenewemployeetest" method = "post" modelAttribute = "updateemployeetest">
 			<div class="form">
 			<table>
@@ -31,17 +32,17 @@
 					</tr>
 					<tr>
 						<td><label for="maxMark">Max Mark</label></td>
-						<td><form:input path="maxMark" required="true"
+						<td><form:input path="maxMark" pattern="^[0-9]+$" required="true"
 								placeholder="MaxMark" /></td>
 					</tr>
 					<tr>
 						<td><label for="passMark">PassMark</label></td>
-						<td><form:input path="passMark" required="true"
+						<td><form:input path="passMark" pattern="^[0-9]+$" required="true"
 								placeholder="PassMark" /></td>
 					</tr>
 				</tbody>
 			</table>
-			<form:button>Add Test</form:button>
+			<form:button>Update Test</form:button>
 		</div>
 	</form:form>
 </body>

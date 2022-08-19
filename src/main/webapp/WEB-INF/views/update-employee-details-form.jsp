@@ -7,6 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Employee details </title>
+<link href='https://css.gg/arrow-left-r.css' rel='stylesheet'>
 <style>
 <%@include file="/WEB-INF/CSS/forms.css"%>
 </style>
@@ -15,7 +16,7 @@
 </script>
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; width:10% " onclick="history.back()">Go Back</button>
+<em class="gg-arrow-left-r" onclick="history.back()"></em>
 			<form:form name="form" action = "updatenewemployeedetails" method = "post" modelAttribute = "updateemployeedetails">
 			<div class="form">
 			<table>

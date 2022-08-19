@@ -9,12 +9,13 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href='https://css.gg/pen.css' rel='stylesheet'>
+<link href='https://css.gg/arrow-left-r.css' rel='stylesheet'>
 <style>
 <%@include file="/WEB-INF/CSS/listforms.css"%>
 </style>
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; width:10% " onclick="history.back()">Go Back</button>
+<em class="gg-arrow-left-r" onclick="history.back()"></em>
 	<div>
 		<table>
 		<caption></caption>

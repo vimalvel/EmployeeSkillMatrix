@@ -16,7 +16,7 @@
 </script>
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; width:5% " onclick="history.back()"><em class="gg-arrow-left-r"></em></button>
+<em class="gg-arrow-left-r" onclick="history.back()"></em>
 	<form:form action="addnewexamdetails" method="post"
 		modelAttribute="addexamdetails" name="myForm">
 		<div class="form">
@@ -54,17 +54,17 @@
 					<tr>
 						<td><label for="totalParticipation">Total
 								Participation</label></td>
-						<td><form:input path="totalParticipation" required="true"
+						<td><form:input path="totalParticipation" pattern="^[0-9]+$" required="true"
 								placeholder="Enter Total Participation" /></td>
 					</tr>
 					<tr>
 						<td><label for="supervicer">Superviser</label></td>
-						<td><form:input path="supervicer" required="true"
+						<td><form:input path="supervicer" pattern ="^[a-z A-Z]+$" required="true"
 								placeholder="Enter Supervicer" /></td>
 					</tr>
 					<tr>
 						<td><label for="numberOfPassed">Number Of Passed</label></td>
-						<td><form:input path="numberOfPassed" required="true"
+						<td><form:input path="numberOfPassed" pattern="^[0-9]+$" required="true"
 								placeholder="Enter Number Of Passed" /></td>
 					</tr>
 				</tbody>

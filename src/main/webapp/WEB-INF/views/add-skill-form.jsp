@@ -7,14 +7,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Skill</title>
+<link href='https://css.gg/arrow-left-r.css' rel='stylesheet'>
 <style>
 <%@include file="/WEB-INF/CSS/forms.css"%>
 </style>
 </head>
 <body>
-	<button
-		style="font-size: 12px; background-color: #e7e7e7; color: black; float: left; width: 10%"
-		onclick="history.back()">Home</button>
+	<em class="gg-arrow-left-r" onclick="history.back()"></em>
 	<form:form action="addnewskill" method="post" modelAttribute="addskill">
 		<div class="form">
 			<table>

@@ -170,7 +170,8 @@ button:after{
 		<form:input id="password" path="password"
 			placeholder="Enter Employee Password" type="password"/>
 		<form:button>SignIn</form:button>
-		<form:button><a href="/employeedetails/addemployeedetailsform">SignUp</a></form:button>
+		<form:button><a href="/employeedetails/addemployeedetailsform">SignUp</a></form:button><br>
+		${result}
 		</form:form>
 </body>
 </html>

@@ -162,19 +162,16 @@ button:after{
 		modelAttribute="adminlogin">
 		<label for="adminId">Admin ID : </label>
 		<form:input id="adminid" path="adminId"
-			placeholder="Enter Your Admin ID" required="true" />
-		<form:errors path="adminId" cssClass="text-danger" />
+			placeholder="Enter Your Admin ID" />
 
 
 
 		<label for="password"> Password : </label>
 		<form:input id="password" path="password"
-			placeholder="Enter Admin Password" type="password" required="true" />
-		<form:errors path="password" cssClass="text-danger" />
-
+			placeholder="Enter Admin Password" type="password" />
 		<form:button>SignIn</form:button>
-		<form:button type="reset" value="Clear">Reset</form:button>
-
+		<form:button type="reset" value="Clear">Reset</form:button><br>
+		${result}
 	</form:form>
 </body>
 </html>

@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -36,9 +37,10 @@ public class Skills {
 	public void setEmployeeskilldetails(List<EmployeeSkillDetails> employeeskilldetails) {
 		this.employeeskilldetails = employeeskilldetails;
 	}
-	@OneToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="TEST_ID",nullable = false, insertable = false,updatable=false)
 	private EmployeeTest employeeTest;
+	
 	
 	public EmployeeTest getEmployeeTest() {
 		return employeeTest;

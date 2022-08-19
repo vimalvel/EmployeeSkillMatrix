@@ -93,7 +93,8 @@ public class EmployeeDetailsController {
 			return "employee-page";
 		}
 		else
-			return "redirect-employeeloginpage";
+			model.addAttribute("result", "Invalid Username And Password");
+			return EMPLOYEELOGIN;
 		
 	}
 

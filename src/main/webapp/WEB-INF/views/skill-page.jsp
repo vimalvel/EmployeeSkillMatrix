@@ -96,6 +96,14 @@ body
                 <a href="/employeedetails/employeelist">Employee Details</a>                             
         </div>
         </div>
+         <div class="dropdown">
+            <button class="dropbtn">
+                Employee Test Details <em class="fa fa-caret-down"></em>
+            </button>
+             <div class="dropdown-content">
+                <a href="/employeetest/addemployeetestform">Add New Test</a> 
+                <a href="/employeetest/employeetestlist">Edit Employee Test Details</a>                             
+        </div></div>
         <div class="dropdown">
             <button class="dropbtn">
                 Skills <em class="fa fa-caret-down"></em>
@@ -103,15 +111,6 @@ body
              <div class="dropdown-content">
                 <a href="/skills/addskillsform">Add Skills To Employee</a> 
                 <a href="/skills/skilllist">Edit Skills</a>                             
-        </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">
-                Employee Test Details <em class="fa fa-caret-down"></em>
-            </button>
-             <div class="dropdown-content">
-                <a href="/employeetest/addemployeetestform">Add New Test</a> 
-                <a href="/employeetest/employeetestlist">Edit Employee Test Details</a>                             
         </div>
         </div>
 			<div class="dropdown">

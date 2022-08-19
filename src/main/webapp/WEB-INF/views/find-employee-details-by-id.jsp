@@ -74,9 +74,9 @@
 		</div>
 		<tr>
 		</tr>
-		<a href="/employeedetails/employeeloginform">
-			<form:button>Go To Login Page</form:button>
-		</a>
 	</form:form>
+	<a href="/employeedetails/employeeloginform">
+			<button>Go To Login Page</button>
+		</a>
 </body>
 </html>

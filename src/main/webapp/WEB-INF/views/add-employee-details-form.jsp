@@ -7,6 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Employee Details</title>
+<link href='https://css.gg/arrow-left-r.css' rel='stylesheet'>
 <style>
 <%@include file="/WEB-INF/CSS/forms.css"%>
 </style>
@@ -15,6 +16,7 @@
 </script>
 </head>
 <body>
+<em class="gg-arrow-left-r" onclick="history.back()"></em>
 	<form:form action="addnewemployeedetails" method="post"
 		modelAttribute="addemployeedetails" name="form">
 		<div class="form">

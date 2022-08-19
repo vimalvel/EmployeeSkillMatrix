@@ -6,9 +6,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Admin List</title>
+<link href='https://css.gg/arrow-left-r.css' rel='stylesheet'>
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; width:10% " onclick="history.back()">Go Back</button>
+<em class="gg-arrow-left-r" onclick="history.back()"></em>
 <div id="table root">
 		<table>
 		<caption></caption>
