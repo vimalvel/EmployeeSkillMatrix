@@ -23,6 +23,7 @@ public class AdminLoginController {
 	private static final String ADDADMINFORM  ="add-admin-login-form";
 	private static final String ADMINLISTFORM  ="redirect:/adminlogins/adminlist";
 	private static final String UPDATEADMINFORM  ="update-admin-login-form";
+	private static final String ADMINLOGINFORM = "admin-login-form";
 
 	@GetMapping("/getadminloginbyid")
 	public String getAdminLoginId(@RequestParam("adminid") int adminid, Model model) {
@@ -76,7 +77,7 @@ public class AdminLoginController {
 	public String adminLoginForm(Model model) {
 		AdminLogin adminlogin = new AdminLogin();
 		model.addAttribute("adminlogin", adminlogin);
-		return "admin-login-form";
+		return ADMINLOGINFORM;
 	}
 
 	@PostMapping("/checkadminloginform")
@@ -87,7 +88,7 @@ public class AdminLoginController {
 			return "redirect:/adminlogins/adminindex";
 		} else
 			model.addAttribute("result","Invalid Username and Password");
-			return "admin-login-form";
+			return ADMINLOGINFORM;
 
 	}
 
